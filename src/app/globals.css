@@ -39,3 +39,8 @@ body {
   background: var(--color-canada);
   color: #fff;
 }
+
+/* Prevent page-level horizontal scroll on small screens */
+html, body {
+  overflow-x: clip;
+}
