@@ -11,7 +11,7 @@ export default function Footer() {
         <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
           <div className="flex items-center gap-2.5">
             <MapleLeaf className="h-6 w-6 text-canada" />
-            <span className="display text-[22px]">Nshipyard</span>
+            <span className="display whitespace-nowrap text-[22px]">Open Nshipyard</span>
           </div>
           <div className="flex items-center gap-2 text-[14px] font-medium">
             {(["en", "fr"] as const).map((l) => (
