@@ -9,23 +9,23 @@ import { LangProvider } from "@/i18n";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://canada.nshipyard.com"),
-  title: "Nshipyard Canada — Toronto's open data, rebuilt for the people who use it",
+  title: "Nshipyard Canada — Open data infrastructure for Canada and beyond",
   description:
-    "Eight open-source projects that clean, join, and publish Toronto's most valuable public datasets. Explorer interfaces for humans, documented APIs and MCP tools for AI agents.",
+    "We turn messy public data into open infrastructure: explorer interfaces for humans, documented APIs and MCP tools for AI agents. Starting with Canada's civic data, already answering questions about the whole planet.",
   openGraph: {
-    title: "Nshipyard Canada — Toronto's open data, rebuilt for the people who use it",
+    title: "Nshipyard Canada — Open data infrastructure for Canada and beyond",
     description:
-      "Eight open-source projects that clean, join, and publish Toronto's most valuable public datasets. Explorer interfaces for humans, documented APIs and MCP tools for AI agents.",
+      "We turn messy public data into open infrastructure: explorer interfaces for humans, documented APIs and MCP tools for AI agents. Starting with Canada's civic data, already answering questions about the whole planet.",
     url: "https://canada.nshipyard.com",
     siteName: "Nshipyard Canada",
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Nshipyard Canada — Toronto's open data, rebuilt for the people who use it" }],
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Nshipyard Canada — Open data infrastructure for Canada and beyond" }],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nshipyard Canada — Toronto's open data, rebuilt for the people who use it",
+    title: "Nshipyard Canada — Open data infrastructure for Canada and beyond",
     description:
-      "Eight open-source projects that clean, join, and publish Toronto's most valuable public datasets. Explorer interfaces for humans, documented APIs and MCP tools for AI agents.",
+      "We turn messy public data into open infrastructure: explorer interfaces for humans, documented APIs and MCP tools for AI agents. Starting with Canada's civic data, already answering questions about the whole planet.",
     images: ["/og-image.png"],
   },
 };
