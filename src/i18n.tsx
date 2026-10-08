@@ -152,7 +152,13 @@ const en = {
     explore: "Explore the data",
     needs: "Needs",
     items: [
-      { q: "Which neighbourhoods actually gained homes, net?", needs: "cleaned permits + geo concordances" },
+      {
+        q: "Which neighbourhoods actually gained homes, net?",
+        needs: "cleaned permits + geo concordances",
+        url: "https://toronto-development-pipeline.vercel.app",
+        thumb: "/showcase/development-pipeline.png",
+        answer: "124,326 homes sit in projects the City marks Built: the net homes gained. St Lawrence-East Bayfront-The Islands leads with 12,113.",
+      },
       {
         q: "Does 311 fix rich neighbourhoods faster?",
         needs: "311 taxonomy + geocoding",
@@ -174,7 +180,13 @@ const en = {
         thumb: "/showcase/licence-naics.png",
         answer: "Every Toronto licence mapped to its industry: food services are 43% of active licences, and only Wards 6 and 7 break the pattern.",
       },
-      { q: "How long does a building permit really take?", needs: "cleaned permit dates" },
+      {
+        q: "How long does a building permit really take?",
+        needs: "cleaned permit dates",
+        url: "https://toronto-development-pipeline.vercel.app",
+        thumb: "/showcase/permit-times.png",
+        answer: "A New Building permit takes a median of 272 days from application to issuance. A small residential project takes 19 days.",
+      },
       { q: "Where does federal grant money land in Toronto?", needs: "entity-resolved grants" },
     ],
   },
@@ -359,7 +371,13 @@ const fr: Dict = {
     explore: "Explorer les données",
     needs: "Requiert",
     items: [
-      { q: "Quels quartiers ont vraiment gagné des logements, en net ?", needs: "permis nettoyés + concordances géographiques" },
+      {
+        q: "Quels quartiers ont vraiment gagné des logements, en net ?",
+        needs: "permis nettoyés + concordances géographiques",
+        url: "https://toronto-development-pipeline.vercel.app",
+        thumb: "/showcase/development-pipeline.png",
+        answer: "124 326 logements dans des projets que la ville marque construits : le gain net. St Lawrence-East Bayfront-The Islands mène avec 12 113.",
+      },
       {
         q: "Le 311 répare-t-il plus vite les quartiers riches ?",
         needs: "taxonomie 311 + géocodage",
@@ -381,7 +399,13 @@ const fr: Dict = {
         thumb: "/showcase/licence-naics.png",
         answer: "Chaque permis de Toronto relié à son industrie : la restauration représente 43 % des permis actifs, et seuls les quartiers 6 et 7 brisent le schéma.",
       },
-      { q: "Combien de temps prend vraiment un permis de construire ?", needs: "dates de permis nettoyées" },
+      {
+        q: "Combien de temps prend vraiment un permis de construire ?",
+        needs: "dates de permis nettoyées",
+        url: "https://toronto-development-pipeline.vercel.app",
+        thumb: "/showcase/permit-times.png",
+        answer: "Un permis de nouveau bâtiment prend en médiane 272 jours de la demande à la délivrance. Un petit projet résidentiel prend 19 jours.",
+      },
       { q: "Où atterrit l'argent des subventions fédérales à Toronto ?", needs: "subventions résolues par entité" },
     ],
   },
