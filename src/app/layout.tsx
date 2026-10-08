@@ -18,7 +18,7 @@ export const metadata: Metadata = {
       "We turn messy public data into open infrastructure: explorer interfaces for humans, documented APIs and MCP tools for AI agents. Starting with Canada's civic data, already answering questions about the whole planet.",
     url: "https://canada.nshipyard.com",
     siteName: "Nshipyard Canada",
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Nshipyard Canada — Open data infrastructure for Canada and beyond" }],
+    images: [{ url: "/og-card.png", width: 1200, height: 630, alt: "Nshipyard Canada — Open data infrastructure for Canada and beyond" }],
     type: "website",
   },
   twitter: {
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     title: "Nshipyard Canada — Open data infrastructure for Canada and beyond",
     description:
       "We turn messy public data into open infrastructure: explorer interfaces for humans, documented APIs and MCP tools for AI agents. Starting with Canada's civic data, already answering questions about the whole planet.",
-    images: ["/og-image.png"],
+    images: ["/og-card.png"],
   },
 };
 
