@@ -137,7 +137,13 @@ const en = {
     needs: "Needs",
     items: [
       { q: "Which neighbourhoods actually gained homes, net?", needs: "cleaned permits + geo concordances" },
-      { q: "Does 311 fix rich neighbourhoods faster?", needs: "311 taxonomy + geocoding" },
+      {
+        q: "Does 311 fix rich neighbourhoods faster?",
+        needs: "311 taxonomy + geocoding",
+        url: "https://toronto-311-taxonomy.vercel.app",
+        thumb: "/showcase/311-taxonomy.png",
+        answer: "Essentially no: backlog vs ward income correlates at r = 0.18. What predicts backlog is the kind of work, not the income. Parks tree work sits open for years.",
+      },
       { q: "What do 50 million parking tickets look like on a map?", needs: "geocoded tickets" },
       {
         q: "Which main streets are losing businesses?",
@@ -316,7 +322,13 @@ const fr: Dict = {
     needs: "Requiert",
     items: [
       { q: "Quels quartiers ont vraiment gagné des logements, en net ?", needs: "permis nettoyés + concordances géographiques" },
-      { q: "Le 311 répare-t-il plus vite les quartiers riches ?", needs: "taxonomie 311 + géocodage" },
+      {
+        q: "Le 311 répare-t-il plus vite les quartiers riches ?",
+        needs: "taxonomie 311 + géocodage",
+        url: "https://toronto-311-taxonomy.vercel.app",
+        thumb: "/showcase/311-taxonomy.png",
+        answer: "Essentiellement non : l'arriéré contre le revenu par quartier corrèle à r = 0,18. Ce qui prédit l'arriéré, c'est le type de travail, pas le revenu. Les travaux d'arbres des parcs restent ouverts des années.",
+      },
       { q: "À quoi ressemblent 50 millions de contraventions sur une carte ?", needs: "contraventions géocodées" },
       {
         q: "Quelles artères commerciales perdent leurs commerces ?",
