@@ -7,7 +7,7 @@ export type Lang = "en" | "fr";
 
 const en = {
   banner: {
-    line: "An open-source civic project. Not affiliated with the Government of Canada or the City of Toronto.",
+    line: "An open-source data project. Not affiliated with the Government of Canada or the City of Toronto.",
     badge: "Open source",
   },
   nav: {
@@ -20,15 +20,15 @@ const en = {
   },
   hero: {
     kicker: "Nshipyard Canada",
-    title: "Toronto's open data, rebuilt for the people who use it.",
-    sub: "Eight open-source projects that clean, join, and publish the city's most valuable public datasets. Explorer interfaces for humans, documented APIs and MCP tools for AI agents.",
+    title: "Open data, rebuilt for the people who use it.",
+    sub: "We turn messy public data into open infrastructure: explorer interfaces for humans, documented APIs and MCP tools for AI agents. Starting with Canada's civic data, already answering questions about the whole planet.",
     cta1: "Explore the projects",
     cta2: "See the showcase",
   },
   problem: {
     kicker: "The problem",
     title: "The data is public. Using it is another story.",
-    body: "Toronto publishes hundreds of open datasets. But inconsistent schemas, free-text fields, and missing keys mean every analyst rebuilds the same cleaning work by hand. We do it once, in the open, so nobody has to again.",
+    body: "Toronto is where we started: hundreds of open datasets, but inconsistent schemas, free-text fields, and missing keys force every analyst to rebuild the same cleaning work by hand. We do it once, in the open, so nobody has to again. The same pattern now runs across Canada, and worldwide wherever the underlying data is global.",
     stats: [
       { value: "722,000", label: "street-name variants across parking tickets, entered by hand" },
       { value: "57.8%", label: "of building-permit cost fields are non-numeric" },
@@ -38,8 +38,8 @@ const en = {
   },
   projects: {
     kicker: "The projects",
-    title: "Eight datasets, rebuilt as infrastructure.",
-    body: "Each project takes one messy public dataset and turns it into something a person can explore and a machine can query. One repo per project, versioned releases, open methodology.",
+    title: "Open datasets, rebuilt as infrastructure.",
+    body: "Each project takes one messy public dataset and turns it into something a person can explore and a machine can query. One repo per project, versioned releases, open methodology. Most start with Canadian civic data; the worldwide ones prove the pattern travels.",
     status: { planned: "Planned", building: "Building", live: "Live" },
     explore: "Explore",
     api: "API docs",
@@ -107,6 +107,22 @@ const en = {
         desc: "Every project in the housing pipeline, normalized and queryable.",
         user: "For developers, lenders, and media",
         status: "planned" as const,
+      },
+      {
+        repo: "earthquery",
+        name: "earthquery",
+        tag: "Worldwide",
+        desc: "Ask the planet a question: natural-language search over satellite imagery embeddings.",
+        user: "For researchers, journalists, and the curious",
+        status: "live" as const,
+      },
+      {
+        repo: "cyclonewatch",
+        name: "cyclonewatch",
+        tag: "Worldwide",
+        desc: "Live tropical cyclone risk scores from official hurricane forecasts, with the math shown.",
+        user: "For ports, vessels, and coastal communities",
+        status: "live" as const,
       },
     ],
   },
@@ -178,8 +194,8 @@ const en = {
   },
   opensource: {
     kicker: "Open source",
-    title: "Our contribution to a more efficient city.",
-    body: "Every project lives in its own public repo under the Nshipyard organization: MIT licensed, versioned data releases, open methodology. If the city improves its own publishing, we will happily become redundant.",
+    title: "Our contribution to better public data.",
+    body: "Every project lives in its own public repo under the Nshipyard organization: MIT licensed, versioned data releases, open methodology. If publishers clean up their own data, we will happily become redundant.",
     points: [
       "MIT licensed, no exceptions",
       "Versioned data releases (CSV + Parquet)",
@@ -189,7 +205,7 @@ const en = {
     cta: "github.com/Nshipyard",
   },
   footer: {
-    line: "An open-source civic project by Nshipyard. Not affiliated with the Government of Canada or the City of Toronto.",
+    line: "An open-data infrastructure project by Nshipyard. Not affiliated with the Government of Canada or the City of Toronto.",
     sources: "Sources: City of Toronto Open Data, open.canada.ca, Statistics Canada.",
   },
 };
@@ -198,7 +214,7 @@ export type Dict = typeof en;
 
 const fr: Dict = {
   banner: {
-    line: "Un projet civique à code source ouvert. Sans affiliation avec le gouvernement du Canada ni la Ville de Toronto.",
+    line: "Un projet de données à code source ouvert. Sans affiliation avec le gouvernement du Canada ni la Ville de Toronto.",
     badge: "Code source ouvert",
   },
   nav: {
@@ -211,15 +227,15 @@ const fr: Dict = {
   },
   hero: {
     kicker: "Nshipyard Canada",
-    title: "Les données ouvertes de Toronto, reconstruites pour ceux qui s'en servent.",
-    sub: "Huit projets à code source ouvert qui nettoient, relient et publient les jeux de données publics les plus précieux de la ville. Des interfaces d'exploration pour les humains, des API documentées et des outils MCP pour les agents IA.",
+    title: "Les données ouvertes, reconstruites pour ceux qui s'en servent.",
+    sub: "Nous transformons les données publiques désordonnées en infrastructure ouverte : des interfaces d'exploration pour les humains, des API documentées et des outils MCP pour les agents IA. En commençant par les données civiques du Canada, et en répondant déjà à des questions sur la planète entière.",
     cta1: "Explorer les projets",
     cta2: "Voir la vitrine",
   },
   problem: {
     kicker: "Le problème",
     title: "Les données sont publiques. Les utiliser est une autre histoire.",
-    body: "Toronto publie des centaines de jeux de données ouverts. Mais des schémas incohérents, des champs en texte libre et des clés manquantes obligent chaque analyste à refaire le même travail de nettoyage à la main. Nous le faisons une fois, en public, pour que personne n'ait à le refaire.",
+    body: "Toronto est notre point de départ : des centaines de jeux de données ouverts, mais des schémas incohérents, des champs en texte libre et des clés manquantes obligent chaque analyste à refaire le même nettoyage à la main. Nous le faisons une fois, en public, pour que personne n'ait à le refaire. Le même modèle s'applique maintenant à travers le Canada, et dans le monde entier là où les données sont mondiales.",
     stats: [
       { value: "722 000", label: "variantes de noms de rue dans les contraventions, saisies à la main" },
       { value: "57,8 %", label: "des champs de coût des permis ne sont pas numériques" },
@@ -229,8 +245,8 @@ const fr: Dict = {
   },
   projects: {
     kicker: "Les projets",
-    title: "Huit jeux de données, reconstruits en infrastructure.",
-    body: "Chaque projet prend un jeu de données public désordonné et le transforme en quelque chose qu'une personne peut explorer et qu'une machine peut interroger. Un dépôt par projet, des versions numérotées, une méthodologie ouverte.",
+    title: "Des jeux de données ouverts, reconstruits en infrastructure.",
+    body: "Chaque projet prend un jeu de données public désordonné et le transforme en quelque chose qu'une personne peut explorer et qu'une machine peut interroger. Un dépôt par projet, des versions numérotées, une méthodologie ouverte. La plupart commencent par les données civiques canadiennes ; les projets mondiaux prouvent que le modèle voyage.",
     status: { planned: "Prévu", building: "En construction", live: "En ligne" },
     explore: "Explorer",
     api: "API",
@@ -298,6 +314,22 @@ const fr: Dict = {
         desc: "Chaque projet du pipeline de logement, normalisé et interrogeable.",
         user: "Pour les promoteurs, les prêteurs et les médias",
         status: "planned" as const,
+      },
+      {
+        repo: "earthquery",
+        name: "earthquery",
+        tag: "Mondial",
+        desc: "Posez une question à la planète : recherche en langage naturel dans les images satellites.",
+        user: "Pour chercheurs, journalistes et curieux",
+        status: "live" as const,
+      },
+      {
+        repo: "cyclonewatch",
+        name: "cyclonewatch",
+        tag: "Mondial",
+        desc: "Scores de risque cyclonique en direct, issus des prévisions officielles, avec le calcul exposé.",
+        user: "Pour les ports, les navires et les communautés côtières",
+        status: "live" as const,
       },
     ],
   },
@@ -369,8 +401,8 @@ const fr: Dict = {
   },
   opensource: {
     kicker: "Code source ouvert",
-    title: "Notre contribution à une ville plus efficace.",
-    body: "Chaque projet vit dans son propre dépôt public sous l'organisation Nshipyard : licence MIT, versions de données numérotées, méthodologie ouverte. Si la ville améliore ses propres publications, nous deviendrons redondants avec plaisir.",
+    title: "Notre contribution à de meilleures données publiques.",
+    body: "Chaque projet vit dans son propre dépôt public sous l'organisation Nshipyard : licence MIT, versions de données numérotées, méthodologie ouverte. Si les éditeurs nettoient leurs propres données, nous deviendrons redondants avec plaisir.",
     points: [
       "Licence MIT, sans exception",
       "Versions de données numérotées (CSV + Parquet)",
@@ -380,7 +412,7 @@ const fr: Dict = {
     cta: "github.com/Nshipyard",
   },
   footer: {
-    line: "Un projet civique à code source ouvert par Nshipyard. Sans affiliation avec le gouvernement du Canada ni la Ville de Toronto.",
+    line: "Un projet d'infrastructure de données ouvertes par Nshipyard. Sans affiliation avec le gouvernement du Canada ni la Ville de Toronto.",
     sources: "Sources : Données ouvertes de la Ville de Toronto, ouvert.canada.ca, Statistique Canada.",
   },
 };
