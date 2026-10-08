@@ -23,14 +23,14 @@ export default function Projects() {
       </div>
 
       <div className="mx-auto mt-14 grid max-w-[1200px] grid-cols-1 gap-5 md:grid-cols-2">
-        {t.projects.items.map((p, i) => (
+        {t.projects.items.map((p) => (
           <article
             key={p.repo}
             className="flex flex-col rounded-[40px] border border-line bg-paper p-8 transition hover:border-ink/25 md:p-10"
           >
             <div className="flex items-center justify-between">
-              <span className="font-mono text-[13px] text-ink/45">
-                {String(i + 1).padStart(2, "0")} — {p.tag}
+              <span className="text-[13px] font-medium uppercase tracking-[0.15em] text-ink/45">
+                {p.tag}
               </span>
               <span
                 className={`rounded-full px-3 py-1 text-[12px] font-semibold uppercase tracking-wide ${statusStyle[p.status]}`}
@@ -42,19 +42,21 @@ export default function Projects() {
             <p className="mt-3 text-[16px] leading-relaxed text-ink/70">{p.desc}</p>
             <p className="mt-2 text-[14px] font-medium text-ink/45">{p.user}</p>
             <div className="mt-auto flex items-center gap-5 pt-7 text-[15px] font-medium">
-              <a href="#developers" className="text-canada hover:text-canada-dark">
-                {t.projects.explore} →
-              </a>
-              <a href="#developers" className="text-ink/60 hover:text-ink">
-                {t.projects.api} →
+              <a
+                href={p.url}
+                target="_blank"
+                rel="noreferrer"
+                className="text-canada hover:text-canada-dark"
+              >
+                {t.projects[p.cta]} →
               </a>
               <a
-                href="https://github.com/Nshipyard"
+                href={`https://github.com/Nshipyard/${p.repo}`}
                 target="_blank"
                 rel="noreferrer"
                 className="text-ink/60 hover:text-ink"
               >
-                GitHub →
+                {t.projects.source} →
               </a>
             </div>
           </article>

@@ -10,7 +10,6 @@ export default function Nav() {
 
   const links = [
     { href: "#projects", label: t.nav.projects },
-    { href: "#apps", label: t.nav.apps },
     { href: "#showcase", label: t.nav.showcase },
     { href: "#developers", label: t.nav.developers },
   ];
