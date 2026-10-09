@@ -18,16 +18,16 @@ const en = {
     close: "Close",
   },
   hero: {
-    kicker: "Nshipyard Canada",
-    title: "Open data, rebuilt for the people who use it.",
+    kicker: "Open Nshipyard",
+    title: "We clean the data so you can use it.",
     sub: "We turn messy public data into open infrastructure: explorer interfaces for humans, documented APIs and MCP tools for AI agents. Starting with Canada's civic data, already answering questions about the whole planet.",
     cta1: "Explore the projects",
     cta2: "See the showcase",
   },
   problem: {
     kicker: "The problem",
-    title: "The data is public. Using it is another story.",
-    body: "Toronto is where we started: hundreds of open datasets, but inconsistent schemas, free-text fields, and missing keys force every analyst to rebuild the same cleaning work by hand. We do it once, in the open, so nobody has to again. The same pattern now runs across Canada, and worldwide wherever the underlying data is global.",
+    title: "The data is public. It is barely usable.",
+    body: "Hundreds of Toronto's open datasets are published but barely usable: inconsistent schemas, free-text fields, and missing keys force every analyst to redo the same cleaning by hand. We do it once, in the open, so nobody has to again. Starting with Toronto, now expanding across Canada and worldwide.",
     stats: [
       { value: "722,000", label: "street-name variants across parking tickets, entered by hand" },
       { value: "57.8%", label: "of building-permit cost fields are non-numeric" },
@@ -266,16 +266,16 @@ const fr: Dict = {
     close: "Fermer",
   },
   hero: {
-    kicker: "Nshipyard Canada",
-    title: "Les données ouvertes, reconstruites pour ceux qui s'en servent.",
+    kicker: "Open Nshipyard",
+    title: "Nous nettoyons les données pour que vous puissiez les utiliser.",
     sub: "Nous transformons les données publiques désordonnées en infrastructure ouverte : des interfaces d'exploration pour les humains, des API documentées et des outils MCP pour les agents IA. En commençant par les données civiques du Canada, et en répondant déjà à des questions sur la planète entière.",
     cta1: "Explorer les projets",
     cta2: "Voir la vitrine",
   },
   problem: {
     kicker: "Le problème",
-    title: "Les données sont publiques. Les utiliser est une autre histoire.",
-    body: "Toronto est notre point de départ : des centaines de jeux de données ouverts, mais des schémas incohérents, des champs en texte libre et des clés manquantes obligent chaque analyste à refaire le même nettoyage à la main. Nous le faisons une fois, en public, pour que personne n'ait à le refaire. Le même modèle s'applique maintenant à travers le Canada, et dans le monde entier là où les données sont mondiales.",
+    title: "Les données sont publiques. Elles sont à peine utilisables.",
+    body: "Des centaines de jeux de données ouverts de Toronto sont publiés mais à peine utilisables : schémas incohérents, champs en texte libre, clés manquantes. Chaque analyste refait le même nettoyage à la main. Nous le faisons une fois, en public, pour que personne n'ait à le refaire. En commençant par Toronto, puis à travers le Canada et le monde entier.",
     stats: [
       { value: "722 000", label: "variantes de noms de rue dans les contraventions, saisies à la main" },
       { value: "57,8 %", label: "des champs de coût des permis ne sont pas numériques" },

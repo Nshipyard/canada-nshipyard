@@ -8,7 +8,7 @@ import "./globals.css";
 import { LangProvider } from "@/i18n";
 
 export const metadata: Metadata = {
-  title: "Open Nshipyard — Toronto's open data, rebuilt for the people who use it",
+  title: "Open Nshipyard: We clean the data so you can use it",
   description:
     "Eight open-source projects that clean, join, and publish Toronto's most valuable public datasets. Explorer interfaces for humans, documented APIs and MCP tools for AI agents.",
 };
