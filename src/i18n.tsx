@@ -294,7 +294,7 @@ const en = {
         user: "For riders, journalists, and transit advocates",
         url: "https://ttc.canada.nshipyard.com",
         cta: "explore" as const,
-        status: "building" as const,
+        status: "live" as const,
       },
       {
         repo: "earthquery",
@@ -835,7 +835,7 @@ const fr: Dict = {
         user: "Pour les usagers, les journalistes et les défenseurs du transport en commun",
         url: "https://ttc.canada.nshipyard.com",
         cta: "explore" as const,
-        status: "building" as const,
+        status: "live" as const,
       },
       {
         repo: "earthquery",
