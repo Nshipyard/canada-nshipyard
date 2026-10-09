@@ -399,7 +399,7 @@ const en = {
         needs: "vendor name normalization",
         url: "https://procurement.canada.nshipyard.com",
         thumb: "/showcase/procurement-spending.png",
-        answer: "6,117 raw vendor name spellings collapse into 4,082 real vendors across $21.5B in awards from 2012 to 2026. The top vendors and the long tail are finally countable.",
+        answer: "4,240 raw vendor name spellings collapse into 4,082 real vendors across $21.5B in awards from 2012 to 2026. The top vendors and the long tail are finally countable.",
       },
       {
         q: "What got built next to the new subway stations?",
@@ -930,7 +930,7 @@ const fr: Dict = {
         needs: "normalisation des noms de fournisseurs",
         url: "https://procurement.canada.nshipyard.com",
         thumb: "/showcase/procurement-spending.png",
-        answer: "6 117 orthographes brutes de noms de fournisseurs se réduisent à 4 082 vrais fournisseurs, pour 21,5 G$ d'adjudications de 2012 à 2026. Les principaux fournisseurs et la longue traîne deviennent enfin comptables.",
+        answer: "4 240 orthographes brutes de noms de fournisseurs se réduisent à 4 082 vrais fournisseurs, pour 21,5 G$ d'adjudications de 2012 à 2026. Les principaux fournisseurs et la longue traîne deviennent enfin comptables.",
       },
       {
         q: "Qu'a-t-on construit près des nouvelles stations de métro ?",
