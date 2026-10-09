@@ -40,7 +40,7 @@ body {
   color: #fff;
 }
 
-/* Prevent page-level horizontal scroll on small screens */
-html, body {
-  overflow-x: clip;
+/* Sticky-nav anchor offset: in-page anchors never hide under the fixed header. */
+section[id] {
+  scroll-margin-top: 88px;
 }

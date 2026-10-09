@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { useLang } from "@/i18n";
 import MapleLeaf from "./MapleLeaf";
@@ -8,9 +8,26 @@ import MapleLeaf from "./MapleLeaf";
 export default function Nav() {
   const { t, lang, setLang } = useLang();
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   // Section anchors live on the homepage; prefix with / when on a subpage like /showcase.
   const prefix = pathname === "/" ? "" : "/";
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open ]);
 
   const links = [
     { href: `${prefix}#projects`, label: t.nav.projects },
@@ -19,7 +36,11 @@ export default function Nav() {
   ];
 
   return (
-    <header className="border-b border-line bg-paper/90 backdrop-blur">
+    <header
+      className={`sticky top-0 z-50 border-b border-line bg-paper/90 backdrop-blur transition-shadow ${
+        scrolled ? "shadow-[0_12px_32px_rgba(10,15,30,0.10)]" : ""
+      }`}
+    >
       <div className="mx-auto flex max-w-[1392px] items-center justify-between px-6 py-4">
         <a href={pathname === "/" ? "#top" : "/"} className="flex items-center gap-2.5">
           <MapleLeaf className="h-7 w-7 text-canada" />
@@ -69,7 +90,7 @@ export default function Nav() {
       </div>
 
       {open && (
-        <div className="border-t border-line px-6 py-4 md:hidden">
+        <div className="absolute inset-x-0 top-full border-b border-line bg-paper/95 px-6 py-4 shadow-[0_24px_48px_rgba(10,15,30,0.12)] backdrop-blur md:hidden">
           <div className="flex flex-col gap-3">
             {links.map((l) => (
               <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="text-[16px] font-medium">
