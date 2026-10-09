@@ -202,7 +202,7 @@ const en = {
         user: "For researchers, insurers, and emergency planners",
         url: "https://hazards.nshipyard.com",
         cta: "explore" as const,
-        status: "building" as const,
+        status: "live" as const,
       },
       {
         repo: "canada-wildfire-watch",
@@ -579,7 +579,7 @@ const fr: Dict = {
         user: "Pour les chercheurs, les assureurs et les planificateurs d'urgence",
         url: "https://hazards.nshipyard.com",
         cta: "explore" as const,
-        status: "building" as const,
+        status: "live" as const,
       },
       {
         repo: "canada-wildfire-watch",
