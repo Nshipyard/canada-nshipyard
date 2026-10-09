@@ -184,6 +184,36 @@ const en = {
         cta: "explore" as const,
         status: "live" as const,
       },
+      {
+        repo: "citysignal",
+        name: "citysignal",
+        tag: "Toronto",
+        desc: "Toronto's 202,779 active building permits, normalized from 31 messy CKAN fields into 8 clean ones, behind one documented API.",
+        user: "For developers, journalists, and civic hackers",
+        url: "https://city.nshipyard.com",
+        cta: "explore" as const,
+        status: "live" as const,
+      },
+      {
+        repo: "hazardlens",
+        name: "hazardlens",
+        tag: "Worldwide",
+        desc: "A hazard data factory: global news turned into a structured, queryable open dataset of under-observed hazard events, starting with landslides.",
+        user: "For researchers, insurers, and emergency planners",
+        url: "https://hazards.nshipyard.com",
+        cta: "explore" as const,
+        status: "building" as const,
+      },
+      {
+        repo: "canada-wildfire-watch",
+        name: "Wildfire Watch Canada",
+        tag: "Canada",
+        desc: "Live satellite hotspots and fire perimeters, 54 years of burned-area history, and explainable fire-weather watch scores: 52,610 fires, 132.6M ha.",
+        user: "For emergency planners, journalists, and residents",
+        url: "https://fire.canada.nshipyard.com",
+        cta: "explore" as const,
+        status: "live" as const,
+      },
     ],
   },
   showcase: {
@@ -276,34 +306,6 @@ const en = {
     namespaces:
       "parking.* · city311.* · licences.* · watermains.* · parcels.* · codebooks.* · development.* · geo.* · procurement.*",
   },
-  mcpAll: {
-    kicker: "Connect your agent",
-    title: "One connection. Every Nshipyard dataset.",
-    body: "The federated MCP server exposes every project's tools under one endpoint, namespaced by project. Pick your harness, copy the prompt, send it to your agent. Your agent runs the setup itself.",
-    tabs: { chatgpt: "ChatGPT", claude: "Claude", claudecode: "Claude Code", cli: "CLI", other: "Other" },
-    cardTitle: "Copy and send this to {tab}",
-    copy: "Copy",
-    copied: "Copied",
-    chatgptNote: "ChatGPT connects through the documented REST APIs rather than MCP directly.",
-    exampleEn:
-      "Which ward has the most parking tickets, and what is the median wait for a New Building permit there?",
-    exampleFr:
-      "Quel arrondissement compte le plus de contraventions de stationnement, et quel est le délai médian d'un permis pour un nouveau bâtiment là-bas?",
-    pChatgpt:
-      "I want to query Nshipyard's open datasets through their REST APIs. Each project publishes an OpenAPI spec under /api/openapi.json with a REST base under /api/v1. The projects are: parking tickets (https://parking.canada.nshipyard.com), 311 service requests (https://311.canada.nshipyard.com), business licences (https://licences.canada.nshipyard.com), watermains (https://watermains.canada.nshipyard.com), parcels (https://parcels.canada.nshipyard.com), civic codebooks (https://codebooks.canada.nshipyard.com), development pipeline (https://development.canada.nshipyard.com), geo concordances (https://geo.canada.nshipyard.com), procurement spending (https://procurement.canada.nshipyard.com). First tell me in two sentences what these APIs offer, then {exampleLower}, and show me the result.",
-    pClaude:
-      "In Claude (claude.ai), open Settings, then Connectors, and add a custom connector:\n- Name: Nshipyard open data\n- URL: {origin}/mcp\nThen list the available tools, {exampleLower}, and show me the result.",
-    pClaudeCode:
-      "Set up the Nshipyard open-data MCP server so I can query every dataset from here.\n1. Run: claude mcp add --transport http nshipyard {origin}/mcp\n2. Run `claude mcp list` to confirm it connected.\n3. {example}, and show me the result.",
-    pCli:
-      "# Federated Nshipyard MCP endpoint (streamable HTTP): every project, namespaced\n{origin}/mcp\n\n# List every tool across all projects\ncurl -s -X POST {origin}/mcp -H 'Content-Type: application/json' \\\n  -d '{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"tools/list\"}'",
-    otherTitle: "Everything else",
-    otherBody:
-      "Any harness that speaks MCP over streamable HTTP. Tools are namespaced by project, so one connection covers every dataset.",
-    mcpEndpoint: "MCP endpoint",
-    namespaces:
-      "parking.* · city311.* · licences.* · watermains.* · parcels.* · codebooks.* · development.* · geo.* · procurement.*",
-  },
   opensource: {
     kicker: "Open source",
     title: "Our contribution to better public data.",
@@ -336,6 +338,7 @@ const en = {
       licences: "Business licences",
       watermains: "Watermains",
       codebooks: "Codebooks",
+      citysignal: "citysignal",
     },
     howWeKnow: "How we know",
     cite: "Cite this",
@@ -529,6 +532,36 @@ const fr: Dict = {
         cta: "explore" as const,
         status: "live" as const,
       },
+      {
+        repo: "citysignal",
+        name: "citysignal",
+        tag: "Toronto",
+        desc: "Les 202 779 permis de construire actifs de Toronto, normalisés de 31 champs CKAN disparates en 8 champs propres, derrière une API documentée.",
+        user: "Pour les développeurs, les journalistes et les bidouilleurs civiques",
+        url: "https://city.nshipyard.com",
+        cta: "explore" as const,
+        status: "live" as const,
+      },
+      {
+        repo: "hazardlens",
+        name: "hazardlens",
+        tag: "Monde",
+        desc: "Une fabrique de données sur les aléas : l'actualité mondiale transformée en jeu de données ouvert, structuré et interrogeable, sur les catastrophes sous-observées, à commencer par les glissements de terrain.",
+        user: "Pour les chercheurs, les assureurs et les planificateurs d'urgence",
+        url: "https://hazards.nshipyard.com",
+        cta: "explore" as const,
+        status: "building" as const,
+      },
+      {
+        repo: "canada-wildfire-watch",
+        name: "Surveillance des feux de forêt",
+        tag: "Canada",
+        desc: "Points chauds satellites et périmètres d'incendie en direct, 54 ans d'historique des superficies brûlées et indices météo explicables : 52 610 feux, 132,6 M ha.",
+        user: "Pour les planificateurs d'urgence, les journalistes et les résidents",
+        url: "https://fire.canada.nshipyard.com",
+        cta: "explore" as const,
+        status: "live" as const,
+      },
     ],
   },
   showcase: {
@@ -621,34 +654,6 @@ const fr: Dict = {
     namespaces:
       "parking.* · city311.* · licences.* · watermains.* · parcels.* · codebooks.* · development.* · geo.* · procurement.*",
   },
-  mcpAll: {
-    kicker: "Connectez votre agent",
-    title: "Une connexion. Tous les jeux de données Nshipyard.",
-    body: "Le serveur MCP fédéré expose les outils de chaque projet sous un seul point d'accès, avec un espace de noms par projet. Choisissez votre environnement, copiez l'invite, envoyez-la à votre agent. Votre agent exécute la configuration lui-même.",
-    tabs: { chatgpt: "ChatGPT", claude: "Claude", claudecode: "Claude Code", cli: "CLI", other: "Autre" },
-    cardTitle: "Copiez et envoyez ceci à {tab}",
-    copy: "Copier",
-    copied: "Copié",
-    chatgptNote: "ChatGPT se connecte via les API REST documentées plutôt que directement en MCP.",
-    exampleEn:
-      "Which ward has the most parking tickets, and what is the median wait for a New Building permit there?",
-    exampleFr:
-      "Quel arrondissement compte le plus de contraventions de stationnement, et quel est le délai médian d'un permis pour un nouveau bâtiment là-bas?",
-    pChatgpt:
-      "Je veux interroger les jeux de données ouverts de Nshipyard via leurs API REST. Chaque projet publie une spécification OpenAPI sous /api/openapi.json avec une base REST sous /api/v1. Les projets sont : contraventions de stationnement (https://parking.canada.nshipyard.com), demandes 311 (https://311.canada.nshipyard.com), permis d'entreprise (https://licences.canada.nshipyard.com), conduites d'eau (https://watermains.canada.nshipyard.com), parcelles (https://parcels.canada.nshipyard.com), recueils de codes civiques (https://codebooks.canada.nshipyard.com), pipeline de développement (https://development.canada.nshipyard.com), concordances géographiques (https://geo.canada.nshipyard.com), dépenses d'approvisionnement (https://procurement.canada.nshipyard.com). D'abord, dis-moi en deux phrases ce que ces API offrent, puis {exampleLower}, et montre-moi le résultat.",
-    pClaude:
-      "Dans Claude (claude.ai), ouvre les paramètres, puis Connecteurs, et ajoute un connecteur personnalisé :\n- Nom : Données ouvertes Nshipyard\n- URL : {origin}/mcp\nEnsuite, liste les outils disponibles, {exampleLower}, et montre-moi le résultat.",
-    pClaudeCode:
-      "Configure le serveur MCP de données ouvertes Nshipyard pour que je puisse interroger chaque jeu de données d'ici.\n1. Exécute : claude mcp add --transport http nshipyard {origin}/mcp\n2. Exécute `claude mcp list` pour confirmer la connexion.\n3. {example}, et montre-moi le résultat.",
-    pCli:
-      "# Point d'accès MCP fédéré Nshipyard (HTTP continu) : chaque projet, avec espace de noms\n{origin}/mcp\n\n# Lister tous les outils de tous les projets\ncurl -s -X POST {origin}/mcp -H 'Content-Type: application/json' \\\n  -d '{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"tools/list\"}'",
-    otherTitle: "Tout le reste",
-    otherBody:
-      "Tout environnement compatible MCP en HTTP continu. Les outils sont organisés par espace de noms de projet : une seule connexion couvre tous les jeux de données.",
-    mcpEndpoint: "Point d'accès MCP",
-    namespaces:
-      "parking.* · city311.* · licences.* · watermains.* · parcels.* · codebooks.* · development.* · geo.* · procurement.*",
-  },
   opensource: {
     kicker: "Code source ouvert",
     title: "Notre contribution à de meilleures données publiques.",
@@ -681,6 +686,7 @@ const fr: Dict = {
       licences: "Permis d'entreprise",
       watermains: "Conduites d'eau",
       codebooks: "Recueils de codes",
+      citysignal: "citysignal",
     },
     howWeKnow: "Comment nous le savons",
     cite: "Citer ceci",
