@@ -28,7 +28,22 @@ export default function Footer() {
           </div>
         </div>
         <p className="mt-8 max-w-[640px] text-[14px] leading-relaxed text-ink/55">{t.footer.line}</p>
-        <p className="mt-2 text-[14px] text-ink/55">{t.footer.sources}</p>
+        <a
+          href="https://x.com/richardsondx"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-4 inline-flex items-center gap-2 text-[14px] text-ink/55 transition-colors hover:text-ink"
+        >
+          <span>{t.footer.builtBy}</span>
+          <img
+            src="/richardson-avatar.jpg"
+            alt="Richardson Dackam"
+            width={24}
+            height={24}
+            className="h-6 w-6 rounded-full object-cover"
+          />
+          <span className="font-semibold text-ink">Richardson Dackam</span>
+        </a>
       </div>
     </footer>
   );

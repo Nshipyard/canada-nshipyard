@@ -19,7 +19,7 @@ const en = {
   },
   hero: {
     kicker: "Open Nshipyard",
-    title: "We clean the data so you can use it.",
+    title: "Cleaned public datasets, built for humans to explore and agents to query.",
     sub: "We turn messy public data into open infrastructure: explorer interfaces for humans, documented APIs and MCP tools for AI agents. Starting with Canada's civic data, already answering questions about the whole planet.",
     cta1: "Explore the projects",
     cta2: "See the showcase",
@@ -349,7 +349,7 @@ const en = {
   },
   footer: {
     line: "An open-data infrastructure project by Nshipyard. Not affiliated with the Government of Canada or the City of Toronto.",
-    sources: "Sources: City of Toronto Open Data, open.canada.ca, Statistics Canada.",
+    builtBy: "Built by",
   },
   storiesPage: {
     kicker: "Showcase",
@@ -396,7 +396,7 @@ const fr: Dict = {
   },
   hero: {
     kicker: "Open Nshipyard",
-    title: "Nous nettoyons les données pour que vous puissiez les utiliser.",
+    title: "Données publiques nettoyées, conçues pour être explorées par les humains et interrogées par les agents.",
     sub: "Nous transformons les données publiques désordonnées en infrastructure ouverte : des interfaces d'exploration pour les humains, des API documentées et des outils MCP pour les agents IA. En commençant par les données civiques du Canada, et en répondant déjà à des questions sur la planète entière.",
     cta1: "Explorer les projets",
     cta2: "Voir la vitrine",
@@ -726,7 +726,7 @@ const fr: Dict = {
   },
   footer: {
     line: "Un projet d'infrastructure de données ouvertes par Nshipyard. Sans affiliation avec le gouvernement du Canada ni la Ville de Toronto.",
-    sources: "Sources : Données ouvertes de la Ville de Toronto, ouvert.canada.ca, Statistique Canada.",
+    builtBy: "Créé par",
   },
   storiesPage: {
     kicker: "Vitrine",
