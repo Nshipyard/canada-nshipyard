@@ -72,7 +72,7 @@ const WARD_POINTS: { x: number; y: string; label: string }[] = [
 
 // Tickets by hour of day, 2023-2025, from
 // toronto-parking-tickets-geocoded/data/temporal.json
-const HOUR_VALUES = [
+export const HOUR_VALUES = [
   198463, 205384, 252703, 274752, 214575, 52601, 87474, 157721, 253228, 361271,
   335621, 419777, 415493, 366014, 271390, 270252, 293229, 238361, 214825,
   223984, 208337, 148019, 89729, 52285,

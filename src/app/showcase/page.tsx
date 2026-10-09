@@ -5,9 +5,9 @@ import Footer from "@/components/Footer";
 import ShowcasePage from "@/components/showcase/ShowcasePage";
 
 export const metadata: Metadata = {
-  title: "Data stories - Open Nshipyard",
+  title: "Showcase - Open Nshipyard",
   description:
-    "Nine quotable, citable findings computed from Toronto's open data: permit waits, homes gained, 311 equity, pipe age, parking enforcement, and more. Every number traces to a published dataset and method.",
+    "Try the data: interactive use cases from Toronto's open data and beyond. Pick a street, a ward, a permit type, and see what the city's own files say. Every number traces to a published dataset and method.",
 };
 
 export default function Page() {
