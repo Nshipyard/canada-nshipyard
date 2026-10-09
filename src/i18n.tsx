@@ -164,6 +164,7 @@ const en = {
     live: "Live project",
     explore: "Explore the data",
     needs: "Needs",
+    all: "See all data stories",
     items: [
       {
         q: "Which neighbourhoods actually gained homes, net?",
@@ -232,6 +233,21 @@ const en = {
   footer: {
     line: "An open-data infrastructure project by Nshipyard. Not affiliated with the Government of Canada or the City of Toronto.",
     sources: "Sources: City of Toronto Open Data, open.canada.ca, Statistics Canada.",
+  },
+  storiesPage: {
+    kicker: "Data stories",
+    title: "What Toronto's open data can now say.",
+    sub: "Nine findings computed from the city's own files, each with its chart, its method, and a citation you can copy. Built for journalists, researchers, and anyone who wants the number behind the claim.",
+    indexTitle: "The stories",
+    storyNoun: "Story",
+    howWeKnow: "How we know",
+    cite: "Cite this",
+    copy: "Copy",
+    copied: "Copied",
+    share: "Share",
+    copyLink: "Copy link",
+    exploreProject: "Explore the project",
+    footer: "Every number on this page traces to a published City of Toronto dataset and a documented method. The underlying projects are open source: MIT licensed, versioned data releases, open methodology.",
   },
 };
 
@@ -396,6 +412,7 @@ const fr: Dict = {
     live: "Projet en direct",
     explore: "Explorer les données",
     needs: "Requiert",
+    all: "Voir toutes les histoires de données",
     items: [
       {
         q: "Quels quartiers ont vraiment gagné des logements, en net ?",
@@ -464,6 +481,21 @@ const fr: Dict = {
   footer: {
     line: "Un projet d'infrastructure de données ouvertes par Nshipyard. Sans affiliation avec le gouvernement du Canada ni la Ville de Toronto.",
     sources: "Sources : Données ouvertes de la Ville de Toronto, ouvert.canada.ca, Statistique Canada.",
+  },
+  storiesPage: {
+    kicker: "Histoires de données",
+    title: "Ce que les données ouvertes de Toronto peuvent désormais dire.",
+    sub: "Neuf constats calculés à partir des fichiers de la ville, chacun avec son graphique, sa méthode et une citation à copier. Conçus pour les journalistes, les chercheurs et quiconque veut le chiffre derrière l'affirmation.",
+    indexTitle: "Les histoires",
+    storyNoun: "Histoire",
+    howWeKnow: "Comment nous le savons",
+    cite: "Citer ceci",
+    copy: "Copier",
+    copied: "Copié",
+    share: "Partager",
+    copyLink: "Copier le lien",
+    exploreProject: "Explorer le projet",
+    footer: "Chaque chiffre de cette page provient d'un jeu de données publié de la Ville de Toronto et d'une méthode documentée. Les projets sous-jacents sont à code source ouvert : licence MIT, versions de données numérotées, méthodologie ouverte.",
   },
 };
 

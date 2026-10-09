@@ -72,6 +72,14 @@ export default function Showcase() {
             );
           })}
         </div>
+        <div className="mx-auto mt-12 max-w-[1200px] text-center">
+          <a
+            href="/showcase"
+            className="inline-block rounded-full bg-white px-8 py-4 text-[16px] font-semibold text-ink transition hover:bg-canada hover:text-white"
+          >
+            {t.showcase.all} <span aria-hidden="true">→</span>
+          </a>
+        </div>
       </div>
     </section>
   );
