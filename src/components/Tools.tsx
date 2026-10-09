@@ -25,7 +25,7 @@ export default function Tools() {
       <div className="mx-auto mt-14 grid max-w-[1200px] grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
         {t.tools.items.map((p) => (
           <article
-            key={p.repo}
+            key={p.name}
             className="flex flex-col rounded-[40px] border border-line bg-paper p-8 transition hover:border-ink/25 md:p-10"
           >
             <div className="flex items-center justify-between">
@@ -52,14 +52,16 @@ export default function Tools() {
                   {t.tools[p.cta]} →
                 </a>
               )}
-              <a
-                href={`https://github.com/Nshipyard/${p.repo}`}
-                target="_blank"
-                rel="noreferrer"
-                className="text-ink/60 hover:text-ink"
-              >
-                {t.tools.source} →
-              </a>
+              {p.repo && (
+                <a
+                  href={`https://github.com/Nshipyard/${p.repo}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-ink/60 hover:text-ink"
+                >
+                  {t.tools.source} →
+                </a>
+              )}
             </div>
           </article>
         ))}
