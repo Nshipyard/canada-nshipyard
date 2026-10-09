@@ -99,8 +99,8 @@ export default function ShowcasePage() {
       {/* dataset switcher */}
       <div className="mx-auto max-w-[1392px] px-6">
         <div className="mx-auto mt-2 max-w-[880px]">
-          <div className="-mx-6 overflow-x-auto px-6 pb-2">
-            <div className="flex w-max gap-2">
+          <div className="-mx-6 overflow-x-auto px-6 pb-2 md:mx-0 md:overflow-visible md:px-0">
+            <div className="flex w-max gap-2 md:w-auto md:flex-wrap md:justify-center">
               {DATASET_IDS.map((d) => (
                 <button
                   key={d}
