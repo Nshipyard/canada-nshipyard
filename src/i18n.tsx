@@ -234,6 +234,16 @@ const en = {
         cta: "explore" as const,
         status: "live" as const,
       },
+      {
+        repo: "canada-livable-area",
+        name: "Livable Area",
+        tag: "Toronto",
+        desc: "The geometry of affordability, computed: 82.5 livable km² by transit vs 339.5 by car in 30 minutes. GO Expansion adds 17.7 km², the most per dollar.",
+        user: "For transit planners, housing researchers, and journalists",
+        url: "https://livable.canada.nshipyard.com",
+        cta: "explore" as const,
+        status: "live" as const,
+      },
     ],
   },
   showcase: {
@@ -281,7 +291,6 @@ const en = {
         thumb: "/showcase/permit-times.png",
         answer: "A New Building permit takes a median of 272 days from application to issuance. A small residential project takes 19 days.",
       },
-      { q: "Where does federal grant money land in Toronto?", needs: "entity-resolved grants" },
     ],
   },
   agents: {
@@ -602,6 +611,16 @@ const fr: Dict = {
         cta: "explore" as const,
         status: "live" as const,
       },
+      {
+        repo: "canada-livable-area",
+        name: "Surface habitable",
+        tag: "Toronto",
+        desc: "La géométrie de l'abordabilité, calculée : 82,5 km² habitables en transport en commun contre 339,5 en voiture en 30 minutes. L'expansion GO ajoute 17,7 km², le plus par dollar.",
+        user: "Pour les planificateurs de transport, les chercheurs en logement et les journalistes",
+        url: "https://livable.canada.nshipyard.com",
+        cta: "explore" as const,
+        status: "live" as const,
+      },
     ],
   },
   showcase: {
@@ -649,7 +668,6 @@ const fr: Dict = {
         thumb: "/showcase/permit-times.png",
         answer: "Un permis de nouveau bâtiment prend en médiane 272 jours de la demande à la délivrance. Un petit projet résidentiel prend 19 jours.",
       },
-      { q: "Où atterrit l'argent des subventions fédérales à Toronto ?", needs: "subventions résolues par entité" },
     ],
   },
   agents: {
