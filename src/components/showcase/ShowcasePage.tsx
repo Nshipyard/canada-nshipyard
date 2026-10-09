@@ -9,11 +9,12 @@ import HousingCases from "./usecases/HousingCases";
 import { ParcelCases, LicenceCases, WatermainCases, CodebookCases } from "./usecases/StaticCases";
 import WorldwideCases from "./usecases/WorldwideCases";
 import CrosscuttingCases from "./usecases/CrosscuttingCases";
+import CitysignalCases from "./usecases/CitysignalCases";
 import type { CiteLabels } from "./CiteShare";
 
 type Context = "toronto" | "worldwide";
 
-const DATASET_IDS = ["crosscutting", "parking", "311", "permits", "housing", "parcels", "licences", "watermains", "codebooks"] as const;
+const DATASET_IDS = ["crosscutting", "parking", "311", "permits", "housing", "parcels", "licences", "watermains", "codebooks", "citysignal"] as const;
 type DatasetId = (typeof DATASET_IDS)[number];
 
 // use-case anchors per dataset, for deep-link resolution
@@ -27,8 +28,9 @@ const DATASET_CASES: Record<DatasetId, string[]> = {
   licences: ["business-mix"],
   watermains: ["pipe-age"],
   codebooks: ["code-meaning"],
+  citysignal: ["citysignal-api"],
 };
-const WORLDWIDE_CASES = ["earthquery", "cyclonewatch"];
+const WORLDWIDE_CASES = ["earthquery", "cyclonewatch", "hazardlens"];
 
 function readHash(): { context: Context; dataset: DatasetId } {
   if (typeof window === "undefined") return { context: "toronto", dataset: "parking" };
@@ -152,8 +154,10 @@ export default function ShowcasePage() {
           <LicenceCases labels={labels} lang={lang} />
         ) : dataset === "watermains" ? (
           <WatermainCases labels={labels} lang={lang} />
-        ) : (
+        ) : dataset === "codebooks" ? (
           <CodebookCases labels={labels} lang={lang} />
+        ) : (
+          <CitysignalCases labels={labels} lang={lang} />
         )}
       </div>
 

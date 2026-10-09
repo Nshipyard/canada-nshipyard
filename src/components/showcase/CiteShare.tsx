@@ -45,6 +45,7 @@ export default function CiteShare({
   shareText,
   projectUrl,
   projectName,
+  projectLive = true,
   labels,
   lang,
 }: {
@@ -53,6 +54,7 @@ export default function CiteShare({
   shareText: string;
   projectUrl: string;
   projectName: string;
+  projectLive?: boolean;
   labels: CiteLabels;
   lang: "en" | "fr";
 }) {
@@ -103,14 +105,16 @@ export default function CiteShare({
           LinkedIn
         </a>
         <CopyButton text={url} label={labels.copyLink} doneLabel={labels.copied} />
-        <a
-          href={projectUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="ml-auto text-[14px] font-semibold text-canada hover:text-canada-dark"
-        >
-          {labels.exploreProject}: {projectName} →
-        </a>
+        {projectLive && (
+          <a
+            href={projectUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="ml-auto text-[14px] font-semibold text-canada hover:text-canada-dark"
+          >
+            {labels.exploreProject}: {projectName} →
+          </a>
+        )}
       </div>
     </div>
   );

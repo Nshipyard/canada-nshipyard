@@ -13,6 +13,7 @@ const CARDS = {
       stat: "Planet-scale",
       statLabel: "natural-language search over satellite imagery embeddings",
       url: "https://earthquery.nshipyard.com",
+      live: true,
       shareText: "earthquery: ask the planet a question, get a map. Natural-language search over satellite imagery.",
     },
     {
@@ -24,7 +25,20 @@ const CARDS = {
       stat: "0–100",
       statLabel: "transparent cyclone risk scores from official forecasts",
       url: "https://cyclonewatch.nshipyard.com",
+      live: true,
       shareText: "CycloneWatch: live tropical cyclone risk scores for ports and vessels, with the math shown.",
+    },
+    {
+      id: "hazardlens",
+      kicker: "Worldwide",
+      name: "hazardlens",
+      question: "Which disasters never make the dataset?",
+      body: "hazardlens, a hazard data factory, turns global news into a structured, queryable open dataset of under-observed hazard events, starting with landslides. Every event carries its article provenance and extraction method, so the data is auditable instead of a black box. Landslides are the reference hazard; floods, wildfires, and earthquakes are next.",
+      stat: "News → data",
+      statLabel: "global news coverage converted into structured hazard events with full provenance",
+      url: "https://hazards.nshipyard.com",
+      live: false,
+      shareText: "hazardlens: global news turned into a structured open dataset of under-observed hazard events, starting with landslides.",
     },
   ],
   fr: [
@@ -37,6 +51,7 @@ const CARDS = {
       stat: "Échelle planétaire",
       statLabel: "recherche en langage naturel sur l'imagerie satellite",
       url: "https://earthquery.nshipyard.com",
+      live: true,
       shareText: "earthquery : posez une question à la planète, obtenez une carte. Recherche en langage naturel sur l'imagerie satellite.",
     },
     {
@@ -48,7 +63,20 @@ const CARDS = {
       stat: "0–100",
       statLabel: "scores de risque cyclonique transparents issus des prévisions officielles",
       url: "https://cyclonewatch.nshipyard.com",
+      live: true,
       shareText: "CycloneWatch : scores de risque cyclonique en direct pour les ports et navires, avec le calcul montré.",
+    },
+    {
+      id: "hazardlens",
+      kicker: "Monde",
+      name: "hazardlens",
+      question: "Quelles catastrophes n'entrent jamais dans les jeux de données ?",
+      body: "hazardlens, une fabrique de données sur les aléas, transforme l'actualité mondiale en un jeu de données ouvert, structuré et interrogeable, sur les catastrophes sous-observées, à commencer par les glissements de terrain. Chaque événement porte la provenance de ses articles et sa méthode d'extraction, pour des données vérifiables plutôt qu'une boîte noire. Les glissements de terrain sont l'aléa de référence ; inondations, feux de forêt et séismes suivront.",
+      stat: "Actualités → données",
+      statLabel: "la couverture médiatique mondiale convertie en événements structurés, avec provenance complète",
+      url: "https://hazards.nshipyard.com",
+      live: false,
+      shareText: "hazardlens : l'actualité mondiale transformée en jeu de données ouvert et structuré sur les catastrophes sous-observées, à commencer par les glissements de terrain.",
     },
   ],
 };
@@ -70,17 +98,23 @@ export default function WorldwideCases({ labels, lang }: { labels: CiteLabels & 
 
             <p className="mt-8 text-[16.5px] leading-relaxed text-ink/80">{c.body}</p>
 
-            <div className="mt-8">
-              <a
-                href={c.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block rounded-full bg-canada px-8 py-4 text-[16px] font-medium text-white transition hover:bg-canada-dark"
-              >
-                {lang === "fr" ? `Ouvrir ${c.name} →` : `Open ${c.name} →`}
-              </a>
-              <p className="mt-3 font-mono text-[13px] text-ink/50">{c.url.replace("https://", "")}</p>
-            </div>
+            {c.live ? (
+              <div className="mt-8">
+                <a
+                  href={c.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block rounded-full bg-canada px-8 py-4 text-[16px] font-medium text-white transition hover:bg-canada-dark"
+                >
+                  {lang === "fr" ? `Ouvrir ${c.name} →` : `Open ${c.name} →`}
+                </a>
+                <p className="mt-3 font-mono text-[13px] text-ink/50">{c.url.replace("https://", "")}</p>
+              </div>
+            ) : (
+              <p className="mt-8 inline-block rounded-full bg-canada/10 px-6 py-3 text-[14px] font-semibold text-canada">
+                {lang === "fr" ? "En construction" : "Building now"}
+              </p>
+            )}
 
             <div className="mt-8">
               <CiteShare
@@ -89,6 +123,7 @@ export default function WorldwideCases({ labels, lang }: { labels: CiteLabels & 
                 shareText={c.shareText}
                 projectUrl={c.url}
                 projectName={c.name}
+                projectLive={c.live}
                 labels={labels}
                 lang={lang}
               />

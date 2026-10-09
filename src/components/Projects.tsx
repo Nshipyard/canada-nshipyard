@@ -42,14 +42,16 @@ export default function Projects() {
             <p className="mt-3 text-[16px] leading-relaxed text-ink/70">{p.desc}</p>
             <p className="mt-2 text-[14px] font-medium text-ink/45">{p.user}</p>
             <div className="mt-auto flex items-center gap-5 pt-7 text-[15px] font-medium">
-              <a
-                href={p.url}
-                target="_blank"
-                rel="noreferrer"
-                className="text-canada hover:text-canada-dark"
-              >
-                {t.projects[p.cta]} →
-              </a>
+              {p.status === "live" && (
+                <a
+                  href={p.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-canada hover:text-canada-dark"
+                >
+                  {t.projects[p.cta]} →
+                </a>
+              )}
               <a
                 href={`https://github.com/Nshipyard/${p.repo}`}
                 target="_blank"
