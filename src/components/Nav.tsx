@@ -31,6 +31,7 @@ export default function Nav() {
 
   const links = [
     { href: `${prefix}#projects`, label: t.nav.projects },
+    { href: `${prefix}#tools`, label: t.nav.tools },
     { href: `${prefix}#showcase`, label: t.nav.showcase },
     { href: `${prefix}#developers`, label: t.nav.developers },
   ];

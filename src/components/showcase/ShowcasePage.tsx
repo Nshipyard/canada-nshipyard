@@ -10,11 +10,12 @@ import { ParcelCases, LicenceCases, WatermainCases, CodebookCases } from "./usec
 import WorldwideCases from "./usecases/WorldwideCases";
 import CrosscuttingCases from "./usecases/CrosscuttingCases";
 import CitysignalCases from "./usecases/CitysignalCases";
+import NewerCases from "./usecases/NewerCases";
 import type { CiteLabels } from "./CiteShare";
 
 type Context = "toronto" | "worldwide";
 
-const DATASET_IDS = ["crosscutting", "parking", "311", "permits", "housing", "parcels", "licences", "watermains", "codebooks", "citysignal"] as const;
+const DATASET_IDS = ["crosscutting", "parking", "311", "permits", "housing", "parcels", "licences", "watermains", "codebooks", "citysignal", "procurement", "supply", "flood", "fire", "livable", "contagion", "my-street", "geo"] as const;
 type DatasetId = (typeof DATASET_IDS)[number];
 
 // use-case anchors per dataset, for deep-link resolution
@@ -29,6 +30,14 @@ const DATASET_CASES: Record<DatasetId, string[]> = {
   watermains: ["pipe-age"],
   codebooks: ["code-meaning"],
   citysignal: ["citysignal-api"],
+  procurement: ["procurement-vendors"],
+  supply: ["supply-stations"],
+  flood: ["flood-history"],
+  fire: ["fire-watch"],
+  livable: ["livable-isochrone"],
+  contagion: ["contagion-ripple"],
+  "my-street": ["my-street-live"],
+  geo: ["geo-crosswalk"],
 };
 const WORLDWIDE_CASES = ["earthquery", "cyclonewatch", "hazardlens"];
 
@@ -156,8 +165,10 @@ export default function ShowcasePage() {
           <WatermainCases labels={labels} lang={lang} />
         ) : dataset === "codebooks" ? (
           <CodebookCases labels={labels} lang={lang} />
-        ) : (
+        ) : dataset === "citysignal" ? (
           <CitysignalCases labels={labels} lang={lang} />
+        ) : (
+          <NewerCases dataset={dataset} labels={labels} lang={lang} />
         )}
       </div>
 
