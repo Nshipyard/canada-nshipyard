@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useLang } from "@/i18n";
+import McpConnectAll from "./McpConnectAll";
 
 const restSample = `GET https://canada.nshipyard.com/api/v1/geo/neighbourhood?hood_140=42
 
@@ -75,6 +76,10 @@ export default function Agents() {
             </pre>
           </div>
         </div>
+      </div>
+
+      <div className="mt-10 rounded-[40px] bg-ink px-6 py-10 text-white md:px-10 md:py-14">
+        <McpConnectAll />
       </div>
     </section>
   );
