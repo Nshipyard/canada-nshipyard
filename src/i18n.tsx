@@ -26,7 +26,7 @@ const en = {
   },
   problem: {
     kicker: "The problem",
-    title: "The data is public. It is barely usable.",
+    title: "Lots of data is public. We make it usable.",
     body: "Hundreds of Toronto's open datasets are published but barely usable: inconsistent schemas, free-text fields, and missing keys force every analyst to redo the same cleaning by hand. We do it once, in the open, so nobody has to again. Starting with Toronto, now expanding across Canada and worldwide.",
     stats: [
       { value: "722,000", label: "street-name variants across parking tickets, entered by hand" },
@@ -274,7 +274,7 @@ const fr: Dict = {
   },
   problem: {
     kicker: "Le problème",
-    title: "Les données sont publiques. Elles sont à peine utilisables.",
+    title: "Beaucoup de données sont publiques. Nous les rendons utilisables.",
     body: "Des centaines de jeux de données ouverts de Toronto sont publiés mais à peine utilisables : schémas incohérents, champs en texte libre, clés manquantes. Chaque analyste refait le même nettoyage à la main. Nous le faisons une fois, en public, pour que personne n'ait à le refaire. En commençant par Toronto, puis à travers le Canada et le monde entier.",
     stats: [
       { value: "722 000", label: "variantes de noms de rue dans les contraventions, saisies à la main" },
