@@ -233,7 +233,7 @@ const en = {
         desc: "Ask the planet a question: natural-language search over satellite imagery embeddings.",
         user: "For researchers, journalists, and the curious",
         url: "https://earthquery.nshipyard.com",
-        cta: "explore" as const,
+        cta: "visit" as const,
         status: "live" as const,
       },
       {
@@ -243,7 +243,7 @@ const en = {
         desc: "Live tropical cyclone risk scores from official hurricane forecasts, with the math shown.",
         user: "For ports, vessels, and coastal communities",
         url: "https://cyclonewatch.nshipyard.com",
-        cta: "explore" as const,
+        cta: "visit" as const,
         status: "live" as const,
       },
       {
@@ -263,7 +263,7 @@ const en = {
         desc: "A hazard data factory: global news turned into a structured, queryable open dataset of under-observed hazard events, starting with landslides.",
         user: "For researchers, insurers, and emergency planners",
         url: "https://hazards.nshipyard.com",
-        cta: "explore" as const,
+        cta: "visit" as const,
         status: "live" as const,
       },
     ],
@@ -703,7 +703,7 @@ const fr: Dict = {
         desc: "Posez une question à la planète : recherche en langage naturel dans les images satellites.",
         user: "Pour chercheurs, journalistes et curieux",
         url: "https://earthquery.nshipyard.com",
-        cta: "explore" as const,
+        cta: "visit" as const,
         status: "live" as const,
       },
       {
@@ -713,7 +713,7 @@ const fr: Dict = {
         desc: "Scores de risque cyclonique en direct, issus des prévisions officielles, avec le calcul exposé.",
         user: "Pour les ports, les navires et les communautés côtières",
         url: "https://cyclonewatch.nshipyard.com",
-        cta: "explore" as const,
+        cta: "visit" as const,
         status: "live" as const,
       },
       {
@@ -733,7 +733,7 @@ const fr: Dict = {
         desc: "Une fabrique de données sur les aléas : l'actualité mondiale transformée en jeu de données ouvert, structuré et interrogeable, sur les catastrophes sous-observées, à commencer par les glissements de terrain.",
         user: "Pour les chercheurs, les assureurs et les planificateurs d'urgence",
         url: "https://hazards.nshipyard.com",
-        cta: "explore" as const,
+        cta: "visit" as const,
         status: "live" as const,
       },
     ],
