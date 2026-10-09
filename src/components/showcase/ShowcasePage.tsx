@@ -11,15 +11,17 @@ import WorldwideCases from "./usecases/WorldwideCases";
 import CrosscuttingCases from "./usecases/CrosscuttingCases";
 import CitysignalCases from "./usecases/CitysignalCases";
 import NewerCases from "./usecases/NewerCases";
+import NewQuestionsCases from "./usecases/NewQuestionsCases";
 import type { CiteLabels } from "./CiteShare";
 
 type Context = "toronto" | "worldwide";
 
-const DATASET_IDS = ["crosscutting", "parking", "311", "permits", "housing", "parcels", "licences", "watermains", "codebooks", "citysignal", "procurement", "supply", "flood", "fire", "livable", "contagion", "my-street", "geo"] as const;
+const DATASET_IDS = ["newquestions", "crosscutting", "parking", "311", "permits", "housing", "parcels", "licences", "watermains", "codebooks", "citysignal", "procurement", "supply", "flood", "fire", "livable", "contagion", "my-street", "geo"] as const;
 type DatasetId = (typeof DATASET_IDS)[number];
 
 // use-case anchors per dataset, for deep-link resolution
 const DATASET_CASES: Record<DatasetId, string[]> = {
+  newquestions: ["camera-postmortem", "adoption-inversion", "landlord-index", "dinesafe-chains"],
   crosscutting: ["growth-vs-pipes", "pipes-vs-water311", "enforcement-density", "service-wait", "open-business", "construction-tickets", "builders-vs-vendors"],
   parking: ["worst-time-to-park", "when-tickets-happen"],
   "311": ["ward-311-backlog"],
@@ -147,6 +149,8 @@ export default function ShowcasePage() {
       <div id="usecases" className="mx-auto max-w-[1392px] scroll-mt-24 px-6">
         {context === "worldwide" ? (
           <WorldwideCases labels={labels} lang={lang} />
+        ) : dataset === "newquestions" ? (
+          <NewQuestionsCases labels={labels} lang={lang} />
         ) : dataset === "crosscutting" ? (
           <CrosscuttingCases labels={labels} lang={lang} />
         ) : dataset === "parking" ? (
