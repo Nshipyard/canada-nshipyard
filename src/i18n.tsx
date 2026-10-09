@@ -293,7 +293,7 @@ const en = {
         desc: "1.24M delay incidents since 2014 on one comparable taxonomy, across the 2025 code break.",
         user: "For riders, journalists, and transit advocates",
         url: "https://ttc.canada.nshipyard.com",
-        cta: "explore" as const,
+        cta: "visit" as const,
         status: "live" as const,
       },
       {
