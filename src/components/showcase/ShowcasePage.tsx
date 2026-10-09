@@ -8,15 +8,17 @@ import PermitCases from "./usecases/PermitCases";
 import HousingCases from "./usecases/HousingCases";
 import { ParcelCases, LicenceCases, WatermainCases, CodebookCases } from "./usecases/StaticCases";
 import WorldwideCases from "./usecases/WorldwideCases";
+import CrosscuttingCases from "./usecases/CrosscuttingCases";
 import type { CiteLabels } from "./CiteShare";
 
 type Context = "toronto" | "worldwide";
 
-const DATASET_IDS = ["parking", "311", "permits", "housing", "parcels", "licences", "watermains", "codebooks"] as const;
+const DATASET_IDS = ["crosscutting", "parking", "311", "permits", "housing", "parcels", "licences", "watermains", "codebooks"] as const;
 type DatasetId = (typeof DATASET_IDS)[number];
 
 // use-case anchors per dataset, for deep-link resolution
 const DATASET_CASES: Record<DatasetId, string[]> = {
+  crosscutting: ["growth-vs-pipes", "pipes-vs-water311", "enforcement-density", "service-wait", "open-business", "construction-tickets", "builders-vs-vendors"],
   parking: ["worst-time-to-park", "when-tickets-happen"],
   "311": ["ward-311-backlog"],
   permits: ["permit-wait-time"],
@@ -41,7 +43,12 @@ function readHash(): { context: Context; dataset: DatasetId } {
 export default function ShowcasePage() {
   const { lang, t } = useLang();
   const s = t.storiesPage;
-  const [{ context, dataset }, setSel] = useState(readHash);
+  // Initialize to the server-rendered default so hydration matches; the URL
+  // hash is applied after mount (see effect below).
+  const [{ context, dataset }, setSel] = useState<{ context: Context; dataset: DatasetId }>({
+    context: "toronto",
+    dataset: "parking",
+  });
   const labels: CiteLabels & { howWeKnow: string } = {
     howWeKnow: s.howWeKnow,
     cite: s.cite,
@@ -57,6 +64,11 @@ export default function ShowcasePage() {
     const target = c === "worldwide" ? "worldwide" : d;
     window.history.replaceState(null, "", `#${target}`);
     document.getElementById("usecases")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, []);
+
+  // apply the URL hash after mount (server has no window.location)
+  useEffect(() => {
+    setSel(readHash());
   }, []);
 
   // keep selection in sync if the hash changes externally
@@ -124,6 +136,8 @@ export default function ShowcasePage() {
       <div id="usecases" className="mx-auto max-w-[1392px] scroll-mt-24 px-6">
         {context === "worldwide" ? (
           <WorldwideCases labels={labels} lang={lang} />
+        ) : dataset === "crosscutting" ? (
+          <CrosscuttingCases labels={labels} lang={lang} />
         ) : dataset === "parking" ? (
           <ParkingCases labels={labels} lang={lang} />
         ) : dataset === "311" ? (

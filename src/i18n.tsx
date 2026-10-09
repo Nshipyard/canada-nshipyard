@@ -251,6 +251,7 @@ const en = {
     contextToronto: "Toronto",
     contextWorldwide: "Worldwide",
     datasets: {
+      crosscutting: "Cross-cutting",
       parking: "Parking",
       "311": "311",
       permits: "Building permits",
@@ -519,6 +520,7 @@ const fr: Dict = {
     contextToronto: "Toronto",
     contextWorldwide: "Monde",
     datasets: {
+      crosscutting: "Transversal",
       parking: "Stationnement",
       "311": "311",
       permits: "Permis de construire",

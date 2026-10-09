@@ -81,7 +81,7 @@ export default function CiteShare({
           <p className="text-[12px] font-semibold uppercase tracking-[0.15em] text-ink/50">{labels.cite}</p>
           <CopyButton text={citation} label={labels.copy} doneLabel={labels.copied} />
         </div>
-        <p className="mt-3 text-[14px] leading-relaxed text-ink/75">{citation}</p>
+        <p className="mt-3 break-words text-[14px] leading-relaxed text-ink/75">{citation}</p>
       </div>
 
       <div className="mt-6 flex flex-wrap items-center gap-3">
