@@ -287,6 +287,16 @@ const en = {
         status: "live" as const,
       },
       {
+        repo: "toronto-ttc-delays",
+        name: "TTC Delays, One Taxonomy",
+        tag: "Toronto",
+        desc: "1.24M delay incidents since 2014 on one comparable taxonomy, across the 2025 code break.",
+        user: "For riders, journalists, and transit advocates",
+        url: "https://ttc.canada.nshipyard.com",
+        cta: "explore" as const,
+        status: "building" as const,
+      },
+      {
         repo: "earthquery",
         name: "earthquery",
         tag: "Worldwide",
@@ -816,6 +826,16 @@ const fr: Dict = {
         url: "https://my-street.canada.nshipyard.com",
         cta: "visit" as const,
         status: "live" as const,
+      },
+      {
+        repo: "toronto-ttc-delays",
+        name: "Retards de la TTC, une taxonomie",
+        tag: "Toronto",
+        desc: "1,24 M d'incidents de retard depuis 2014 sur une taxonomie comparable, malgré la rupture des codes de 2025.",
+        user: "Pour les usagers, les journalistes et les défenseurs du transport en commun",
+        url: "https://ttc.canada.nshipyard.com",
+        cta: "explore" as const,
+        status: "building" as const,
       },
       {
         repo: "earthquery",
