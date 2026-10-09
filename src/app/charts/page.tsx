@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Charts | Open Nshipyard",
     description: "One chart per finding, built to be shared. Every number traces to a published open dataset.",
-    images: [{ url: "/charts/permit-wait.png", width: 1080, height: 1440 }],
+    images: [{ url: "/charts/og-charts.png", width: 1200, height: 630 }],
   },
 };
 
