@@ -235,7 +235,7 @@ export const storiesEn: Story[] = [
   {
     slug: "stacked-parcels",
     kicker: "Parcel Spine",
-    question: "947 Toronto parcels carry 10 or more addresses each.",
+    question: "Which Toronto properties stack dozens of homes on one parcel?",
     stat: "947",
     statLabel: "stacked parcels: condos and multi-unit buildings sharing one legal parcel",
     mechanism: [
@@ -518,7 +518,7 @@ export const storiesFr: Story[] = [
   {
     slug: "stacked-parcels",
     kicker: "Registre des parcelles",
-    question: "947 parcelles de Toronto portent 10 adresses ou plus chacune.",
+    question: "Quelles propriétés torontoises empilent des dizaines de logements sur une seule parcelle ?",
     stat: "947",
     statLabel: "parcelles empilées : condos et immeubles multi-logements sur une seule parcelle légale",
     mechanism: [

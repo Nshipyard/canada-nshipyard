@@ -7,21 +7,15 @@ import Cases311 from "./usecases/Cases311";
 import PermitCases from "./usecases/PermitCases";
 import HousingCases from "./usecases/HousingCases";
 import { ParcelCases, LicenceCases, WatermainCases, CodebookCases } from "./usecases/StaticCases";
-import WorldwideCases from "./usecases/WorldwideCases";
 import CrosscuttingCases from "./usecases/CrosscuttingCases";
-import CitysignalCases from "./usecases/CitysignalCases";
 import NewerCases from "./usecases/NewerCases";
-import NewQuestionsCases from "./usecases/NewQuestionsCases";
 import type { CiteLabels } from "./CiteShare";
 
-type Context = "toronto" | "worldwide";
-
-const DATASET_IDS = ["newquestions", "crosscutting", "parking", "311", "permits", "housing", "parcels", "licences", "watermains", "codebooks", "citysignal", "procurement", "supply", "flood", "fire", "livable", "contagion", "my-street", "geo"] as const;
+const DATASET_IDS = ["crosscutting", "parking", "311", "permits", "housing", "parcels", "licences", "watermains", "codebooks", "procurement", "supply", "flood", "fire", "livable", "contagion", "my-street", "geo", "cameras", "rentals", "foodsafety", "aiadoption", "gpuprices", "aispending"] as const;
 type DatasetId = (typeof DATASET_IDS)[number];
 
 // use-case anchors per dataset, for deep-link resolution
 const DATASET_CASES: Record<DatasetId, string[]> = {
-  newquestions: ["camera-postmortem", "adoption-inversion", "landlord-index", "dinesafe-chains"],
   crosscutting: ["growth-vs-pipes", "pipes-vs-water311", "enforcement-density", "service-wait", "open-business", "construction-tickets", "builders-vs-vendors"],
   parking: ["worst-time-to-park", "when-tickets-happen"],
   "311": ["ward-311-backlog"],
@@ -31,7 +25,6 @@ const DATASET_CASES: Record<DatasetId, string[]> = {
   licences: ["business-mix"],
   watermains: ["pipe-age"],
   codebooks: ["code-meaning"],
-  citysignal: ["citysignal-api"],
   procurement: ["procurement-vendors"],
   supply: ["supply-stations"],
   flood: ["flood-history"],
@@ -40,17 +33,21 @@ const DATASET_CASES: Record<DatasetId, string[]> = {
   contagion: ["contagion-ripple"],
   "my-street": ["my-street-live"],
   geo: ["geo-crosswalk"],
+  cameras: ["camera-postmortem"],
+  rentals: ["landlord-index"],
+  foodsafety: ["dinesafe-chains"],
+  aiadoption: ["adoption-inversion"],
+  gpuprices: ["gpu-premium"],
+  aispending: ["ai-receipt"],
 };
-const WORLDWIDE_CASES = ["earthquery", "cyclonewatch", "hazardlens"];
 
-function readHash(): { context: Context; dataset: DatasetId } {
-  if (typeof window === "undefined") return { context: "toronto", dataset: "parking" };
+function readHash(): DatasetId {
+  if (typeof window === "undefined") return "parking";
   const h = window.location.hash.replace("#", "");
-  if (h === "worldwide" || WORLDWIDE_CASES.includes(h)) return { context: "worldwide", dataset: "parking" };
   for (const d of DATASET_IDS) {
-    if (h === d || DATASET_CASES[d].includes(h)) return { context: "toronto", dataset: d };
+    if (h === d || DATASET_CASES[d].includes(h)) return d;
   }
-  return { context: "toronto", dataset: "parking" };
+  return "parking";
 }
 
 export default function ShowcasePage() {
@@ -58,10 +55,7 @@ export default function ShowcasePage() {
   const s = t.storiesPage;
   // Initialize to the server-rendered default so hydration matches; the URL
   // hash is applied after mount (see effect below).
-  const [{ context, dataset }, setSel] = useState<{ context: Context; dataset: DatasetId }>({
-    context: "toronto",
-    dataset: "parking",
-  });
+  const [dataset, setDataset] = useState<DatasetId>("parking");
   const labels: CiteLabels & { howWeKnow: string } = {
     howWeKnow: s.howWeKnow,
     cite: s.cite,
@@ -72,21 +66,20 @@ export default function ShowcasePage() {
     exploreProject: s.exploreProject,
   };
 
-  const select = useCallback((c: Context, d: DatasetId) => {
-    setSel({ context: c, dataset: d });
-    const target = c === "worldwide" ? "worldwide" : d;
-    window.history.replaceState(null, "", `#${target}`);
+  const select = useCallback((d: DatasetId) => {
+    setDataset(d);
+    window.history.replaceState(null, "", `#${d}`);
     document.getElementById("usecases")?.scrollIntoView({ behavior: "smooth", block: "start" });
   }, []);
 
   // apply the URL hash after mount (server has no window.location)
   useEffect(() => {
-    setSel(readHash());
+    setDataset(readHash());
   }, []);
 
   // keep selection in sync if the hash changes externally
   useEffect(() => {
-    const onHash = () => setSel(readHash());
+    const onHash = () => setDataset(readHash());
     window.addEventListener("hashchange", onHash);
     return () => window.removeEventListener("hashchange", onHash);
   }, []);
@@ -103,55 +96,32 @@ export default function ShowcasePage() {
         </div>
       </section>
 
-      {/* context switcher */}
+      {/* dataset switcher */}
       <div className="mx-auto max-w-[1392px] px-6">
-        <div className="mx-auto flex w-fit rounded-full border border-line bg-paper-warm p-1.5" role="tablist" aria-label="context">
-          {(["toronto", "worldwide"] as const).map((c) => (
-            <button
-              key={c}
-              role="tab"
-              aria-selected={context === c}
-              onClick={() => select(c, dataset)}
-              className={`rounded-full px-6 py-2.5 text-[15px] font-semibold transition sm:px-10 ${
-                context === c ? "bg-ink text-white" : "text-ink/60 hover:text-ink"
-              }`}
-            >
-              {c === "toronto" ? s.contextToronto : s.contextWorldwide}
-            </button>
-          ))}
-        </div>
-
-        {/* dataset switcher */}
-        {context === "toronto" && (
-          <div className="mx-auto mt-6 max-w-[880px]">
-            <div className="-mx-6 overflow-x-auto px-6 pb-2">
-              <div className="flex w-max gap-2">
-                {DATASET_IDS.map((d) => (
-                  <button
-                    key={d}
-                    onClick={() => select("toronto", d)}
-                    aria-pressed={dataset === d}
-                    className={`whitespace-nowrap rounded-full border px-4 py-2 text-[14px] font-medium transition ${
-                      dataset === d
-                        ? "border-canada bg-canada text-white"
-                        : "border-line bg-paper text-ink/65 hover:border-ink/30 hover:text-ink"
-                    }`}
-                  >
-                    {datasetName(d)}
-                  </button>
-                ))}
-              </div>
+        <div className="mx-auto mt-2 max-w-[880px]">
+          <div className="-mx-6 overflow-x-auto px-6 pb-2">
+            <div className="flex w-max gap-2">
+              {DATASET_IDS.map((d) => (
+                <button
+                  key={d}
+                  onClick={() => select(d)}
+                  aria-pressed={dataset === d}
+                  className={`whitespace-nowrap rounded-full border px-4 py-2 text-[14px] font-medium transition ${
+                    dataset === d
+                      ? "border-canada bg-canada text-white"
+                      : "border-line bg-paper text-ink/65 hover:border-ink/30 hover:text-ink"
+                  }`}
+                >
+                  {datasetName(d)}
+                </button>
+              ))}
             </div>
           </div>
-        )}
+        </div>
       </div>
 
       <div id="usecases" className="mx-auto max-w-[1392px] scroll-mt-24 px-6">
-        {context === "worldwide" ? (
-          <WorldwideCases labels={labels} lang={lang} />
-        ) : dataset === "newquestions" ? (
-          <NewQuestionsCases labels={labels} lang={lang} />
-        ) : dataset === "crosscutting" ? (
+        {dataset === "crosscutting" ? (
           <CrosscuttingCases labels={labels} lang={lang} />
         ) : dataset === "parking" ? (
           <ParkingCases labels={labels} lang={lang} />
@@ -169,8 +139,6 @@ export default function ShowcasePage() {
           <WatermainCases labels={labels} lang={lang} />
         ) : dataset === "codebooks" ? (
           <CodebookCases labels={labels} lang={lang} />
-        ) : dataset === "citysignal" ? (
-          <CitysignalCases labels={labels} lang={lang} />
         ) : (
           <NewerCases dataset={dataset} labels={labels} lang={lang} />
         )}

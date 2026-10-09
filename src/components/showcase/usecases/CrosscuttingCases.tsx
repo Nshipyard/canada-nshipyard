@@ -556,6 +556,11 @@ export default function CrosscuttingCases({ labels, lang }: { labels: CiteLabels
 
   return (
     <>
+      <p className="mx-auto max-w-[880px] border-t border-line py-10 text-[16px] leading-relaxed text-ink/70">
+        {lang === "fr"
+          ? "Chaque carte ci-dessous croise deux de nos jeux de données ou plus : ce que l'un montre seul ne suffit pas, c'est la combinaison qui révèle l'insight."
+          : "Each card below joins two or more of our datasets: what either one shows on its own is not enough, the combination is what reveals the insight."}
+      </p>
       {/* 1. growth vs pipes */}
       <UseCaseCard usecase={uc(0)} labels={labels} lang={lang}>
         <div className="rounded-[28px] border border-line bg-paper-warm px-5 py-6 sm:px-8">

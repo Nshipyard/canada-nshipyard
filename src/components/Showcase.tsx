@@ -18,7 +18,7 @@ export default function Showcase() {
         </div>
 
         <div className="mx-auto mt-14 grid max-w-[1200px] grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {t.showcase.items.map((s) => {
+          {t.showcase.items.slice(0, 9).map((s) => {
             const live = !!s.url;
             const card = (
               <>
