@@ -54,7 +54,7 @@ export default function Nav() {
           </span>
         </a>
 
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-8 xl:flex">
           {links.map((l) => (
             <a key={l.href} href={l.href} className="text-[15px] font-medium text-ink/70 hover:text-ink">
               {l.label}
@@ -85,7 +85,7 @@ export default function Nav() {
         </nav>
 
         <button
-          className="rounded-full border border-line px-4 py-2 text-[15px] font-medium md:hidden"
+          className="rounded-full border border-line px-4 py-2 text-[15px] font-medium xl:hidden"
           onClick={() => setOpen(!open)}
           aria-expanded={open}
         >
@@ -94,7 +94,7 @@ export default function Nav() {
       </div>
 
       {open && (
-        <div className="absolute inset-x-0 top-full border-b border-line bg-paper/95 px-6 py-4 shadow-[0_24px_48px_rgba(10,15,30,0.12)] backdrop-blur md:hidden">
+        <div className="absolute inset-x-0 top-full border-b border-line bg-paper/95 px-6 py-4 shadow-[0_24px_48px_rgba(10,15,30,0.12)] backdrop-blur xl:hidden">
           <div className="flex flex-col gap-3">
             {links.map((l) => (
               <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="text-[16px] font-medium">
