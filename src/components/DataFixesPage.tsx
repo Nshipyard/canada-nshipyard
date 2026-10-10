@@ -186,14 +186,16 @@ export default function DataFixesPage() {
               </div>
 
               <div className="mt-6 flex items-center gap-5 text-[15px] font-medium">
-                <a
-                  href={e.url}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-canada hover:text-canada-dark"
-                >
-                  {df.explore} {"\u2192"}
-                </a>
+                {e.url ? (
+                  <a
+                    href={e.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-canada hover:text-canada-dark"
+                  >
+                    {df.explore} {"\u2192"}
+                  </a>
+                ) : null}
                 <a
                   href={`https://github.com/Nshipyard/${e.repo}`}
                   target="_blank"
