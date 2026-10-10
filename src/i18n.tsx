@@ -36,7 +36,7 @@ const en = {
       { value: "722,000", label: "street-name variants across parking tickets, entered by hand" },
       { value: "57.8%", label: "of building-permit cost fields are non-numeric" },
       { value: "600+", label: "311 problem codes, in a taxonomy retired in 2019" },
-      { value: "140 → 158", label: "Toronto neighbourhoods before and after the boundary re-cut. Any trend crossing it compares two different places." },
+      { value: "$15.1B", label: "of phantom spend sitting in the published vendor-spend totals" },
     ],
   },
   projects: {
@@ -1182,7 +1182,7 @@ const fr: Dict = {
       { value: "722 000", label: "variantes de noms de rue dans les contraventions, saisies à la main" },
       { value: "57,8 %", label: "des champs de coût des permis ne sont pas numériques" },
       { value: "600+", label: "codes de problème dans le 311, dans une taxonomie abandonnée en 2019" },
-      { value: "140 → 158", label: "quartiers de Toronto avant et après le redécoupage. Toute tendance qui le traverse compare des endroits différents." },
+      { value: "15,1 G$", label: "de dépenses fantômes dans les totaux publiés" },
     ],
   },
   projects: {
