@@ -8,16 +8,63 @@ const LABELS: Record<Lang, { download: string; share: string; copy: string; copi
   fr: { download: "Télécharger le PNG", share: "Partager l’image", copy: "Copier la légende", copied: "Copié", explore: "Explorer les données" },
 };
 
+function ShareIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 15V3m0 0L8 7m4-4l4 4" />
+      <path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
+    </svg>
+  );
+}
+
+function DownloadIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 3v12m0 0l-4-4m4 4l4-4" />
+      <path d="M5 21h14" />
+    </svg>
+  );
+}
+
+function CopyIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+      <rect x="9" y="9" width="12" height="12" rx="2" />
+      <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" />
+    </svg>
+  );
+}
+
+function CheckIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+      <path d="M4 12.5l5 5L20 6.5" />
+    </svg>
+  );
+}
+
+function ExternalIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+      <path d="M14 4h6v6" />
+      <path d="M20 4L10 14" />
+      <path d="M20 14v5a2 2 0 01-2 2H5a2 2 0 01-2-2V6a2 2 0 012-2h5" />
+    </svg>
+  );
+}
+
 export function CardActions({
   slug,
   lang,
   shareText,
   projectUrl,
+  dark = false,
 }: {
   slug: string;
   lang: Lang;
   shareText: string;
   projectUrl: string;
+  dark?: boolean;
 }) {
   const [copied, setCopied] = useState(false);
   const [canShareFile, setCanShareFile] = useState(false);
@@ -66,41 +113,43 @@ export function CardActions({
   };
 
   const btn: React.CSSProperties = {
-    fontFamily: "Archivo, sans-serif",
-    fontWeight: 600,
-    fontSize: 14,
-    padding: "10px 18px",
-    borderRadius: 999,
-    border: "1px solid rgba(10,15,30,0.18)",
-    background: "#fff",
-    color: "#0a0f1e",
-    cursor: "pointer",
-    textDecoration: "none",
+    width: 40,
+    height: 40,
+    borderRadius: "50%",
     display: "inline-flex",
     alignItems: "center",
-    gap: 8,
+    justifyContent: "center",
+    cursor: "pointer",
+    textDecoration: "none",
+    flexShrink: 0,
   };
+  const primary: React.CSSProperties = {
+    ...btn,
+    background: "#0a0f1e",
+    color: "#fff",
+    border: "1px solid #0a0f1e",
+  };
+  const ghost: React.CSSProperties = dark
+    ? { ...btn, background: "transparent", color: "#fff", border: "1px solid rgba(255,255,255,0.35)" }
+    : { ...btn, background: "#fff", color: "#0a0f1e", border: "1px solid rgba(10,15,30,0.18)" };
+
   return (
-    <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginTop: 16 }}>
+    <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
       {canShareFile ? (
-        <button onClick={share} style={{ ...btn, background: "#0a0f1e", color: "#fff", borderColor: "#0a0f1e" }} type="button">
-          {t.share}
+        <button onClick={share} style={primary} type="button" title={t.share} aria-label={t.share}>
+          <ShareIcon />
         </button>
       ) : (
-        <a
-          href={fileUrl}
-          download={fileName}
-          style={{ ...btn, background: "#0a0f1e", color: "#fff", borderColor: "#0a0f1e" }}
-        >
-          {t.download}
+        <a href={fileUrl} download={fileName} style={primary} title={t.download} aria-label={t.download}>
+          <DownloadIcon />
         </a>
       )}
-      <button onClick={copy} style={btn} type="button">
-        {copied ? t.copied : t.copy}
+      <button onClick={copy} style={ghost} type="button" title={copied ? t.copied : t.copy} aria-label={t.copy}>
+        {copied ? <CheckIcon /> : <CopyIcon />}
       </button>
       {projectUrl && (
-        <a href={projectUrl} target="_blank" rel="noreferrer" style={btn}>
-          {t.explore}
+        <a href={projectUrl} target="_blank" rel="noreferrer" style={ghost} title={t.explore} aria-label={t.explore}>
+          <ExternalIcon />
         </a>
       )}
     </div>

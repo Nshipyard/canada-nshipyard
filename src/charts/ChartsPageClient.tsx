@@ -1,9 +1,12 @@
 "use client";
 
+import { useState } from "react";
 import { useLang } from "@/i18n";
 import { CHARTS } from "@/charts/chart-data";
+import type { ChartDef } from "@/charts/chart-data";
 import { ShareCard, OpenNshipyardMark } from "@/charts/ShareCard";
 import { CardActions } from "@/charts/CardActions";
+import { ChartLightbox } from "@/charts/ChartLightbox";
 
 const COPY = {
   en: {
@@ -23,6 +26,7 @@ const COPY = {
 export default function ChartsPageClient() {
   const { lang } = useLang();
   const t = COPY[lang];
+  const [open, setOpen] = useState<ChartDef | null>(null);
   return (
     <main style={{ maxWidth: 1240, margin: "0 auto", padding: "56px 24px 80px" }}>
       <div style={{ display: "flex", alignItems: "center", gap: 20, marginBottom: 18 }}>
@@ -50,24 +54,36 @@ export default function ChartsPageClient() {
         {CHARTS.map((def) => (
           <div key={def.slug}>
             <div
+              role="button"
+              tabIndex={0}
+              title={lang === "fr" ? "Voir en plein écran" : "View fullscreen"}
+              aria-label={lang === "fr" ? "Voir en plein écran" : "View fullscreen"}
+              onClick={() => setOpen(def)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") setOpen(def);
+              }}
               style={{
                 border: "1px solid rgba(10,15,30,0.12)",
                 borderRadius: 6,
                 overflow: "hidden",
                 boxShadow: "0 18px 50px -24px rgba(20,16,8,0.35)",
+                cursor: "zoom-in",
               }}
             >
               <ShareCard def={def} lang={lang} id={`chart-${def.slug}`} />
             </div>
-            <CardActions
-              slug={def.slug}
-              lang={lang}
-              shareText={lang === "fr" ? def.fr.shareText : def.shareText}
-              projectUrl={def.projectUrl}
-            />
+            <div style={{ marginTop: 16 }}>
+              <CardActions
+                slug={def.slug}
+                lang={lang}
+                shareText={lang === "fr" ? def.fr.shareText : def.shareText}
+                projectUrl={def.projectUrl}
+              />
+            </div>
           </div>
         ))}
       </div>
+      {open && <ChartLightbox def={open} lang={lang} onClose={() => setOpen(null)} />}
     </main>
   );
 }
