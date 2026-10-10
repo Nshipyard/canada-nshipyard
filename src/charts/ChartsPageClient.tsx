@@ -46,13 +46,7 @@ export default function ChartsPageClient() {
       <p style={{ fontSize: 18, color: "#3c3a33", maxWidth: 760, lineHeight: 1.6, margin: "0 0 12px" }}>{t.sub}</p>
       <p style={{ fontSize: 15, color: "#6f695a", maxWidth: 760, lineHeight: 1.6, margin: "0 0 48px" }}>{t.note}</p>
 
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 460px), 1fr))",
-          gap: "48px 40px",
-        }}
-      >
+      <div className="grid grid-cols-2 gap-5 md:grid-cols-3 md:gap-8">
         {CHARTS.map((def) => (
           <div key={def.slug}>
             <div
