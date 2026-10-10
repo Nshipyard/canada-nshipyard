@@ -160,6 +160,16 @@ const en = {
         chartSlug: "erwaits-slowest-fastest",
       },
       {
+        repo: "toronto-tree-canopy",
+        name: "Toronto Tree Canopy",
+        tag: "Toronto",
+        desc: "Will trees block this build? Per-lot tree screening from 2023 LiDAR: tall-canopy area on the lot and the 6 m neighbour band, with calibrated odds a mature tree (30 cm trunk or more) or a Distinctive tree (over 61 cm) stands there. Ward 12 pilot, open data and open methods.",
+        user: "For builders, architects, and developers planning near mature trees",
+        url: "https://trees.canada.nshipyard.com",
+        cta: "visit" as const,
+        status: "live" as const,
+      },
+      {
         repo: "toronto-geo-concordances",
         name: "Geo Concordances",
         tag: "Toronto",
@@ -1785,6 +1795,16 @@ const fr: Dict = {
         cta: "visit" as const,
         status: "live" as const,
         chartSlug: "erwaits-slowest-fastest",
+      },
+      {
+        repo: "toronto-tree-canopy",
+        name: "Canopée arborée de Toronto",
+        tag: "Toronto",
+        desc: "Les arbres bloqueront-ils ce chantier? Dépistage arboricole par lot à partir du LiDAR 2023 : canopée haute sur le terrain et dans la bande voisine de 6 m, avec probabilités calibrées d'arbre mature (tronc de 30 cm ou plus) ou d'arbre distinctif (plus de 61 cm). Pilote du quartier 12, donnees et methodes ouvertes.",
+        user: "Pour les constructeurs, architectes et promoteurs qui planifient près d'arbres matures",
+        url: "https://trees.canada.nshipyard.com",
+        cta: "visit" as const,
+        status: "live" as const,
       },
       {
         repo: "toronto-geo-concordances",
