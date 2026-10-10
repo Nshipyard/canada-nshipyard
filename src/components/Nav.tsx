@@ -33,6 +33,7 @@ export default function Nav() {
     { href: `${prefix}#projects`, label: t.nav.projects },
     { href: `${prefix}#tools`, label: t.nav.tools },
     { href: `${prefix}#showcase`, label: t.nav.showcase },
+    { href: "/charts", label: t.nav.charts },
     { href: `${prefix}#developers`, label: t.nav.developers },
   ];
 
