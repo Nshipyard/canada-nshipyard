@@ -46,8 +46,6 @@ export default function Projects() {
               {p.status === "live" && (
                 <a
                   href={p.url}
-                  target="_blank"
-                  rel="noreferrer"
                   className="text-canada hover:text-canada-dark"
                 >
                   {t.projects[p.cta]} →
@@ -55,8 +53,6 @@ export default function Projects() {
               )}
               <a
                 href={`https://github.com/Nshipyard/${p.repo}`}
-                target="_blank"
-                rel="noreferrer"
                 className="text-ink/60 hover:text-ink"
               >
                 {t.projects.source} →
