@@ -62,7 +62,7 @@ const en = {
       },
       {
         repo: "canada-facility-crosswalk",
-        name: "The Facility Crosswalk",
+        name: "Carbon Emitters, Matched",
         tag: "Canada",
         desc: "One facility-identity table linking ECCC's toxic-pollutant registry (NPRI, the National Pollutant Release Inventory) to its carbon-emissions registry (GHGRP, the Greenhouse Gas Reporting Program): 1,546 of 1,879 facilities matched for 2024. Suncor's Oil Sands ranks 1st in carbon and 5th in toxics among matched facilities.",
         user: "For environmental journalists, researchers, and investors",
@@ -844,7 +844,7 @@ const en = {
       },
       {
         id: "crosswalk",
-        name: "The Facility Crosswalk",
+        name: "Carbon Emitters, Matched",
         tag: "Canada",
         dataset: "ECCC NPRI bulk files for all years plus geolocations master, and GHGRP emissions-by-gas 2004 to present, via open.canada.ca",
         vintage: "Source vintage: October 2026 (2024 reporting year)",
@@ -1425,7 +1425,7 @@ const en = {
       },
       {
         id: "facility-crosswalk",
-        name: "The Facility Crosswalk",
+        name: "Carbon Emitters, Matched",
         tag: "Canada",
         dataset: "Environment and Climate Change Canada: Greenhouse Gas Reporting Program (2024); National Pollutant Release Inventory (2024)",
         vintage: "Source vintage: 2024 on both sides",
@@ -1679,7 +1679,7 @@ const fr: Dict = {
       },
       {
         repo: "canada-facility-crosswalk",
-        name: "La table de correspondance des installations",
+        name: "Émetteurs de carbone, appariés",
         tag: "Canada",
         desc: "Une table d'identité des installations reliant le registre des polluants toxiques d'ECCC (INRP, l'Inventaire national des rejets de polluants) à son registre des émissions de carbone (PDGES, le Programme de déclaration des gaz à effet de serre) : 1 546 des 1 879 installations appariées pour 2024. Les sables bitumineux de Suncor arrivent 1ers en carbone et 5es en toxiques parmi les installations appariées.",
         user: "Pour les journalistes environnementaux, les chercheurs et les investisseurs",
@@ -2453,7 +2453,7 @@ const fr: Dict = {
         url: "https://facilities.canada.nshipyard.com",
         tag: "Canada",
         id: "crosswalk",
-        name: "La table de correspondance des installations",
+        name: "Émetteurs de carbone, appariés",
         dataset: "Fichiers bruts de l'INRP d'ECCC pour toutes les années plus fichier maître de géolocalisation, et émissions par gaz du PDGES de 2004 à aujourd'hui, via open.canada.ca",
         vintage: "Millésime de la source : octobre 2026 (année de déclaration 2024)",
         problems: [
@@ -3030,7 +3030,7 @@ const fr: Dict = {
       },
       {
         id: "facility-crosswalk",
-        name: "La table de correspondance des installations",
+        name: "Émetteurs de carbone, appariés",
         tag: "Canada",
         dataset: "Environnement et Changement climatique Canada : Programme de déclaration des gaz à effet de serre (2024); Inventaire national des rejets de polluants (2024)",
         vintage: "Données 2024 des deux côtés",

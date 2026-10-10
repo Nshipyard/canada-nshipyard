@@ -1144,7 +1144,7 @@ export const CHARTS: ChartDef[] = [
   {
       slug: "shortages-tier3-companies",
       kicker: "Critical (Tier 3) shortage reports by company · Health Canada",
-      headline: "Ten companies hold 49 of the 59 critical shortages. Three hold 29.",
+      headline: "Ten companies hold 49 of Canada's 59 critical drug shortages. Three hold 29.",
       deck: "Tier 3 is Health Canada's critical tier: the shortages with the greatest potential impact on the drug supply and health care system, assigned by the federal-provincial Tier Assignment Committee. The critical tier concentrates harder than raw report volume: Apotex files the most reports overall (3,633) but holds only 3 Tier 3 reports.",
       note: "59 Tier 3 reports across 24 companies. Tier 3 designations ran 4 in 2022 to 28 in 2025; the flag first appears in 2022, so the curve mixes real growth with the flag's rollout.",
       source: "Health Product Shortages Canada bulk extract, archived 2025-12-20.",
@@ -1153,7 +1153,7 @@ export const CHARTS: ChartDef[] = [
       projectName: "Drug Shortages, Ranked",
       projectUrl: "https://shortages.canada.nshipyard.com",
       fr: {
-        headline: "Dix entreprises détiennent 49 des 59 pénuries critiques. Trois en détiennent 29.",
+        headline: "Dix entreprises détiennent 49 des 59 pénuries critiques de médicaments du Canada. Trois en détiennent 29.",
         deck: "Le niveau 3 est le niveau critique de Santé Canada : les pénuries ayant le plus grand impact potentiel sur l'approvisionnement en médicaments et le système de soins de santé, attribuées par le comité fédéral-provincial d'attribution des niveaux. Le niveau critique se concentre plus que le volume brut de rapports : Apotex dépose le plus de rapports au total (3 633) mais ne détient que 3 rapports de niveau 3.",
         kicker: "Rapports de pénurie critique (niveau 3) par entreprise · Santé Canada",
         note: "59 rapports de niveau 3 dans 24 entreprises. Désignations de niveau 3 : 4 en 2022 contre 28 en 2025; le drapeau apparaît d'abord en 2022, donc la courbe mélange croissance réelle et déploiement du drapeau.",
@@ -1214,16 +1214,16 @@ export const CHARTS: ChartDef[] = [
   {
       slug: "crosswalk-match-rate",
       kicker: "Facility matching, 2024 · ECCC registries",
-      headline: "1,546 of 1,879 carbon emitters matched to the toxics registry. Three quarters needed no guessing.",
+      headline: "1,546 of 1,879 carbon emitters matched to the toxics registry. Three in four matched on the ID the facility reported itself.",
       deck: "The Greenhouse Gas Reporting Program asks facilities to self-report their NPRI ID, but 426 write the bare digit 0 and 22 leave it blank. 1,422 anchored on the self-reported ID; 124 more recovered by name, address, and company resolution with a spatial check; 144 ambiguous near-matches quarantined, not guessed.",
       note: "2024 reporting year. 333 facilities remain unmatched, many of them pipeline systems that report GHGs but have no NPRI footprint.",
       source: "ECCC NPRI bulk files and GHGRP emissions-by-gas via open.canada.ca, retrieved Oct 10, 2026.",
       shareText:
         "1,546 of 1,879 Canadian carbon emitters matched to the toxics registry (82.3%). Three quarters matched on the self-reported ID alone.",
-      projectName: "The Facility Crosswalk",
+      projectName: "Carbon Emitters, Matched",
       projectUrl: "https://facilities.canada.nshipyard.com",
       fr: {
-        headline: "1 546 des 1 879 émetteurs de carbone appariés au registre des toxiques. Les trois quarts sans devinette.",
+        headline: "1 546 des 1 879 émetteurs de carbone appariés au registre des toxiques. Les trois quarts sur l'ID déclaré par l'installation elle-même.",
         deck: "Le Programme de déclaration des gaz à effet de serre demande aux installations de déclarer leur ID INRP, mais 426 inscrivent le simple chiffre 0 et 22 le laissent vide. 1 422 appariements directs sur l'ID déclaré; 124 de plus récupérées par résolution de noms, d'adresses et d'entreprises avec contrôle spatial; 144 quasi-appariements ambigus mis en quarantaine, pas devinés.",
         kicker: "Appariement des installations, 2024 · registres d'ECCC",
         note: "Année de déclaration 2024. 333 installations restent non appariées, dont beaucoup de réseaux pipeliniers qui déclarent des GES sans empreinte INRP.",
@@ -1253,7 +1253,7 @@ export const CHARTS: ChartDef[] = [
       source: "ECCC NPRI bulk files via open.canada.ca, retrieved Oct 10, 2026.",
       shareText:
         "Copper Mountain Mine reported 258.3M kg of toxic releases and disposals in 2024, the most in Canada, against only 43,028 t CO2e. Four of the top five are mines.",
-      projectName: "The Facility Crosswalk",
+      projectName: "Carbon Emitters, Matched",
       projectUrl: "https://facilities.canada.nshipyard.com",
       fr: {
         headline: "Les plus gros pollueurs toxiques sont des mines. Le moteur, c'est l'élimination, pas l'air.",
@@ -1282,7 +1282,7 @@ export const CHARTS: ChartDef[] = [
   {
       slug: "vacancies-wage-quadrants",
       kicker: "Vacancy duration vs offered wage, 2026Q2 · StatCan JVWS",
-      headline: "Health care waits longest at good pay. Trades wait long at low pay.",
+      headline: "Health jobs go unfilled longest despite above-median pay. Trades jobs go unfilled because pay is below median.",
       deck: "Health occupations: 63,850 vacancies, 45.9% open 90+ days, $34.85/hr offered, above the $30.95 median. Pay beats the median and posts still do not fill: a supply problem. Trades, transport and equipment operators: 105,255 vacancies, 27.7% open 90+ days, $29.70/hr offered, below the median: a wage problem. Dashed medians split the board at 22.2% and $30.95/hr.",
       note: "Broad occupation groups, unadjusted. 322,588 suppressed or unreliable cells quarantined before aggregation.",
       source: "Statistics Canada table 14-10-0443 (Job Vacancy and Wage Survey), 2026Q2.",
@@ -1291,7 +1291,7 @@ export const CHARTS: ChartDef[] = [
       projectName: "Vacancy Duration vs Offered Wage",
       projectUrl: "https://vacancies.canada.nshipyard.com",
       fr: {
-        headline: "La santé attend le plus longtemps à bon salaire. Les métiers attendent longtemps à bas salaire.",
+        headline: "Les postes en santé restent vacants le plus longtemps malgré un salaire au-dessus de la médiane. Les postes dans les métiers restent vacants parce que le salaire est sous la médiane.",
         deck: "Professions de la santé : 63 850 postes vacants, 45,9 % ouverts depuis 90 jours ou plus, 34,85 $/h offerts, au-dessus de la médiane de 30,95 $. Le salaire bat la médiane et les postes ne se comblent toujours pas : un problème d'offre. Métiers, transport et machinerie : 105 255 postes vacants, 27,7 % ouverts depuis 90 jours ou plus, 29,70 $/h offerts, sous la médiane : un problème de salaire. Les médianes en pointillés coupent le tableau à 22,2 % et 30,95 $/h.",
         kicker: "Durée des postes vacants contre salaire offert, T2 2026 · EPVS de StatCan",
         note: "Grands groupes de professions, non désaisonnalisé. 322 588 cellules supprimées ou non fiables mises en quarantaine avant agrégation.",
@@ -1502,7 +1502,7 @@ export const CHARTS: ChartDef[] = [
   {
     "slug": "powertrade-margin-board",
     "kicker": "2025 corridor margins, ranked",
-    "headline": "New England is the runaway margin leader",
+    "headline": "New England captures the widest margin on Canadian electricity: $102.60 per MWh",
     "deck": "In 2025 the East to New England corridor captured $102.60 per MWh of margin: Canada exported at $53.24 while New England retail averaged $155.85. Six corridors, prices in USD per MWh.",
     "note": "Margin = US retail price minus Canadian export price, both converted to USD. Retail includes distribution and utility costs, so the margin is the full published spread, not pure profit on the wire.",
     "source": "Canada Energy Regulator Electricity Trade Summary (2026-09-25); US EIA Form 861 annual 2010-2025; Bank of Canada FXAUSDCAD; FRED DEXCAUS; computed by the project",
@@ -1511,7 +1511,7 @@ export const CHARTS: ChartDef[] = [
     "projectUrl": "https://powertrade.canada.nshipyard.com",
     "fr": {
       "kicker": "Marges 2025 par corridor, classées",
-      "headline": "La Nouvelle-Angleterre mène largement les marges",
+      "headline": "La Nouvelle-Angleterre capte la marge la plus large sur l'électricité canadienne : 102,60 $ par MWh",
       "deck": "En 2025, le corridor Est vers la Nouvelle-Angleterre a capté 102,60 $ de marge par MWh : le Canada a exporté à 53,24 $ pendant que le détail de la Nouvelle-Angleterre atteignait en moyenne 155,85 $. Six corridors, prix en $US par MWh.",
       "note": "Marge = prix de détail américain moins prix d'exportation canadien, tous deux convertis en $US. Le détail inclut la distribution et les coûts des services publics, donc la marge est l'écart total publié, pas un profit pur sur le fil.",
       "source": "Régie de l'énergie du Canada, résumé du commerce de l'électricité (2026-09-25); formulaire 861 annuel de l'EIA des États-Unis 2010-2025; FXAUSDCAD de la Banque du Canada; DEXCAUS de la FRED; calculé par le projet",
@@ -1565,7 +1565,7 @@ export const CHARTS: ChartDef[] = [
   {
     "slug": "emissions-anchors",
     "kicker": "Identity resolution across two registries",
-    "headline": "458 of 513 facilities anchored, validated to within 3,392 tonnes",
+    "headline": "458 of 513 Ontario facilities matched across both emissions registries; worst gap is 3,392 tonnes",
     "deck": "MECP is Ontario's Ministry of the Environment, Conservation and Parks program; GHGRP is the federal Greenhouse Gas Reporting Program. The two name the same plants differently with no shared key. 458 of 513 canonical facilities anchor on exact normalized name plus same city (89.3%).",
     "note": "The fuzzy tier (difflib at 0.90 or above) produced zero merges by design: strict rules rejected every near-miss rather than guessing. Thunder Bay Operations looks like an outlier because Ontario's total includes biomass CO2 and the federal total excludes it; after that adjustment the two agree within 1 tonne.",
     "source": "Ontario MECP Greenhouse Gas Emissions Reporting By Facility 2010-2024 (Reg 390/18); ECCC federal GHGRP Emissions by Gas via open.canada.ca; computed by the project",
@@ -1574,7 +1574,7 @@ export const CHARTS: ChartDef[] = [
     "projectUrl": "https://emissions.canada.nshipyard.com",
     "fr": {
       "kicker": "Résolution d'identités entre deux registres",
-      "headline": "458 installations sur 513 appariées, validées à 3 392 tonnes près",
+      "headline": "458 installations ontariennes sur 513 appariées entre les deux registres d'émissions; plus grand écart : 3 392 tonnes",
       "deck": "Le MECP est le programme du ministère de l'Environnement, de la Protection de la nature et des Parcs de l'Ontario; le PDGES est le Programme de déclaration des gaz à effet de serre fédéral. Les deux nomment les mêmes usines différemment sans clé commune. 458 des 513 installations canoniques s'apparient directement sur le nom normalisé exact plus la même ville (89,3 %).",
       "note": "Le niveau flou (difflib à 0,90 ou plus) n'a produit aucun appariement, par conception : les règles strictes ont rejeté chaque quasi-appariement plutôt que de deviner. Thunder Bay Operations semble une exception parce que le total ontarien inclut le CO2 de biomasse et le total fédéral l'exclut; après cet ajustement, les deux concordent à 1 tonne près.",
       "source": "Déclaration des émissions de gaz à effet de serre par installation du MECP de l'Ontario 2010-2024 (Règl. 390/18); émissions par gaz du PDGES fédéral d'ECCC via open.canada.ca; calculé par le projet",
@@ -1626,21 +1626,21 @@ export const CHARTS: ChartDef[] = [
   },
   {
     "slug": "drugprices-top-gaps",
-    "kicker": "Per-unit price ratios, 12 widest of 194 matched molecules · Medicare Part D vs Ontario Drug Benefit",
-    "headline": "Rivaroxaban costs 66.7x more in the US than in Canada. Four molecules exceed 40x.",
-    "deck": "The widest gaps cluster in oral generics with cheap Canadian supply (rivaroxaban 66.7x, dapagliflozin 47.8x, apixaban 32.3x) and branded eye drops (latanoprostene bunod 64.5x, bimatoprost 41.5x). Bar length is the ratio, not dollars, because per-unit prices differ by 1000x across molecules.",
+    "kicker": "Per-unit price ratios, 12 widest of 194 matched drugs · Medicare Part D vs Ontario Drug Benefit",
+    "headline": "Rivaroxaban costs 66.7x more in the US than in Canada. Four drugs exceed 40x.",
+    "deck": "The widest gaps cluster in oral generics with cheap Canadian supply (rivaroxaban 66.7x, dapagliflozin 47.8x, apixaban 32.3x) and branded eye drops (latanoprostene bunod 64.5x, bimatoprost 41.5x). Bar length is the ratio, not dollars, because per-unit prices differ by 1000x across drugs.",
     "note": "Canadian prices use the lowest Ontario Drug Benefit price per unit; the US price is spend-weighted across strengths. US prices are gross of confidential manufacturer rebates, so every ratio is an upper bound.",
     "source": "CMS Medicare Part D Spending by Drug 2024 (published June 25, 2026); Ontario Drug Benefit e-formulary (retrieved Oct 10, 2026); RxNorm; Bank of Canada 2024 daily average, 1 USD = 1.3698 CAD.",
-    "shareText": "Rivaroxaban costs $17.30 per tablet in the US vs $0.26 in Canada: a 66.7x gap. The median of 194 matched molecules is 4.4x.",
+    "shareText": "Rivaroxaban costs $17.30 per tablet in the US vs $0.26 in Canada: a 66.7x gap. The median of 194 matched drugs is 4.4x.",
     "projectName": "The Drug Price Gap",
     "projectUrl": "https://drugprices.canada.nshipyard.com",
     "fr": {
-      "headline": "Le rivaroxaban coûte 66,7 fois plus cher aux États-Unis qu'au Canada. Quatre molécules dépassent 40x.",
-      "deck": "Les écarts les plus larges se concentrent dans les génériques oraux à offre canadienne bon marché (rivaroxaban 66,7x, dapagliflozine 47,8x, apixaban 32,3x) et les collyres de marque (latanoprostène bunod 64,5x, bimatoprost 41,5x). La longueur des barres représente le ratio, pas les dollars, parce que les prix unitaires varient d'un facteur 1000 entre molécules.",
-      "kicker": "Ratios de prix unitaires, 12 plus larges des 194 molécules appariées · Medicare Part D contre régime public ontarien",
+      "headline": "Le rivaroxaban coûte 66,7 fois plus cher aux États-Unis qu'au Canada. Quatre médicaments dépassent 40x.",
+      "deck": "Les écarts les plus larges se concentrent dans les génériques oraux à offre canadienne bon marché (rivaroxaban 66,7x, dapagliflozine 47,8x, apixaban 32,3x) et les collyres de marque (latanoprostène bunod 64,5x, bimatoprost 41,5x). La longueur des barres représente le ratio, pas les dollars, parce que les prix unitaires varient d'un facteur 1000 entre médicaments.",
+      "kicker": "Ratios de prix unitaires, 12 plus larges des 194 médicaments appariés · Medicare Part D contre régime public ontarien",
       "note": "Les prix canadiens utilisent le plus bas prix unitaire du régime public ontarien; le prix américain est pondéré par les dépenses entre les dosages. Les prix américains sont bruts des rabais confidentiels des fabricants, donc chaque ratio est une borne haute.",
       "source": "CMS, dépenses de Medicare Part D par médicament 2024 (publié le 25 juin 2026); formulaire électronique de l'Ontario Drug Benefit (consulté le 10 oct. 2026); RxNorm; moyenne quotidienne 2024 de la Banque du Canada, 1 USD = 1,3698 CAD.",
-      "shareText": "Le rivaroxaban coûte 17,30 $ par comprimé aux États-Unis contre 0,26 $ au Canada : un écart de 66,7x. La médiane des 194 molécules appariées est de 4,4x."
+      "shareText": "Le rivaroxaban coûte 17,30 $ par comprimé aux États-Unis contre 0,26 $ au Canada : un écart de 66,7x. La médiane des 194 médicaments appariés est de 4,4x."
     },
     "chart": {
       "kind": "hbars",
@@ -1664,31 +1664,31 @@ export const CHARTS: ChartDef[] = [
   },
   {
     "slug": "drugprices-median",
-    "kicker": "194 matched molecules · Medicare Part D vs Ontario Drug Benefit",
-    "headline": "The median molecule costs 4.4x more in the US.",
-    "deck": "54 molecules sit under 2x while 61 sit at 8x or more: the gap is structural across the formulary, not a handful of outliers. The 194 molecules cover $125.5B of 2024 Medicare Part D spending, so the gaps describe where most of the money goes.",
+    "kicker": "194 matched drugs · Medicare Part D vs Ontario Drug Benefit",
+    "headline": "The median drug costs 4.4x more in the US.",
+    "deck": "54 drugs sit under 2x while 61 sit at 8x or more: the gap is structural across the formulary, not a handful of outliers. The 194 drugs cover $125.5B of 2024 Medicare Part D spending, so the gaps describe where most of the money goes.",
     "note": "Canadian prices use the lowest Ontario Drug Benefit price per unit; the US price is spend-weighted across strengths. US prices are gross of confidential manufacturer rebates, so every ratio is an upper bound.",
     "source": "CMS Medicare Part D Spending by Drug 2024 (published June 25, 2026); Ontario Drug Benefit e-formulary (retrieved Oct 10, 2026); RxNorm; Bank of Canada 2024 daily average, 1 USD = 1.3698 CAD.",
-    "shareText": "The median of 194 matched molecules costs 4.4x more in the US than in Canada; 61 molecules sit at 8x or more.",
+    "shareText": "The median of 194 matched drugs costs 4.4x more in the US than in Canada; 61 drugs sit at 8x or more.",
     "projectName": "The Drug Price Gap",
     "projectUrl": "https://drugprices.canada.nshipyard.com",
     "fr": {
-      "headline": "La molécule médiane coûte 4,4 fois plus cher aux États-Unis.",
-      "deck": "54 molécules sont sous 2x et 61 à 8x ou plus : l'écart est structurel dans tout le formulaire, pas une poignée d'exceptions. Les 194 molécules couvrent 125,5 G$ de dépenses Medicare Part D 2024, donc les écarts décrivent là où va l'essentiel de l'argent.",
-      "kicker": "194 molécules appariées · Medicare Part D contre régime public ontarien",
+      "headline": "Le médicament médian coûte 4,4 fois plus cher aux États-Unis.",
+      "deck": "54 médicaments sont sous 2x et 61 à 8x ou plus : l'écart est structurel dans tout le formulaire, pas une poignée d'exceptions. Les 194 médicaments couvrent 125,5 G$ de dépenses Medicare Part D 2024, donc les écarts décrivent là où va l'essentiel de l'argent.",
+      "kicker": "194 médicaments appariés · Medicare Part D contre régime public ontarien",
       "note": "Les prix canadiens utilisent le plus bas prix unitaire du régime public ontarien; le prix américain est pondéré par les dépenses entre les dosages. Les prix américains sont bruts des rabais confidentiels des fabricants, donc chaque ratio est une borne haute.",
       "source": "CMS, dépenses de Medicare Part D par médicament 2024 (publié le 25 juin 2026); formulaire électronique de l'Ontario Drug Benefit (consulté le 10 oct. 2026); RxNorm; moyenne quotidienne 2024 de la Banque du Canada, 1 USD = 1,3698 CAD.",
-      "shareText": "La médiane des 194 molécules appariées coûte 4,4 fois plus cher aux États-Unis qu'au Canada; 61 molécules sont à 8x ou plus."
+      "shareText": "La médiane des 194 médicaments appariés coûte 4,4 fois plus cher aux États-Unis qu'au Canada; 61 médicaments sont à 8x ou plus."
     },
     "chart": {
       "kind": "stat",
       "bigValue": "4.4x",
       "bigValueFr": "4,4x",
-      "bigLabel": "Median US-to-Canada price ratio, 194 matched molecules",
-      "bigLabelFr": "Ratio médian de prix États-Unis/Canada, 194 molécules appariées",
+      "bigLabel": "Median US-to-Canada price ratio, 194 matched drugs",
+      "bigLabelFr": "Ratio médian de prix États-Unis/Canada, 194 médicaments appariés",
       "stats": [
         { "value": "66.7x", "valueFr": "66,7x", "label": "Widest gap: rivaroxaban (Xarelto)", "labelFr": "Écart maximal : rivaroxaban (Xarelto)" },
-        { "value": "61", "valueFr": "61", "label": "Molecules at 8x or more", "labelFr": "Molécules à 8x ou plus" },
+        { "value": "61", "valueFr": "61", "label": "Drugs at 8x or more", "labelFr": "Médicaments à 8x ou plus" },
         { "value": "$125.5B", "valueFr": "125,5 G$", "label": "2024 Medicare Part D spend covered", "labelFr": "Dépenses Medicare Part D 2024 couvertes" }
       ]
     }
@@ -1696,7 +1696,7 @@ export const CHARTS: ChartDef[] = [
   {
     "slug": "vendors-concentration",
     "kicker": "Cumulative contract value, 2003-2026 · $463.2B total",
-    "headline": "The top 5 vendors took $75.6B, a 16.3% share of all federal contract dollars.",
+    "headline": "BGIS, Irving Shipbuilding, Vancouver Shipyards, SkyAlyne and Lockheed Martin took $75.6B: 16.3% of all federal contract dollars.",
     "deck": "Shipbuilding and defence dominate the big-ticket awards: BGIS ($19.2B across 22 contracts), Irving Shipbuilding ($19.2B) and Vancouver Shipyards ($16.0B) lead, followed by SkyAlyne ($11.2B) and Lockheed Martin Canada ($10.1B). Names are canonical, merged across spellings.",
     "note": "Bar length is cumulative contract value after contract-level dedup on (reporting office, procurement ID). BGIS, Irving and Vancouver Shipyards are provincially incorporated and do not match the federal registry, which is why registry coverage is 34.5% of dollars despite these giants.",
     "source": "Treasury Board Proactive Publication - Contracts (updated Oct 9, 2026); ISED Federal Corporations bulk files.",
@@ -1704,7 +1704,7 @@ export const CHARTS: ChartDef[] = [
     "projectName": "Federal Vendor Ownership",
     "projectUrl": "https://vendors.canada.nshipyard.com",
     "fr": {
-      "headline": "Les 5 premiers fournisseurs ont pris 75,6 G$, soit 16,3 % de tous les dollars de contrats fédéraux.",
+      "headline": "BGIS, Irving Shipbuilding, Vancouver Shipyards, SkyAlyne et Lockheed Martin ont pris 75,6 G$ : 16,3 % de tous les dollars de contrats fédéraux.",
       "deck": "La construction navale et la défense dominent les gros contrats : BGIS (19,2 G$ sur 22 contrats), Irving Shipbuilding (19,2 G$) et Vancouver Shipyards (16,0 G$) mènent, suivis de SkyAlyne (11,2 G$) et de Lockheed Martin Canada (10,1 G$). Les noms sont canoniques, fusionnés entre les orthographes.",
       "kicker": "Valeur cumulée des contrats, 2003-2026 · total de 463,2 G$",
       "note": "La longueur des barres est la valeur cumulée après déduplication au niveau du contrat sur (bureau déclarant, numéro d'approvisionnement). BGIS, Irving et Vancouver Shipyards sont constitués en province et ne correspondent pas au registre fédéral, d'où la couverture de 34,5 % des dollars malgré ces géants.",
