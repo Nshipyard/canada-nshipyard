@@ -1,6 +1,9 @@
 "use client";
 
 import { useLang } from "@/i18n";
+import { CHARTS } from "@/charts/chart-data";
+import { ShareCard } from "@/charts/ShareCard";
+import { CardActions } from "@/charts/CardActions";
 
 const statusStyle: Record<string, string> = {
   planned: "bg-muted text-ink/60",
@@ -8,8 +11,12 @@ const statusStyle: Record<string, string> = {
   live: "bg-green-50 text-green-700",
 };
 
+type ProjectItem = {
+  chartSlug?: string;
+};
+
 export default function Projects() {
-  const { t } = useLang();
+  const { t, lang } = useLang();
   return (
     <section id="projects" className="mx-auto max-w-[1392px] scroll-mt-20 px-6 py-20 md:py-28">
       <div className="mx-auto max-w-[720px] text-center">
@@ -23,7 +30,10 @@ export default function Projects() {
       </div>
 
       <div className="mx-auto mt-14 grid max-w-[1200px] grid-cols-1 gap-5 md:grid-cols-2">
-        {t.projects.items.map((p) => (
+        {t.projects.items.map((p) => {
+          const chartSlug = (p as ProjectItem).chartSlug;
+          const chart = chartSlug ? CHARTS.find((c) => c.slug === chartSlug) : undefined;
+          return (
           <article
             key={p.repo}
             className="flex flex-col rounded-[40px] border border-line bg-paper p-8 transition hover:border-ink/25 md:p-10"
@@ -41,6 +51,28 @@ export default function Projects() {
             <h3 className="display mt-5 text-[32px]">{p.name}</h3>
             <p className="mt-3 text-[16px] leading-relaxed text-ink/70">{p.desc}</p>
             <p className="mt-2 text-[14px] font-medium text-ink/45">{p.user}</p>
+            {chart && (
+              <div className="mt-6">
+                <div
+                  className="mx-auto overflow-hidden rounded-[12px] border border-line"
+                  style={{ maxWidth: 400 }}
+                >
+                  <ShareCard def={chart} lang={lang} />
+                </div>
+                <CardActions
+                  slug={chart.slug}
+                  lang={lang}
+                  shareText={lang === "fr" ? chart.fr.shareText : chart.shareText}
+                  projectUrl={chart.projectUrl}
+                />
+                <a
+                  href={`/charts#chart-${chart.slug}`}
+                  className="mt-3 inline-block text-[15px] font-medium text-canada hover:text-canada-dark"
+                >
+                  {t.projects.viewChart} →
+                </a>
+              </div>
+            )}
             <div className="mt-auto flex items-center gap-5 pt-7 text-[15px] font-medium">
               {p.status === "live" && (
                 <a
@@ -62,7 +94,8 @@ export default function Projects() {
               </a>
             </div>
           </article>
-        ))}
+          );
+        })}
       </div>
     </section>
   );

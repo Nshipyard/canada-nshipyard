@@ -97,6 +97,8 @@ export function ChartFigure({ def, lang }: { def: ChartDef; lang: Lang }) {
         xTickFmt={tickFmt(c.xTickFmt, c.tickDecimals)}
         yTickFmt={tickFmt(c.yTickFmt, c.tickDecimals)}
         trend={c.trend}
+        medianX={c.medianX}
+        medianY={c.medianY}
         titleOf={c.titleTemplate === "label" ? (p) => p.label : undefined}
       />
     );
@@ -170,6 +172,12 @@ export function ChartFigure({ def, lang }: { def: ChartDef; lang: Lang }) {
 
 export function ShareCard({ def, lang, id }: { def: ChartDef; lang: Lang; id?: string }) {
   const t = lang === "fr" ? def.fr : def;
+  let host = "canada.nshipyard.com";
+  try {
+    if (def.projectUrl) host = new URL(def.projectUrl).host;
+  } catch {
+    /* keep default */
+  }
   return (
     <article
       id={id}
@@ -287,7 +295,7 @@ export function ShareCard({ def, lang, id }: { def: ChartDef; lang: Lang; id?: s
             whiteSpace: "nowrap",
           }}
         >
-          cred.nshipyard.com
+          {host}
         </span>
       </div>
     </article>

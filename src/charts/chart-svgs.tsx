@@ -112,6 +112,8 @@ export function Scatter({
   xTickFmt,
   yTickFmt,
   trend,
+  medianX,
+  medianY,
   titleOf: titleOfProp,
 }: {
   points: ScatterPoint[];
@@ -126,6 +128,8 @@ export function Scatter({
   xTickFmt?: (v: number, lang: Lang) => string;
   yTickFmt?: (v: number, lang: Lang) => string;
   trend?: { a: number; b: number; x0: number };
+  medianX?: number;
+  medianY?: number;
   titleOf?: (p: ScatterPoint) => string;
 }) {
   const W = 1000;
@@ -180,6 +184,51 @@ export function Scatter({
           strokeWidth={3.5}
           strokeDasharray="10 8"
         />
+      )}
+      {medianX !== undefined && (
+        <g>
+          <line
+            x1={X(medianX)}
+            y1={m.t}
+            x2={X(medianX)}
+            y2={m.t + ih}
+            stroke={FAINT}
+            strokeWidth={2}
+            strokeDasharray="8 7"
+          />
+          <text
+            x={X(medianX) + 8}
+            y={m.t + ih - 12}
+            fontSize={22}
+            fill={FAINT}
+            fontFamily="'IBM Plex Mono', monospace"
+          >
+            {xf(medianX, lang)}
+          </text>
+        </g>
+      )}
+      {medianY !== undefined && (
+        <g>
+          <line
+            x1={m.l}
+            y1={Y(medianY)}
+            x2={W - m.r}
+            y2={Y(medianY)}
+            stroke={FAINT}
+            strokeWidth={2}
+            strokeDasharray="8 7"
+          />
+          <text
+            x={W - m.r - 8}
+            y={Y(medianY) - 10}
+            textAnchor="end"
+            fontSize={22}
+            fill={FAINT}
+            fontFamily="'IBM Plex Mono', monospace"
+          >
+            {yf(medianY, lang)}
+          </text>
+        </g>
       )}
       {points.map((p, i) => (
         <g key={i}>
