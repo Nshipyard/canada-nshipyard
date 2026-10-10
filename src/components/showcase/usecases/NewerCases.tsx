@@ -435,6 +435,90 @@ const CARDS: Record<string, { en: Card[]; fr: Card[] }> = {
       },
     ],
   },
+  "housing-costs": {
+    en: [
+      {
+        id: "cost-drivers",
+        kicker: "Canada",
+        name: "Housing Cost Drivers",
+        question: "What drove the 4.6x rise in Toronto construction costs since 1981?",
+        body: "Four StatCan tables, four base years, three frequencies. This project rebases the New Housing Price Index, construction union wage rates, and industrial product prices to 1981=100 and ranks the drivers by growth. Union wages at 4.55x almost match the 4.64x construction-cost rise. Materials sit below, with fabricated metal highest at 4.01x. Four suspected drivers, development charges, code-compliance costs, productivity, and margins, have no open series, and the project says so instead of modelling them.",
+        stat: "4.55x",
+        statLabel: "rise in Toronto union construction wages since 1981, almost matching the 4.64x rise in construction costs",
+        url: "https://housing-costs.nshipyard.com",
+        shareText:
+          "Toronto union construction wages rose 4.55x since 1981, almost matching the 4.64x rise in construction costs. Materials rose less.",
+        live: true,
+      },
+      {
+        id: "wage-chase",
+        kicker: "Toronto",
+        name: "Housing Cost Drivers",
+        question: "Do construction wages lead building costs, or follow them?",
+        body: "The gap between the NHPI house-only index and Toronto union wages swings in waves. Construction costs ran 77 index points ahead in 1990 and 83 ahead in 2017. Wages closed the gap both times, ending 2026 just 9 points behind. The data shows a chase, not a lead.",
+        stat: "9 points",
+        statLabel: "the cost-wage gap in 2026, down from 83 points in 2017",
+        url: "https://housing-costs.nshipyard.com",
+        shareText:
+          "Construction costs ran 77 points ahead of wages in 1990 and 83 ahead in 2017. Wages closed the gap both times.",
+        live: true,
+      },
+      {
+        id: "lumber-boom-bust",
+        kicker: "Canada",
+        name: "Housing Cost Drivers",
+        question: "Which building material actually rose the most since 1981?",
+        body: "Not lumber. Softwood lumber spiked from 248 in 2020 to 618 in 2022, then collapsed to 311 by 2026. Fabricated metal never spiked. It climbed steadily to 4.01x, the highest of any material, with ready-mixed concrete at 3.66x. The spike everyone remembers was not the story.",
+        stat: "4.01x",
+        statLabel: "rise in fabricated metal since 1981, the highest of any building material",
+        url: "https://housing-costs.nshipyard.com",
+        shareText:
+          "Lumber spiked to 6.2x in 2022, then collapsed to 3.1x. Fabricated metal never spiked and ended at 4.01x.",
+        live: true,
+      },
+    ],
+    fr: [
+      {
+        id: "cost-drivers",
+        kicker: "Canada",
+        name: "Housing Cost Drivers",
+        question: "Qu'est-ce qui a port\u00e9 la hausse de 4,6x des co\u00fbts de construction \u00e0 Toronto depuis 1981 ?",
+        body: "Quatre tableaux de StatCan, quatre ann\u00e9es de base, trois fr\u00e9quences. Ce projet ram\u00e8ne l'indice des prix des logements neufs, les taux de salaire syndicaux de la construction et les prix des produits industriels \u00e0 1981=100 et classe les moteurs par croissance. Les salaires syndicaux \u00e0 4,55x suivent presque la hausse de 4,64x des co\u00fbts de construction. Les mat\u00e9riaux restent en dessous, le m\u00e9tal fabriqu\u00e9 en t\u00eate \u00e0 4,01x. Quatre moteurs soup\u00e7onn\u00e9s, redevances d'am\u00e9nagement, co\u00fbts de conformit\u00e9, productivit\u00e9 et marges, n'ont aucune s\u00e9rie ouverte, et le projet le dit au lieu de les mod\u00e9liser.",
+        stat: "4,55x",
+        statLabel: "de hausse des salaires syndicaux de la construction \u00e0 Toronto depuis 1981, presque autant que la hausse de 4,64x des co\u00fbts",
+        url: "https://housing-costs.nshipyard.com",
+        shareText:
+          "Les salaires syndicaux de la construction \u00e0 Toronto ont grimp\u00e9 de 4,55x depuis 1981, presque autant que les co\u00fbts (4,64x). Les mat\u00e9riaux ont moins augment\u00e9.",
+        live: true,
+      },
+      {
+        id: "wage-chase",
+        kicker: "Toronto",
+        name: "Housing Cost Drivers",
+        question: "Les salaires de la construction m\u00e8nent-ils les co\u00fbts ou les suivent-ils ?",
+        body: "L'\u00e9cart entre l'indice IPLN maison seulement et les salaires syndicaux torontois oscille par vagues. Les co\u00fbts de construction avaient 77 points d'indice d'avance en 1990 et 83 en 2017. Les salaires ont referm\u00e9 l'\u00e9cart les deux fois, terminant 2026 \u00e0 9 points. Les donn\u00e9es montrent une poursuite, pas une avance.",
+        stat: "9 points",
+        statLabel: "d'\u00e9cart co\u00fbts-salaires en 2026, contre 83 points en 2017",
+        url: "https://housing-costs.nshipyard.com",
+        shareText:
+          "Les co\u00fbts de construction avaient 77 points d'avance sur les salaires en 1990 et 83 en 2017. Les salaires ont referm\u00e9 l'\u00e9cart les deux fois.",
+        live: true,
+      },
+      {
+        id: "lumber-boom-bust",
+        kicker: "Canada",
+        name: "Housing Cost Drivers",
+        question: "Quel mat\u00e9riau de construction a vraiment le plus augment\u00e9 depuis 1981 ?",
+        body: "Pas le bois d'oeuvre. Le bois d'oeuvre r\u00e9sineux a bondi de 248 en 2020 \u00e0 618 en 2022, puis s'est effondr\u00e9 \u00e0 311 en 2026. Le m\u00e9tal fabriqu\u00e9 n'a jamais bondi. Il a grimp\u00e9 r\u00e9guli\u00e8rement \u00e0 4,01x, le plus haut de tous les mat\u00e9riaux, avec le b\u00e9ton pr\u00eat \u00e0 l'emploi \u00e0 3,66x. Le pic dont tout le monde se souvient n'\u00e9tait pas l'histoire.",
+        stat: "4,01x",
+        statLabel: "de hausse du m\u00e9tal fabriqu\u00e9 depuis 1981, le plus haut de tous les mat\u00e9riaux de construction",
+        url: "https://housing-costs.nshipyard.com",
+        shareText:
+          "Le bois d'oeuvre a bondi \u00e0 6,2x en 2022, puis s'est effondr\u00e9 \u00e0 3,1x. Le m\u00e9tal fabriqu\u00e9 n'a jamais bondi et a fini \u00e0 4,01x.",
+        live: true,
+      },
+    ],
+  },
 };
 
 export default function NewerCases({

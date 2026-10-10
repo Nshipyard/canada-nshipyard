@@ -11,7 +11,7 @@ import CrosscuttingCases from "./usecases/CrosscuttingCases";
 import NewerCases from "./usecases/NewerCases";
 import type { CiteLabels } from "./CiteShare";
 
-const DATASET_IDS = ["crosscutting", "parking", "311", "permits", "housing", "parcels", "licences", "watermains", "codebooks", "procurement", "supply", "flood", "fire", "livable", "contagion", "my-street", "geo", "cameras", "rentals", "foodsafety", "aiadoption", "gpuprices", "aispending"] as const;
+const DATASET_IDS = ["crosscutting", "parking", "311", "permits", "housing", "parcels", "licences", "watermains", "codebooks", "procurement", "supply", "flood", "fire", "livable", "contagion", "my-street", "geo", "cameras", "rentals", "foodsafety", "aiadoption", "gpuprices", "aispending", "housing-costs"] as const;
 type DatasetId = (typeof DATASET_IDS)[number];
 
 // use-case anchors per dataset, for deep-link resolution
@@ -39,6 +39,7 @@ const DATASET_CASES: Record<DatasetId, string[]> = {
   aiadoption: ["adoption-inversion"],
   gpuprices: ["gpu-premium"],
   aispending: ["ai-receipt"],
+  "housing-costs": ["cost-drivers", "wage-chase", "lumber-boom-bust"],
 };
 
 function readHash(): DatasetId {
