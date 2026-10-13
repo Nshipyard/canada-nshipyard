@@ -759,6 +759,17 @@ const en = {
     line: "An open-data infrastructure project by Nshipyard. Not affiliated with the Government of Canada or the City of Toronto.",
     builtBy: "Built by",
   },
+  newsletter: {
+    kicker: "The newsletter",
+    title: "Get new Nshipyard releases in your inbox.",
+    body: "One email when a new dataset ships or a finding is worth your time. No spam, unsubscribe anytime.",
+    emailLabel: "Email address",
+    placeholder: "you@example.com",
+    cta: "Subscribe",
+    note: "Your address is only used for Nshipyard updates.",
+    confirm: "Check your inbox for the confirmation link to finish subscribing.",
+    error: "Something went wrong. Please try again.",
+  },
   storiesPage: {
     kicker: "Showcase",
     title: "Don't take our word for it. Try the data.",
@@ -2383,6 +2394,17 @@ const fr: Dict = {
   footer: {
     line: "Un projet d'infrastructure de données ouvertes par Nshipyard. Sans affiliation avec le gouvernement du Canada ni la Ville de Toronto.",
     builtBy: "Créé par",
+  },
+  newsletter: {
+    kicker: "L'infolettre",
+    title: "Recevez les nouvelles parutions Nshipyard par courriel.",
+    body: "Un courriel quand un nouveau jeu de données paraît ou qu'une découverte mérite votre attention. Sans pourriel, désinscription en tout temps.",
+    emailLabel: "Adresse courriel",
+    placeholder: "vous@exemple.com",
+    cta: "S'abonner",
+    note: "Votre adresse sert uniquement aux nouvelles Nshipyard.",
+    confirm: "Vérifiez votre boîte courriel pour le lien de confirmation.",
+    error: "Une erreur est survenue. Veuillez réessayer.",
   },
   storiesPage: {
     kicker: "Vitrine",

@@ -7,6 +7,7 @@ import Tools from "@/components/Tools";
 import Showcase from "@/components/Showcase";
 import Agents from "@/components/Agents";
 import OpenSource from "@/components/OpenSource";
+import Newsletter from "@/components/Newsletter";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -22,6 +23,7 @@ export default function Home() {
         <Showcase />
         <Agents />
         <OpenSource />
+        <Newsletter />
       </main>
       <Footer />
     </div>
