@@ -21,6 +21,7 @@ const en = {
     press: "Press",
     menu: "Menu",
     close: "Close",
+    fuel: "Fuel Open Nshipyard",
   },
   hero: {
     kicker: "Open Nshipyard",
@@ -1688,6 +1689,7 @@ const fr: Dict = {
     press: "Presse",
     menu: "Menu",
     close: "Fermer",
+    fuel: "Alimenter Open Nshipyard",
   },
   hero: {
     kicker: "Open Nshipyard",
