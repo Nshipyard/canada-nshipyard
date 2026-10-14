@@ -18,6 +18,7 @@ const en = {
     impact: "Impact",
     charts: "Charts",
     developers: "Developers",
+    press: "Press",
     menu: "Menu",
     close: "Close",
   },
@@ -1649,6 +1650,24 @@ const en = {
     closing:
       "Built by Richardson Dackam in Toronto. Open source. If a number on this page is wrong, the data and the build scripts are public, so you can prove it.",
   },
+  press: {
+    kicker: "Press",
+    title: "The Open Nshipyard press kit",
+    sub: "Our logo in every size you need, free to use when covering Open Nshipyard and its projects.",
+    previewAlt: "Open Nshipyard logo",
+    sizesTitle: "Download the logo",
+    sizesSub: "PNG, white background. Choose the size that fits your layout.",
+    download: "Download",
+    guidelinesTitle: "Ground rules",
+    guidelines: [
+      "Use the logo as-is. Don't recolor, stretch, rotate, or add effects.",
+      "Give it room: keep clear space around the mark at least as tall as the keyhole.",
+      "Minimum size: 32 px on screen, 12 mm in print.",
+      "The logo marks coverage, not endorsement or partnership.",
+    ],
+    contactTitle: "Press contact",
+    contactBody: "For interviews, data questions, or anything else:",
+  },
 };
 
 export type Dict = typeof en;
@@ -1666,6 +1685,7 @@ const fr: Dict = {
     impact: "Impact",
     charts: "Graphiques",
     developers: "Développeurs",
+    press: "Presse",
     menu: "Menu",
     close: "Fermer",
   },
@@ -3284,6 +3304,24 @@ const fr: Dict = {
     ],
     closing:
       "Conçu par Richardson Dackam à Toronto. Code source ouvert. Si un chiffre de cette page est faux, les données et les scripts de construction sont publics : vous pouvez le prouver.",
+  },
+  press: {
+    kicker: "Presse",
+    title: "La trousse média d'Open Nshipyard",
+    sub: "Notre logo dans toutes les tailles utiles, libre d'utilisation pour couvrir Open Nshipyard et ses projets.",
+    previewAlt: "Logo d'Open Nshipyard",
+    sizesTitle: "Télécharger le logo",
+    sizesSub: "PNG, fond blanc. Choisissez la taille adaptée à votre mise en page.",
+    download: "Télécharger",
+    guidelinesTitle: "Règles d'usage",
+    guidelines: [
+      "Utilisez le logo tel quel. Ne le recolorez pas, ne l'étirez pas, ne le pivotez pas, n'ajoutez aucun effet.",
+      "Laissez-lui de l'espace : gardez autour du logo un espace au moins aussi grand que le trou de serrure.",
+      "Taille minimale : 32 px à l'écran, 12 mm à l'impression.",
+      "Le logo signale une couverture médiatique, pas un soutien ni un partenariat.",
+    ],
+    contactTitle: "Contact presse",
+    contactBody: "Pour des entrevues, des questions sur les données ou autre :",
   },
 };
 
