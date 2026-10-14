@@ -1,7 +1,7 @@
 "use client";
 
 import { useLang } from "@/i18n";
-import MapleLeaf from "./MapleLeaf";
+import BrandMark from "./BrandMark";
 
 export default function OpenSource() {
   const { t } = useLang();
@@ -9,7 +9,7 @@ export default function OpenSource() {
     <section className="bg-paper-warm">
       <div className="mx-auto max-w-[1392px] px-6 py-20 md:py-28">
         <div className="mx-auto max-w-[720px] text-center">
-          <MapleLeaf className="mx-auto mb-6 h-10 w-10 text-canada" />
+          <BrandMark className="mx-auto mb-6 h-10 w-10" />
           <p className="mb-4 text-[13px] font-semibold uppercase tracking-[0.2em] text-canada">
             {t.opensource.kicker}
           </p>
