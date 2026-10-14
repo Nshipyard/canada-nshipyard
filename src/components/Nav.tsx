@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { useLang } from "@/i18n";
-import MapleLeaf from "./MapleLeaf";
+import BrandMark from "./BrandMark";
 
 export default function Nav() {
   const { t, lang, setLang } = useLang();
@@ -37,6 +37,7 @@ export default function Nav() {
     { href: "/data-fixes", label: t.nav.dataFixes },
     { href: "/charts", label: t.nav.charts },
     { href: `${prefix}#developers`, label: t.nav.developers },
+    { href: "/press", label: t.nav.press },
   ];
 
   return (
@@ -47,7 +48,7 @@ export default function Nav() {
     >
       <div className="mx-auto flex max-w-[1392px] items-center justify-between px-6 py-4">
         <a href={pathname === "/" ? "#top" : "/"} className="flex items-center gap-2.5">
-          <MapleLeaf className="h-7 w-7 text-canada" />
+          <BrandMark className="h-7 w-7" />
           <span className="display whitespace-nowrap text-[20px] sm:text-[26px]">Open Nshipyard</span>
           <span className="mt-1 hidden rounded-full bg-muted px-2.5 py-0.5 text-[11px] font-medium uppercase tracking-widest text-ink/60 sm:inline">
             Canada
