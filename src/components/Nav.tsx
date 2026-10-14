@@ -4,12 +4,14 @@ import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { useLang } from "@/i18n";
 import BrandMark from "./BrandMark";
+import FuelModal from "./FuelModal";
 
 export default function Nav() {
   const { t, lang, setLang } = useLang();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [showFuel, setShowFuel] = useState(false);
+  const [fuelOpen, setFuelOpen] = useState(false);
   const pathname = usePathname();
   // Section anchors live on the homepage; prefix with / when on a subpage like /showcase.
   const prefix = pathname === "/" ? "" : "/";
@@ -132,11 +134,11 @@ export default function Nav() {
         </div>
       )}
     </header>
-    <a
-      href="https://tkfuel.com/p/nshipyard-bfcf6"
-      target="_blank"
-      rel="noreferrer"
+    <button
+      type="button"
+      onClick={() => setFuelOpen(true)}
       aria-label={t.nav.fuel}
+      aria-haspopup="dialog
       className={`fixed bottom-6 right-6 z-[60] inline-flex items-center gap-2.5 rounded-full bg-canada px-6 py-3.5 text-[16px] font-semibold text-white shadow-[0_12px_32px_rgba(216,6,33,0.4)] transition-all duration-300 hover:bg-canada-dark ${
         showFuel ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-4 opacity-0"
       }`}
@@ -154,7 +156,8 @@ export default function Nav() {
         <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z" />
       </svg>
       {t.nav.fuel}
-    </a>
+    </button>
+    <FuelModal open={fuelOpen} onClose={() => setFuelOpen(false)} />
     </>
   );
 }
