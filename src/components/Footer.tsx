@@ -1,7 +1,7 @@
 "use client";
 
 import { useLang } from "@/i18n";
-import MapleLeaf from "./MapleLeaf";
+import BrandMark from "./BrandMark";
 
 export default function Footer() {
   const { t, lang, setLang } = useLang();
@@ -10,7 +10,7 @@ export default function Footer() {
       <div className="mx-auto max-w-[1392px] border-t border-line px-6 py-12">
         <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
           <div className="flex items-center gap-2.5">
-            <MapleLeaf className="h-6 w-6 text-canada" />
+            <BrandMark className="h-6 w-6" />
             <span className="display whitespace-nowrap text-[22px]">Open Nshipyard</span>
           </div>
           <div className="flex items-center gap-2 text-[14px] font-medium">
