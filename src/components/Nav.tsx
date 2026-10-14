@@ -138,7 +138,7 @@ export default function Nav() {
       type="button"
       onClick={() => setFuelOpen(true)}
       aria-label={t.nav.fuel}
-      aria-haspopup="dialog
+      aria-haspopup="dialog"
       className={`fixed bottom-6 right-6 z-[60] inline-flex items-center gap-2.5 rounded-full bg-canada px-6 py-3.5 text-[16px] font-semibold text-white shadow-[0_12px_32px_rgba(216,6,33,0.4)] transition-all duration-300 hover:bg-canada-dark ${
         showFuel ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-4 opacity-0"
       }`}
