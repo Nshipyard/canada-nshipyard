@@ -22,6 +22,10 @@ const en = {
     menu: "Menu",
     close: "Close",
     fuel: "Fuel Open Nshipyard",
+    fuelSecureNote: "Card payment runs securely inside this popup.",
+    fuelOpenTab: "Prefer a full page? Open it in a new tab.",
+    fuelThanks: "Thank you for fueling Open Nshipyard.",
+    fuelReceipt: "Your receipt is on its way by email.",
   },
   hero: {
     kicker: "Open Nshipyard",
@@ -1690,6 +1694,10 @@ const fr: Dict = {
     menu: "Menu",
     close: "Fermer",
     fuel: "Alimenter Open Nshipyard",
+    fuelSecureNote: "Le paiement par carte s'effectue en sécurité dans cette fenêtre.",
+    fuelOpenTab: "Vous préférez une page complète ? Ouvrez-la dans un nouvel onglet.",
+    fuelThanks: "Merci d'alimenter Open Nshipyard.",
+    fuelReceipt: "Votre reçu est en route par courriel.",
   },
   hero: {
     kicker: "Open Nshipyard",
