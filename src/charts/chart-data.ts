@@ -418,7 +418,7 @@ export const CHARTS: ChartDef[] = [
     slug: "spend-concentration",
     kicker: "Top 6 vendors by total awarded spend · 2012-2026",
     headline: "The top 10 vendors capture 20.8% of the city's $21.5B.",
-    deck: "Toronto publishes every awarded contract, but the same vendor hides behind 4,240 spellings. Entity resolution collapses them into 4,082 canonical vendors; Furfari Paving leads at $781.7M across 58 awards.",
+    deck: "Toronto publishes every awarded contract, but the same vendor hides behind 4,240 spellings. Entity resolution collapses them into 4,082 canonical vendors. Furfari Paving leads at $781.7M across 58 awards.",
     note: "13,084 records; $21.5B after quarantining 3 defective records that would have overstated spend by $15.1B. 2,268 vendors won exactly once.",
     source: "City of Toronto Open Data (CKAN): awarded contracts, non-competitive contracts, consulting expenditures.",
     shareText:
@@ -1403,7 +1403,7 @@ export const CHARTS: ChartDef[] = [
       slug: "erwaits-admitted",
       kicker: "Admitted length of stay in the ER, Aug 2026 · Ontario Health",
       headline: "Admitted patients wait 45.1 hours for a bed at Haliburton Highlands. The provincial average is 18.5.",
-      deck: "Haliburton Highlands averages 45.1 hours in the ER before a hospital bed, the longest admitted stay of 159 ERs. Small hospitals with few inpatient beds park admitted patients in the ER longest. Movers, Feb to Aug 2026: Ottawa Hospital General Site got slower by 1.9 hours; Health Sciences North-Laurentian in Sudbury got faster by 0.6 hours.",
+      deck: "Haliburton Highlands averages 45.1 hours in the ER before a hospital bed, the longest admitted stay of 159 ERs. Small hospitals with few inpatient beds park admitted patients in the ER longest. Movers, Feb to Aug 2026: Ottawa Hospital General Site got slower by 1.9 hours. Health Sciences North-Laurentian in Sudbury got faster by 0.6 hours.",
       note: "Monthly averages only. Movers use the post-Dec-2025-refresh window so both months share the same site list.",
       source: "Ontario Health, Time Spent in Emergency Departments, monthly site tables, Aug 2026.",
       shareText:
