@@ -1181,7 +1181,7 @@ export const CHARTS: ChartDef[] = [
   {
       slug: "shortages-chronic",
       kicker: "Shortage duration · Health Product Shortages Canada",
-      headline: "Resolved shortages last 58 days. The ones still open are 11x older.",
+      headline: "It takes 58 days to resolve a drug shortage. The ones still open have lasted 11x longer.",
       deck: "Most reports resolve: the median resolved shortage ran 58 days. But the 1,742 shortages still open on Dec 1, 2025 had already run a median of 647 days. Chronicity lives in the open tail, not the average.",
       note: "Durations computed over 20,347 resolved reports with computable dates; 25 impossible rows (end before start) quarantined.",
       source: "Health Product Shortages Canada bulk extract, archived 2025-12-20.",
