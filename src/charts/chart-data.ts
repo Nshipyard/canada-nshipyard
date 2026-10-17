@@ -1366,7 +1366,7 @@ export const CHARTS: ChartDef[] = [
       slug: "erwaits-slowest-fastest",
       kicker: "Hours to first assessment, Aug 2026 · Ontario Health",
       headline: "The slowest Ontario ER averages 4.7 hours to first assessment. The fastest averages 0.5.",
-      deck: "Queensway-Carleton Hospital in Ottawa is slowest of 159 ERs; Southlake Regional Health Centre is fastest. The gap is 9.4x. These are monthly averages from Ontario Health's published tables, not live waits: no open source carries visit-level timestamps, so the worst hour to arrive is unanswerable.",
+      deck: "Queensway-Carleton Hospital in Ottawa is the slowest of 159 ERs. Southlake Regional Health Centre is the fastest. The slowest makes you wait 9.4 times longer. These are monthly averages from Ontario Health's published tables, not live waits. No public dataset records individual arrival times, so the worst hour to arrive can't be measured.",
       note: "Monthly averages only. 159 hospital ERs ranked; Dec 2025 reporting refresh added 43 sites.",
       source: "Ontario Health, Time Spent in Emergency Departments, monthly site tables, Aug 2026.",
       shareText:
