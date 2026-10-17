@@ -1282,8 +1282,8 @@ export const CHARTS: ChartDef[] = [
   {
       slug: "vacancies-wage-quadrants",
       kicker: "Vacancy duration vs offered wage, 2026Q2 · StatCan JVWS",
-      headline: "Health jobs go unfilled longest despite above-median pay. Trades jobs go unfilled because pay is below median.",
-      deck: "Health occupations: 63,850 vacancies, 45.9% open 90+ days, $34.85/hr offered, above the $30.95 median. Pay beats the median and posts still do not fill: a supply problem. Trades, transport and equipment operators: 105,255 vacancies, 27.7% open 90+ days, $29.70/hr offered, below the median: a wage problem. Dashed medians split the board at 22.2% and $30.95/hr.",
+      headline: "Health care has 63,850 jobs open at $34.85 an hour. Trades has 105,255 open at $29.70.",
+      deck: "Health offers $34.85 an hour, above the $30.95 median, but 45.9% of postings sat open 90+ days. The workers aren't there. Trades offers $29.70, below the median, with 105,255 postings open. The pay isn't enough to fill them. Dashed lines mark the medians: 22.2% open 90+ days and $30.95 an hour.",
       note: "Broad occupation groups, unadjusted. 322,588 suppressed or unreliable cells quarantined before aggregation.",
       source: "Statistics Canada table 14-10-0443 (Job Vacancy and Wage Survey), 2026Q2.",
       shareText:
