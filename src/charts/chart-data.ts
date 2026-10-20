@@ -2023,37 +2023,6 @@ export const CHARTS: ChartDef[] = [
     },
   },
   {
-    slug: "source-match-rates",
-    kicker: "How much of each city source lines up with the street network",
-    headline: "Toronto publishes no map of its 21,000 paid street parking spaces. What it does publish comes in 34 separate files, and some line up with the street network far worse than others.",
-    deck: "The network is 50,027 sections across 13,344 streets. Tickets and bike lanes land on it almost completely; permit areas cover only a quarter of its sections.",
-    note: "Each rate keeps its own basis, from the project's join log: tickets = share of 2023-2025 tickets on matched streets; cycling = features matched within 25 m; rules = rule streets matched by name (no coordinates in the bylaw); Green P = car parks with a published occupancy record; permit areas = share of sections in a permit zone.",
-    source: "City of Toronto open data, 34 datasets inventoried; project pipeline.",
-    shareText:
-      "Toronto publishes no map of its 21,000 paid street parking spaces. Its 34 separate parking files line up with the street network unevenly: tickets 98%, permit areas 24%.",
-    projectName: "Open Street Parking",
-    projectUrl: "https://toronto-open-street-parking.vercel.app",
-    fr: {
-      headline: "Toronto ne publie aucune carte de ses 21 000 places de stationnement sur rue payantes. Ce qu'elle publie tient en 34 fichiers distincts, et certains s'alignent sur le réseau de rues bien plus mal que d'autres.",
-      deck: "Le réseau compte 50 027 sections sur 13 344 rues. Contraventions et réseau cyclable s'y rattachent presque entièrement; les zones de permis ne couvrent qu'un quart des sections.",
-      kicker: "Alignement des sources municipales sur le réseau de rues",
-      note: "Chaque taux a sa propre base (journal de jonction du projet) : contraventions = part des contraventions 2023-2025 sur des rues appariées; cyclable = éléments appariés à moins de 25 m; règles = rues appariées par nom (le règlement n'a pas de coordonnées); Green P = parcs avec un relevé d'occupation publié; permis = part des sections dans une zone de permis.",
-      source: "Données ouvertes de la Ville de Toronto, 34 jeux de données inventoriés; pipeline du projet.",
-      shareText: "Toronto ne publie aucune carte de ses 21 000 places payantes sur rue. Ses 34 fichiers de stationnement s'alignent inégalement sur le réseau : contraventions 98 %, zones de permis 24 %.",
-    },
-    chart: {
-      kind: "hbars",
-      unit: "%", unitFr: "%",
-      rows: [
-        { label: "Parking tickets 2023-2025", labelFr: "Contraventions 2023-2025", value: 98.3, display: "98.3%", displayFr: "98,3 %", highlight: true },
-        { label: "Cycling network", labelFr: "Réseau cyclable", value: 95.3, display: "95.3%", displayFr: "95,3 %" },
-        { label: "Parking rules (bylaw)", labelFr: "Règles de stationnement (règlement)", value: 86.6, display: "86.6%", displayFr: "86,6 %" },
-        { label: "Green P occupancy", labelFr: "Occupation Green P", value: 59.1, display: "59.1%", displayFr: "59,1 %" },
-        { label: "Permit parking areas", labelFr: "Zones de permis", value: 24.3, display: "24.3%", displayFr: "24,3 %" },
-      ],
-    },
-  },
-  {
     slug: "parking-rules-per-street",
     kicker: "Parking rules per street · 13,344 streets",
     headline: "55.6% of Toronto streets have no published parking rules at all. 91% have five or fewer.",
