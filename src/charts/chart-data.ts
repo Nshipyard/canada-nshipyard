@@ -215,21 +215,21 @@ export const CHARTS: ChartDef[] = [
   {
     slug: "311-equity",
     kicker: "Each dot is one of 25 wards · 2022-2024 requests",
-    headline: "311 does not favour rich neighbourhoods. The correlation is r = 0.18.",
+    headline: "311 does not favour rich neighbourhoods. Income explains almost none of the backlog.",
     deck: "What predicts a stuck request is the kind of work, not the postal code. Parks leaves 44.6% of its 2022-2024 requests open, almost entirely tree work, while Solid Waste closes all but 0.8%.",
     note: "Backlog = 2022-2024 requests still New or In Progress in the Oct 2026 extract: 118,460 of 1,294,275. 2025-2026 excluded as too recent to judge. Ward income: 2021 Census median household income.",
     source: "City of Toronto, 311 Service Requests - Customer Initiated; Statistics Canada, 2021 Census.",
     shareText:
-      "Toronto's 311 does not favour rich neighbourhoods: ward income vs request backlog correlates at r = 0.18, essentially zero. What predicts delay is the kind of work.",
+      "Toronto's 311 does not favour rich neighbourhoods. Ward income explains almost none of the request backlog. What predicts delay is the kind of work.",
     projectName: "311 Taxonomy",
     projectUrl: "https://toronto-311-taxonomy.vercel.app",
     fr: {
-      headline: "Le 311 ne favorise pas les quartiers riches. La corrélation est de r = 0,18.",
+      headline: "Le 311 ne favorise pas les quartiers riches. Le revenu n'explique presque rien de l'arriéré.",
       deck: "Ce qui prédit une demande bloquée, c'est le type de travail, pas le code postal. Les Parcs laissent 44,6 % de leurs demandes 2022-2024 ouvertes, presque toutes des travaux d'arbres, tandis que la Gestion des déchets solides n'en laisse que 0,8 %.",
       kicker: "Chaque point est l'un des 25 quartiers · demandes 2022-2024",
       note: "Arriéré = demandes 2022-2024 encore nouvelles ou en cours dans l'extrait d'oct. 2026 : 118 460 sur 1 294 275. 2025-2026 exclues car trop récentes pour juger. Revenu par quartier : revenu médian des ménages du Recensement 2021.",
       source: "Ville de Toronto, Demandes de service 311 (initiées par les clients); Statistique Canada, Recensement 2021.",
-      shareText: "Le 311 de Toronto ne favorise pas les quartiers riches : le revenu du quartier contre l'arriéré des demandes corrèle à r = 0,18, essentiellement zéro. Ce qui prédit le retard, c'est le type de travail.",
+      shareText: "Le 311 de Toronto ne favorise pas les quartiers riches. Le revenu du quartier n'explique presque rien de l'arriéré des demandes. Ce qui prédit le retard, c'est le type de travail.",
     },
     chart: {
       kind: "scatter",
@@ -237,8 +237,8 @@ export const CHARTS: ChartDef[] = [
       xLabelFr: "Revenu médian des ménages par quartier",
       yLabel: "Backlog rate",
         yLabelFr: "Taux d'arriéré",
-      annotation: "Flat cloud: r = 0.18, essentially no relationship.",
-        annotationFr: "Nuage plat : r = 0,18, essentiellement aucune relation.",
+      annotation: "Flat cloud: no pattern. Income does not predict the backlog.",
+        annotationFr: "Nuage plat : aucun motif. Le revenu ne prédit pas l'arriéré.",
       trend: { a: 9.034, b: 0.00002452, x0: 84820 },
       points: [
         { x: 81000, y: 9.97, label: "1" },
