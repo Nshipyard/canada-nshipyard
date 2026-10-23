@@ -140,10 +140,111 @@ export interface ChartDef {
         bigLabel: string;
         bigLabelFr: string;
         stats: StatRow[];
+      }
+    | {
+        kind: "matrix";
+        columns: { label: string; labelFr: string; sub: string; subFr: string }[];
+        rows: { label: string; labelFr: string; marks: boolean[] }[];
+        pendingFrom?: number;
       };
 }
 
 export const CHARTS: ChartDef[] = [
+  {
+    slug: "vc-data-lag",
+    kicker: "Days from raise to public data · US Form D vs Ontario dashboard",
+    headline: "Public in 15 days in the US. 11 months in Canada.",
+    deck: "Both countries make a company file within days of a private raise. Only one publishes it as data. Canada files faster (10 days vs 15); the lag is in publication: no bulk download, no API, no permanent company ID.",
+    note: "Canada measured from December 31, 2024 to the Ontario dashboard update on November 18, 2025. Most provinces have no dashboard at all. Purchaser names in Canada are confidential (Schedule 1) and not compared here.",
+    source: "SEC EDGAR, Form D; CSA and BCSC guidance, Form 45-106F1 (SEDAR+, since June 2023); Ontario Securities Commission, Exempt Market Dashboard.",
+    shareText:
+      "A US private raise is public data in 15 days: XML, free API, nightly bulk file. In Canada the same filing is a PDF; Ontario's dashboard took 322 days to publish 2024 raises.",
+    projectName: "The Capital Files",
+    projectUrl: "https://open.nshipyard.com/charts",
+    fr: {
+      headline: "Publiées en 15 jours aux États-Unis. En 11 mois au Canada.",
+      deck: "Dans les deux pays, une entreprise dépose sa déclaration quelques jours après une levée privée. Un seul des deux la publie comme des données. Le Canada dépose plus vite (10 jours contre 15); le retard est dans la publication: aucun téléchargement en vrac, aucune API, aucun identifiant permanent.",
+      kicker: "Jours entre la levée et les données publiques · Formulaire D contre tableau de bord ontarien",
+      note: "Canada: du 31 décembre 2024 à la mise à jour du tableau de bord de l'Ontario, le 18 novembre 2025. La plupart des provinces n'ont aucun tableau de bord. Les noms des acheteurs sont confidentiels au Canada (annexe 1) et ne sont pas comparés ici.",
+      source: "SEC EDGAR, formulaire D; ACVM et BCSC, formulaire 45-106F1 (SEDAR+, depuis juin 2023); Commission des valeurs mobilières de l'Ontario, tableau de bord du marché dispensé.",
+      shareText: "Une levée privée américaine devient une donnée publique en 15 jours: XML, API gratuite, fichier en vrac chaque nuit. Au Canada, la même déclaration est un PDF; le tableau de l'Ontario a pris 322 jours pour publier les levées de 2024.",
+    },
+    chart: {
+      kind: "hbars",
+      unit: "days to public data", unitFr: "jours avant publication",
+      rows: [
+        { label: "US · Form D", labelFr: "É.-U. · Formulaire D", value: 15, display: "15 days", displayFr: "15 jours" },
+        { label: "Canada · Ontario", labelFr: "Canada · Ontario", value: 322, display: "322 days", displayFr: "322 jours", highlight: true },
+      ],
+    },
+  },
+  {
+    slug: "vc-175b-split",
+    kicker: "Stream sizes, $M CAD · Venture and Growth Capital Plan, Oct 2026",
+    headline: "$75M for early stage, out of a $1.75B plan",
+    deck: "Ottawa's Venture and Growth Capital Plan, announced October 22, 2026, splits $1.75B across five streams. Pre-seed and seed, the stage with the documented funding gap, is the smallest stream in the plan.",
+    note: "Growth VCCI holds the fund-of-funds, life sciences and emerging manager streams. The $75M and $675M streams form the Early and Growth Stage Strategy. The $675M stream is in public consultation until Nov 23, 2026.",
+    source: "ISED news release and backgrounder, Oct 22, 2026.",
+    shareText:
+      "Ottawa's new $1.75B venture plan gives pre-seed and seed $75M: 4.3% of the plan, the smallest stream. Fund-of-funds gets $700M. Applications close Jan 21, 2027.",
+    projectName: "The Capital Files",
+    projectUrl: "https://open.nshipyard.com/charts",
+    fr: {
+      headline: "75 M$ pour les débuts, sur un plan de 1,75 G$",
+      deck: "Le Plan de capital de risque et de croissance d'Ottawa, annoncé le 22 octobre 2026, répartit 1,75 G$ en cinq volets. Le pré-amorçage et l'amorçage, l'étape où le manque de financement est documenté, forment le plus petit volet du plan.",
+      kicker: "Tailles des volets, M$ CA · Plan de capital de risque et de croissance, oct. 2026",
+      note: "Le VCCI de croissance regroupe les fonds de fonds, les sciences de la vie et les gestionnaires émergents. Les volets de 75 M$ et 675 M$ forment la stratégie d'étape initiale et de croissance. Le volet de 675 M$ est en consultation publique jusqu'au 23 nov. 2026.",
+      source: "ISDE, communiqué et document d'information, 22 oct. 2026.",
+      shareText: "Le nouveau plan fédéral de 1,75 G$ donne 75 M$ au pré-amorçage et à l'amorçage: 4,3 % du plan, le plus petit volet. Les fonds de fonds reçoivent 700 M$. Clôture des candidatures: 21 janvier 2027.",
+    },
+    chart: {
+      kind: "hbars",
+      unit: "$M CAD", unitFr: "M$ CA", maxLabelChars: 18,
+      rows: [
+        { label: "Fund-of-funds", labelFr: "Fonds de fonds", value: 700, display: "$700M 40%", displayFr: "700 M$ 40 %" },
+        { label: "Later and growth stage", labelFr: "Croissance, étape avancée", value: 675, display: "$675M 38.6%", displayFr: "675 M$ 38,6%" },
+        { label: "Life sciences funds", labelFr: "Fonds en sciences de la vie", value: 200, display: "$200M 11.4%", displayFr: "200 M$ 11,4 %" },
+        { label: "Emerging managers", labelFr: "Gestionnaires émergents", value: 100, display: "$100M 5.7%", displayFr: "100 M$ 5,7 %" },
+        { label: "Pre-seed and seed", labelFr: "Pré-amorçage et amorçage", value: 75, display: "$75M 4.3%", displayFr: "75 M$ 4,3 %", highlight: true },
+      ],
+    },
+  },
+  {
+    slug: "vc-four-doors",
+    kicker: "Fund-of-funds winners, by program round",
+    headline: "The same four managers won all three rounds",
+    deck: "Since 2013, Ottawa's venture capital programs have put $1.2B of federal money into recipient funds. The fund-of-funds stream, the largest piece each time, went to the same four managers in all three rounds.",
+    note: "Column figures are the fund-of-funds stream sizes. VCCI 2017 invested $371M in total across its streams. In 2016, the Auditor General found the first round's manager selection fell short on fairness, openness and transparency. Applications close January 21, 2027; winners expected spring 2027.",
+    source: "ISED VCAP and VCCI recipient lists; Auditor General of Canada, Spring 2016 Report 1; ISED, Oct 2026.",
+    shareText:
+      "HarbourVest, Kensington, Northleaf and Teralys won the federal fund-of-funds stream in 2013, 2017 and 2021. Round four is $700M; applications close Jan 21, 2027.",
+    projectName: "The Capital Files",
+    projectUrl: "https://open.nshipyard.com/charts",
+    fr: {
+      headline: "Les mêmes quatre gestionnaires ont gagné les trois rondes",
+      deck: "Depuis 2013, les programmes fédéraux de capital de risque ont versé 1,2 G$ aux fonds bénéficiaires. Le volet fonds de fonds est allé aux mêmes quatre gestionnaires, trois rondes de suite.",
+      kicker: "Gagnants du volet fonds de fonds, par ronde",
+      note: "Les chiffres sont la taille du volet fonds de fonds par ronde. En 2016, le vérificateur général a jugé que la sélection de la première ronde manquait d'équité, d'ouverture et de transparence. Clôture des candidatures: 21 janvier 2027; gagnants attendus au printemps 2027.",
+      source: "ISDE, listes des bénéficiaires (VCCE, VCCI); vérificateur général du Canada, rapport 1, printemps 2016; ISDE, oct. 2026.",
+      shareText: "HarbourVest, Kensington, Northleaf et Teralys ont gagné le volet fonds de fonds fédéral en 2013, 2017 et 2021. La ronde quatre vaut 700 M$; candidatures jusqu'au 21 janvier 2027.",
+    },
+    chart: {
+      kind: "matrix",
+      columns: [
+        { label: "VCAP", labelFr: "VCCE", sub: "2013 · $340M", subFr: "2013 · 340 M$" },
+        { label: "VCCI", labelFr: "VCCI", sub: "2017 · $279M", subFr: "2017 · 279 M$" },
+        { label: "VCCI", labelFr: "VCCI", sub: "2021 · $350M", subFr: "2021 · 350 M$" },
+        { label: "Growth VCCI", labelFr: "VCCI croissance", sub: "2026 · $700M", subFr: "2026 · 700 M$" },
+      ],
+      rows: [
+        { label: "HarbourVest", labelFr: "HarbourVest", marks: [true, true, true, false] },
+        { label: "Kensington", labelFr: "Kensington", marks: [true, true, true, false] },
+        { label: "Northleaf", labelFr: "Northleaf", marks: [true, true, true, false] },
+        { label: "Teralys", labelFr: "Teralys", marks: [true, true, true, false] },
+      ],
+      pendingFrom: 3,
+    },
+  },
   {
     slug: "permit-wait",
     kicker: "Median days, application to issuance · City of Toronto",
@@ -215,21 +316,21 @@ export const CHARTS: ChartDef[] = [
   {
     slug: "311-equity",
     kicker: "Each dot is one of 25 wards · 2022-2024 requests",
-    headline: "311 does not favour rich neighbourhoods. Income explains almost none of the backlog.",
+    headline: "311 does not favour rich neighbourhoods. The correlation is r = 0.18.",
     deck: "What predicts a stuck request is the kind of work, not the postal code. Parks leaves 44.6% of its 2022-2024 requests open, almost entirely tree work, while Solid Waste closes all but 0.8%.",
     note: "Backlog = 2022-2024 requests still New or In Progress in the Oct 2026 extract: 118,460 of 1,294,275. 2025-2026 excluded as too recent to judge. Ward income: 2021 Census median household income.",
     source: "City of Toronto, 311 Service Requests - Customer Initiated; Statistics Canada, 2021 Census.",
     shareText:
-      "Toronto's 311 does not favour rich neighbourhoods. Ward income explains almost none of the request backlog. What predicts delay is the kind of work.",
+      "Toronto's 311 does not favour rich neighbourhoods: ward income vs request backlog correlates at r = 0.18, essentially zero. What predicts delay is the kind of work.",
     projectName: "311 Taxonomy",
     projectUrl: "https://toronto-311-taxonomy.vercel.app",
     fr: {
-      headline: "Le 311 ne favorise pas les quartiers riches. Le revenu n'explique presque rien de l'arriéré.",
+      headline: "Le 311 ne favorise pas les quartiers riches. La corrélation est de r = 0,18.",
       deck: "Ce qui prédit une demande bloquée, c'est le type de travail, pas le code postal. Les Parcs laissent 44,6 % de leurs demandes 2022-2024 ouvertes, presque toutes des travaux d'arbres, tandis que la Gestion des déchets solides n'en laisse que 0,8 %.",
       kicker: "Chaque point est l'un des 25 quartiers · demandes 2022-2024",
       note: "Arriéré = demandes 2022-2024 encore nouvelles ou en cours dans l'extrait d'oct. 2026 : 118 460 sur 1 294 275. 2025-2026 exclues car trop récentes pour juger. Revenu par quartier : revenu médian des ménages du Recensement 2021.",
       source: "Ville de Toronto, Demandes de service 311 (initiées par les clients); Statistique Canada, Recensement 2021.",
-      shareText: "Le 311 de Toronto ne favorise pas les quartiers riches. Le revenu du quartier n'explique presque rien de l'arriéré des demandes. Ce qui prédit le retard, c'est le type de travail.",
+      shareText: "Le 311 de Toronto ne favorise pas les quartiers riches : le revenu du quartier contre l'arriéré des demandes corrèle à r = 0,18, essentiellement zéro. Ce qui prédit le retard, c'est le type de travail.",
     },
     chart: {
       kind: "scatter",
@@ -237,8 +338,8 @@ export const CHARTS: ChartDef[] = [
       xLabelFr: "Revenu médian des ménages par quartier",
       yLabel: "Backlog rate",
         yLabelFr: "Taux d'arriéré",
-      annotation: "Flat cloud: no pattern. Income does not predict the backlog.",
-        annotationFr: "Nuage plat : aucun motif. Le revenu ne prédit pas l'arriéré.",
+      annotation: "Flat cloud: r = 0.18, essentially no relationship.",
+        annotationFr: "Nuage plat : r = 0,18, essentiellement aucune relation.",
       trend: { a: 9.034, b: 0.00002452, x0: 84820 },
       points: [
         { x: 81000, y: 9.97, label: "1" },
@@ -418,7 +519,7 @@ export const CHARTS: ChartDef[] = [
     slug: "spend-concentration",
     kicker: "Top 6 vendors by total awarded spend · 2012-2026",
     headline: "The top 10 vendors capture 20.8% of the city's $21.5B.",
-    deck: "Toronto publishes every awarded contract, but the same vendor hides behind 4,240 spellings. Entity resolution collapses them into 4,082 canonical vendors. Furfari Paving leads at $781.7M across 58 awards.",
+    deck: "Toronto publishes every awarded contract, but the same vendor hides behind 4,240 spellings. Entity resolution collapses them into 4,082 canonical vendors; Furfari Paving leads at $781.7M across 58 awards.",
     note: "13,084 records; $21.5B after quarantining 3 defective records that would have overstated spend by $15.1B. 2,268 vendors won exactly once.",
     source: "City of Toronto Open Data (CKAN): awarded contracts, non-competitive contracts, consulting expenditures.",
     shareText:
@@ -1144,7 +1245,7 @@ export const CHARTS: ChartDef[] = [
   {
       slug: "shortages-tier3-companies",
       kicker: "Critical (Tier 3) shortage reports by company · Health Canada",
-      headline: "Ten companies hold 49 of Canada's 59 critical drug shortages. Three hold 29.",
+      headline: "Ten companies hold 49 of the 59 critical shortages. Three hold 29.",
       deck: "Tier 3 is Health Canada's critical tier: the shortages with the greatest potential impact on the drug supply and health care system, assigned by the federal-provincial Tier Assignment Committee. The critical tier concentrates harder than raw report volume: Apotex files the most reports overall (3,633) but holds only 3 Tier 3 reports.",
       note: "59 Tier 3 reports across 24 companies. Tier 3 designations ran 4 in 2022 to 28 in 2025; the flag first appears in 2022, so the curve mixes real growth with the flag's rollout.",
       source: "Health Product Shortages Canada bulk extract, archived 2025-12-20.",
@@ -1153,7 +1254,7 @@ export const CHARTS: ChartDef[] = [
       projectName: "Drug Shortages, Ranked",
       projectUrl: "https://shortages.canada.nshipyard.com",
       fr: {
-        headline: "Dix entreprises détiennent 49 des 59 pénuries critiques de médicaments du Canada. Trois en détiennent 29.",
+        headline: "Dix entreprises détiennent 49 des 59 pénuries critiques. Trois en détiennent 29.",
         deck: "Le niveau 3 est le niveau critique de Santé Canada : les pénuries ayant le plus grand impact potentiel sur l'approvisionnement en médicaments et le système de soins de santé, attribuées par le comité fédéral-provincial d'attribution des niveaux. Le niveau critique se concentre plus que le volume brut de rapports : Apotex dépose le plus de rapports au total (3 633) mais ne détient que 3 rapports de niveau 3.",
         kicker: "Rapports de pénurie critique (niveau 3) par entreprise · Santé Canada",
         note: "59 rapports de niveau 3 dans 24 entreprises. Désignations de niveau 3 : 4 en 2022 contre 28 en 2025; le drapeau apparaît d'abord en 2022, donc la courbe mélange croissance réelle et déploiement du drapeau.",
@@ -1181,7 +1282,7 @@ export const CHARTS: ChartDef[] = [
   {
       slug: "shortages-chronic",
       kicker: "Shortage duration · Health Product Shortages Canada",
-      headline: "It takes 58 days to resolve a drug shortage. The ones still open have lasted 11x longer.",
+      headline: "A resolved drug shortage lasts 58 days at the median. The 1,742 still open have already lasted 647 days.",
       deck: "Most reports resolve: the median resolved shortage ran 58 days. But the 1,742 shortages still open on Dec 1, 2025 had already run a median of 647 days. Chronicity lives in the open tail, not the average.",
       note: "Durations computed over 20,347 resolved reports with computable dates; 25 impossible rows (end before start) quarantined.",
       source: "Health Product Shortages Canada bulk extract, archived 2025-12-20.",
@@ -1190,7 +1291,7 @@ export const CHARTS: ChartDef[] = [
       projectName: "Drug Shortages, Ranked",
       projectUrl: "https://shortages.canada.nshipyard.com",
       fr: {
-        headline: "Les pénuries résolues durent 58 jours. Celles encore ouvertes sont 11x plus anciennes.",
+        headline: "Une pénurie de médicaments résolue dure 58 jours en médiane. Les 1 742 encore ouvertes durent déjà 647 jours.",
         deck: "La plupart des rapports se résolvent : la pénurie résolue médiane a duré 58 jours. Mais les 1 742 pénuries encore ouvertes au 1er déc. 2025 duraient déjà 647 jours en médiane. La chronicité vit dans la queue des dossiers ouverts, pas dans la moyenne.",
         kicker: "Durée des pénuries · Pénuries de médicaments au Canada",
         note: "Durées calculées sur 20 347 rapports résolus à dates calculables; 25 lignes impossibles (fin avant début) mises en quarantaine.",
@@ -1214,16 +1315,16 @@ export const CHARTS: ChartDef[] = [
   {
       slug: "crosswalk-match-rate",
       kicker: "Facility matching, 2024 · ECCC registries",
-      headline: "1,546 of 1,879 carbon emitters matched to the toxics registry. Three in four matched on the ID the facility reported itself.",
+      headline: "1,546 of 1,879 carbon emitters matched to the toxics registry. Three quarters needed no guessing.",
       deck: "The Greenhouse Gas Reporting Program asks facilities to self-report their NPRI ID, but 426 write the bare digit 0 and 22 leave it blank. 1,422 anchored on the self-reported ID; 124 more recovered by name, address, and company resolution with a spatial check; 144 ambiguous near-matches quarantined, not guessed.",
       note: "2024 reporting year. 333 facilities remain unmatched, many of them pipeline systems that report GHGs but have no NPRI footprint.",
       source: "ECCC NPRI bulk files and GHGRP emissions-by-gas via open.canada.ca, retrieved Oct 10, 2026.",
       shareText:
         "1,546 of 1,879 Canadian carbon emitters matched to the toxics registry (82.3%). Three quarters matched on the self-reported ID alone.",
-      projectName: "Carbon Emitters, Matched",
+      projectName: "The Facility Crosswalk",
       projectUrl: "https://facilities.canada.nshipyard.com",
       fr: {
-        headline: "1 546 des 1 879 émetteurs de carbone appariés au registre des toxiques. Les trois quarts sur l'ID déclaré par l'installation elle-même.",
+        headline: "1 546 des 1 879 émetteurs de carbone appariés au registre des toxiques. Les trois quarts sans devinette.",
         deck: "Le Programme de déclaration des gaz à effet de serre demande aux installations de déclarer leur ID INRP, mais 426 inscrivent le simple chiffre 0 et 22 le laissent vide. 1 422 appariements directs sur l'ID déclaré; 124 de plus récupérées par résolution de noms, d'adresses et d'entreprises avec contrôle spatial; 144 quasi-appariements ambigus mis en quarantaine, pas devinés.",
         kicker: "Appariement des installations, 2024 · registres d'ECCC",
         note: "Année de déclaration 2024. 333 installations restent non appariées, dont beaucoup de réseaux pipeliniers qui déclarent des GES sans empreinte INRP.",
@@ -1253,7 +1354,7 @@ export const CHARTS: ChartDef[] = [
       source: "ECCC NPRI bulk files via open.canada.ca, retrieved Oct 10, 2026.",
       shareText:
         "Copper Mountain Mine reported 258.3M kg of toxic releases and disposals in 2024, the most in Canada, against only 43,028 t CO2e. Four of the top five are mines.",
-      projectName: "Carbon Emitters, Matched",
+      projectName: "The Facility Crosswalk",
       projectUrl: "https://facilities.canada.nshipyard.com",
       fr: {
         headline: "Les plus gros pollueurs toxiques sont des mines. Le moteur, c'est l'élimination, pas l'air.",
@@ -1282,22 +1383,22 @@ export const CHARTS: ChartDef[] = [
   {
       slug: "vacancies-wage-quadrants",
       kicker: "Vacancy duration vs offered wage, 2026Q2 · StatCan JVWS",
-      headline: "Health care has 63,850 jobs open at $34.85 an hour. Trades has 105,255 open at $29.70.",
-      deck: "Health offers $34.85 an hour, above the $30.95 median, but 45.9% of postings sat open 90+ days. The workers aren't there. Trades offers $29.70, below the median, with 105,255 postings open. The pay isn't enough to fill them. Dashed lines mark the medians: 22.2% open 90+ days and $30.95 an hour.",
+      headline: "Health care can't fill 63,850 jobs at $34.85 an hour. Trades can't fill 105,255 at $29.70.",
+      deck: "Health occupations: 63,850 vacancies, 45.9% open 90+ days, $34.85/hr offered, above the $30.95 median. Pay beats the median and posts still do not fill: a supply problem. Trades, transport and equipment operators: 105,255 vacancies, 27.7% open 90+ days, $29.70/hr offered, below the median: a wage problem. Dashed medians split the board at 22.2% and $30.95/hr.",
       note: "Broad occupation groups, unadjusted. 322,588 suppressed or unreliable cells quarantined before aggregation.",
       source: "Statistics Canada table 14-10-0443 (Job Vacancy and Wage Survey), 2026Q2.",
       shareText:
-        "Health care vacancies sit open longest (45.9% open 90+ days) at above-median pay: a supply problem. Trades can't fill posts at below-median wages: a wage problem.",
+        "Health care can't fill 63,850 jobs at $34.85 an hour, above the $30.95 median: the workers aren't there. Trades can't fill 105,255 at $29.70, below the median: the pay isn't there.",
       projectName: "Vacancy Duration vs Offered Wage",
       projectUrl: "https://vacancies.canada.nshipyard.com",
       fr: {
-        headline: "Les postes en santé restent vacants le plus longtemps malgré un salaire au-dessus de la médiane. Les postes dans les métiers restent vacants parce que le salaire est sous la médiane.",
+        headline: "La santé ne comble pas 63 850 postes à 34,85 $ l'heure. Les métiers ne comblent pas 105 255 postes à 29,70 $.",
         deck: "Professions de la santé : 63 850 postes vacants, 45,9 % ouverts depuis 90 jours ou plus, 34,85 $/h offerts, au-dessus de la médiane de 30,95 $. Le salaire bat la médiane et les postes ne se comblent toujours pas : un problème d'offre. Métiers, transport et machinerie : 105 255 postes vacants, 27,7 % ouverts depuis 90 jours ou plus, 29,70 $/h offerts, sous la médiane : un problème de salaire. Les médianes en pointillés coupent le tableau à 22,2 % et 30,95 $/h.",
         kicker: "Durée des postes vacants contre salaire offert, T2 2026 · EPVS de StatCan",
         note: "Grands groupes de professions, non désaisonnalisé. 322 588 cellules supprimées ou non fiables mises en quarantaine avant agrégation.",
         source: "Tableau 14-10-0443 de Statistique Canada (Enquête sur les postes vacants et les salaires), T2 2026.",
         shareText:
-          "Les postes en santé restent ouverts le plus longtemps (45,9 % depuis 90 jours ou plus) à salaire supérieur à la médiane : un problème d'offre. Les métiers ne comblent pas leurs postes à des salaires sous la médiane : un problème de salaire.",
+          "La santé ne comble pas 63 850 postes à 34,85 $ l'heure, au-dessus de la médiane de 30,95 $ : les travailleurs ne sont pas là. Les métiers ne comblent pas 105 255 postes à 29,70 $, sous la médiane : le salaire n'y est pas.",
       },
       chart: {
         kind: "scatter",
@@ -1331,34 +1432,34 @@ export const CHARTS: ChartDef[] = [
     },
   {
       slug: "vacancies-national",
-      kicker: "Unfilled jobs across Canada · Statistics Canada, 2015-2026",
-      headline: "Vacancies peaked at 855,965 in late 2022. The market has cooled by a third since.",
-      deck: "Unfilled jobs hit 855,965 in late 2022, with 39.5% open 90 days or more. In early 2020 the long-term share spiked in every category as hiring froze, and StatCan suspended the survey for two quarters. By mid-2026 the count fell to 548,400 unfilled jobs, with 25.9% open 90 days or more.",
+      kicker: "National vacancies · StatCan JVWS, 2015-2026",
+      headline: "Canada's unfilled jobs peaked at 855,965 in late 2022, then fell by a third to 548,400.",
+      deck: "National vacancies hit 855,965 in 2022Q4 with 39.5% open 90+ days, matching StatCan's published figure. In 2020Q1 the long-term share spiked in every category as hiring froze; StatCan suspended the survey for two quarters. By 2026Q2 the market cooled to 548,400 vacancies with 25.9% open 90+ days.",
       note: "Quarterly, unadjusted. 2020Q2 and Q3 absent: StatCan suspended collection.",
       source: "Statistics Canada table 14-10-0443 (Job Vacancy and Wage Survey).",
       shareText:
-        "Canada's unfilled jobs peaked at 855,965 in late 2022, with 39.5% open 90 days or more. By mid-2026: 548,400 unfilled, 25.9% open that long.",
+        "Canadian job vacancies peaked at 855,965 in late 2022 with 39.5% open 90+ days. By mid-2026: 548,400 vacancies, 25.9% long-term.",
       projectName: "Vacancy Duration vs Offered Wage",
       projectUrl: "https://vacancies.canada.nshipyard.com",
       fr: {
-        headline: "Les postes vacants ont culminé à 855 965 fin 2022. Le marché a refroidi d'un tiers depuis.",
-        deck: "Les emplois non comblés ont atteint 855 965 fin 2022, avec 39,5 % ouverts depuis 90 jours ou plus. Au début de 2020, la part de longue durée a bondi dans chaque catégorie pendant le gel des embauches, et StatCan a suspendu l'enquête pendant deux trimestres. À la mi-2026, le nombre est tombé à 548 400 emplois non comblés, avec 25,9 % ouverts depuis 90 jours ou plus.",
-        kicker: "Emplois non comblés au Canada · Statistique Canada, 2015-2026",
+        headline: "Les emplois non comblés au Canada ont culminé à 855 965 fin 2022, puis ont chuté d'un tiers à 548 400.",
+        deck: "Les postes vacants nationaux ont atteint 855 965 au T4 2022 avec 39,5 % ouverts depuis 90 jours ou plus, ce qui correspond au chiffre publié par StatCan. Au T1 2020, la part de longue durée a bondi dans chaque catégorie pendant le gel des embauches; StatCan a suspendu l'enquête pendant deux trimestres. Au T2 2026, le marché s'était refroidi à 548 400 postes vacants avec 25,9 % ouverts depuis 90 jours ou plus.",
+        kicker: "Postes vacants nationaux · EPVS de StatCan, 2015-2026",
         note: "Trimestriel, non désaisonnalisé. T2 et T3 2020 absents : StatCan a suspendu la collecte.",
         source: "Tableau 14-10-0443 de Statistique Canada (Enquête sur les postes vacants et les salaires).",
         shareText:
-          "Les emplois non comblés au Canada ont culminé à 855 965 fin 2022, avec 39,5 % ouverts depuis 90 jours ou plus. Mi-2026 : 548 400 non comblés, 25,9 % ouverts depuis aussi longtemps.",
+          "Les postes vacants au Canada ont culminé à 855 965 fin 2022 avec 39,5 % ouverts depuis 90 jours ou plus. Mi-2026 : 548 400 postes vacants, 25,9 % de longue durée.",
       },
       chart: {
         kind: "stat",
         bigValue: "855,965",
         bigValueFr: "855 965",
-        bigLabel: "unfilled jobs at the late-2022 peak, 39.5% open 90+ days",
-        bigLabelFr: "emplois non comblés au sommet de fin 2022, 39,5 % ouverts depuis 90 jours ou plus",
+        bigLabel: "vacancies at the 2022Q4 peak, 39.5% open 90+ days",
+        bigLabelFr: "postes vacants au sommet du T4 2022, 39,5 % ouverts depuis 90 jours ou plus",
         stats: [
-          { value: "548,400", valueFr: "548 400", label: "unfilled jobs in mid-2026", labelFr: "emplois non comblés à la mi-2026" },
-          { value: "25.9%", valueFr: "25,9 %", label: "open 90+ days in mid-2026", labelFr: "ouverts depuis 90 jours ou plus au T2 2026" },
-          { value: "63,850", valueFr: "63 850", label: "unfilled health care jobs, the longest-waiting group", labelFr: "emplois non comblés en santé, le groupe qui attend le plus" },
+          { value: "548,400", valueFr: "548 400", label: "vacancies in 2026Q2", labelFr: "postes vacants au T2 2026" },
+          { value: "25.9%", valueFr: "25,9 %", label: "open 90+ days in 2026Q2", labelFr: "ouverts depuis 90 jours ou plus au T2 2026" },
+          { value: "63,850", valueFr: "63 850", label: "health vacancies, the longest-waiting group", labelFr: "postes vacants en santé, le groupe qui attend le plus" },
         ],
       },
     },
@@ -1366,7 +1467,7 @@ export const CHARTS: ChartDef[] = [
       slug: "erwaits-slowest-fastest",
       kicker: "Hours to first assessment, Aug 2026 · Ontario Health",
       headline: "The slowest Ontario ER averages 4.7 hours to first assessment. The fastest averages 0.5.",
-      deck: "Queensway-Carleton Hospital in Ottawa is the slowest of 159 ERs. Southlake Regional Health Centre is the fastest. The slowest makes you wait 9.4 times longer. These are monthly averages from Ontario Health's published tables, not live waits. No public dataset records individual arrival times, so the worst hour to arrive can't be measured.",
+      deck: "Queensway-Carleton Hospital in Ottawa is slowest of 159 ERs; Southlake Regional Health Centre is fastest. The gap is 9.4x. These are monthly averages from Ontario Health's published tables, not live waits: no open source carries visit-level timestamps, so the worst hour to arrive is unanswerable.",
       note: "Monthly averages only. 159 hospital ERs ranked; Dec 2025 reporting refresh added 43 sites.",
       source: "Ontario Health, Time Spent in Emergency Departments, monthly site tables, Aug 2026.",
       shareText:
@@ -1403,7 +1504,7 @@ export const CHARTS: ChartDef[] = [
       slug: "erwaits-admitted",
       kicker: "Admitted length of stay in the ER, Aug 2026 · Ontario Health",
       headline: "Admitted patients wait 45.1 hours for a bed at Haliburton Highlands. The provincial average is 18.5.",
-      deck: "Haliburton Highlands averages 45.1 hours in the ER before a hospital bed, the longest admitted stay of 159 ERs. Small hospitals with few inpatient beds park admitted patients in the ER longest. Movers, Feb to Aug 2026: Ottawa Hospital General Site got slower by 1.9 hours. Health Sciences North-Laurentian in Sudbury got faster by 0.6 hours.",
+      deck: "Haliburton Highlands averages 45.1 hours in the ER before a hospital bed, the longest admitted stay of 159 ERs. Small hospitals with few inpatient beds park admitted patients in the ER longest. Movers, Feb to Aug 2026: Ottawa Hospital General Site got slower by 1.9 hours; Health Sciences North-Laurentian in Sudbury got faster by 0.6 hours.",
       note: "Monthly averages only. Movers use the post-Dec-2025-refresh window so both months share the same site list.",
       source: "Ontario Health, Time Spent in Emergency Departments, monthly site tables, Aug 2026.",
       shareText:
@@ -1502,7 +1603,7 @@ export const CHARTS: ChartDef[] = [
   {
     "slug": "powertrade-margin-board",
     "kicker": "2025 corridor margins, ranked",
-    "headline": "New England captures the widest margin on Canadian electricity: $102.60 per MWh",
+    "headline": "New England is the runaway margin leader",
     "deck": "In 2025 the East to New England corridor captured $102.60 per MWh of margin: Canada exported at $53.24 while New England retail averaged $155.85. Six corridors, prices in USD per MWh.",
     "note": "Margin = US retail price minus Canadian export price, both converted to USD. Retail includes distribution and utility costs, so the margin is the full published spread, not pure profit on the wire.",
     "source": "Canada Energy Regulator Electricity Trade Summary (2026-09-25); US EIA Form 861 annual 2010-2025; Bank of Canada FXAUSDCAD; FRED DEXCAUS; computed by the project",
@@ -1511,7 +1612,7 @@ export const CHARTS: ChartDef[] = [
     "projectUrl": "https://powertrade.canada.nshipyard.com",
     "fr": {
       "kicker": "Marges 2025 par corridor, classées",
-      "headline": "La Nouvelle-Angleterre capte la marge la plus large sur l'électricité canadienne : 102,60 $ par MWh",
+      "headline": "La Nouvelle-Angleterre mène largement les marges",
       "deck": "En 2025, le corridor Est vers la Nouvelle-Angleterre a capté 102,60 $ de marge par MWh : le Canada a exporté à 53,24 $ pendant que le détail de la Nouvelle-Angleterre atteignait en moyenne 155,85 $. Six corridors, prix en $US par MWh.",
       "note": "Marge = prix de détail américain moins prix d'exportation canadien, tous deux convertis en $US. Le détail inclut la distribution et les coûts des services publics, donc la marge est l'écart total publié, pas un profit pur sur le fil.",
       "source": "Régie de l'énergie du Canada, résumé du commerce de l'électricité (2026-09-25); formulaire 861 annuel de l'EIA des États-Unis 2010-2025; FXAUSDCAD de la Banque du Canada; DEXCAUS de la FRED; calculé par le projet",
@@ -1534,7 +1635,7 @@ export const CHARTS: ChartDef[] = [
   {
     "slug": "powertrade-cumulative-stat",
     "kicker": "Cumulative margin, 2010-2025",
-    "headline": "$59.6B of margin across six corridors",
+    "headline": "US buyers paid $59.6B more than Canada received for its electricity across six border corridors, 2010-2025",
     "deck": "The full spread between what US buyers paid and what Canada received, summed over 2010 to 2025. The pipeline reproduces the CER's published 2024 anchors, $125.40 West and $58.87 East per MWh, to the cent.",
     "note": "Prices in USD. 2026 partial data (through July) is excluded from the annual series.",
     "source": "Canada Energy Regulator Electricity Trade Summary (2026-09-25); US EIA Form 861 annual 2010-2025; Bank of Canada FXAUSDCAD; FRED DEXCAUS; computed by the project",
@@ -1543,7 +1644,7 @@ export const CHARTS: ChartDef[] = [
     "projectUrl": "https://powertrade.canada.nshipyard.com",
     "fr": {
       "kicker": "Marge cumulative, 2010-2025",
-      "headline": "59,6 G$ de marge sur six corridors",
+      "headline": "Les acheteurs américains ont payé 59,6 G$ de plus que ce que le Canada a reçu pour son électricité sur six corridors frontaliers, 2010-2025",
       "deck": "L'écart total entre ce que les acheteurs américains ont payé et ce que le Canada a reçu, additionné de 2010 à 2025. La chaîne reproduit exactement les repères 2024 publiés par la REC, 125,40 $ pour l'Ouest et 58,87 $ pour l'Est par MWh, au cent près.",
       "note": "Prix en $US. Les données partielles de 2026 (jusqu'en juillet) sont exclues de la série annuelle.",
       "source": "Régie de l'énergie du Canada, résumé du commerce de l'électricité (2026-09-25); formulaire 861 annuel de l'EIA des États-Unis 2010-2025; FXAUSDCAD de la Banque du Canada; DEXCAUS de la FRED; calculé par le projet",
@@ -1565,7 +1666,7 @@ export const CHARTS: ChartDef[] = [
   {
     "slug": "emissions-anchors",
     "kicker": "Identity resolution across two registries",
-    "headline": "458 of 513 Ontario facilities matched across both emissions registries; worst gap is 3,392 tonnes",
+    "headline": "458 of 513 Ontario facilities matched across both emissions registries; the largest gap between the two registries\u2019 2024 totals is 3,392 tonnes",
     "deck": "MECP is Ontario's Ministry of the Environment, Conservation and Parks program; GHGRP is the federal Greenhouse Gas Reporting Program. The two name the same plants differently with no shared key. 458 of 513 canonical facilities anchor on exact normalized name plus same city (89.3%).",
     "note": "The fuzzy tier (difflib at 0.90 or above) produced zero merges by design: strict rules rejected every near-miss rather than guessing. Thunder Bay Operations looks like an outlier because Ontario's total includes biomass CO2 and the federal total excludes it; after that adjustment the two agree within 1 tonne.",
     "source": "Ontario MECP Greenhouse Gas Emissions Reporting By Facility 2010-2024 (Reg 390/18); ECCC federal GHGRP Emissions by Gas via open.canada.ca; computed by the project",
@@ -1574,7 +1675,7 @@ export const CHARTS: ChartDef[] = [
     "projectUrl": "https://emissions.canada.nshipyard.com",
     "fr": {
       "kicker": "Résolution d'identités entre deux registres",
-      "headline": "458 installations ontariennes sur 513 appariées entre les deux registres d'émissions; plus grand écart : 3 392 tonnes",
+      "headline": "458 installations sur 513 appariées, validées à 3 392 tonnes près",
       "deck": "Le MECP est le programme du ministère de l'Environnement, de la Protection de la nature et des Parcs de l'Ontario; le PDGES est le Programme de déclaration des gaz à effet de serre fédéral. Les deux nomment les mêmes usines différemment sans clé commune. 458 des 513 installations canoniques s'apparient directement sur le nom normalisé exact plus la même ville (89,3 %).",
       "note": "Le niveau flou (difflib à 0,90 ou plus) n'a produit aucun appariement, par conception : les règles strictes ont rejeté chaque quasi-appariement plutôt que de deviner. Thunder Bay Operations semble une exception parce que le total ontarien inclut le CO2 de biomasse et le total fédéral l'exclut; après cet ajustement, les deux concordent à 1 tonne près.",
       "source": "Déclaration des émissions de gaz à effet de serre par installation du MECP de l'Ontario 2010-2024 (Règl. 390/18); émissions par gaz du PDGES fédéral d'ECCC via open.canada.ca; calculé par le projet",
@@ -1582,9 +1683,9 @@ export const CHARTS: ChartDef[] = [
     },
     "chart": {
       "kind": "stat",
-      "bigValue": "458 of 513",
-      "bigLabel": "Ontario facilities anchored across both registries on exact normalized name plus same city (89.3%)",
-      "bigLabelFr": "Installations ontariennes appariées entre les deux registres sur le nom normalisé exact plus la même ville (89,3 %)",
+      "bigValue": "89.3%",
+      "bigLabel": "of Ontario facilities matched across both emissions registries (458 of 513)",
+      "bigLabelFr": "des installations ontariennes appariées entre les deux registres d\u2019émissions (458 sur 513)",
       "stats": [
         { "value": "3,392 t", "label": "Largest 2024 program-vs-program gap after biomass adjustment, Greenstone Mine (+2.2%); largest percentage gap +3.5% at Musselwhite Mine", "valueFr": "3 392 t", "labelFr": "Plus grand écart 2024 entre programmes après l'ajustement biomasse, mine Greenstone (+2,2 %); plus grand écart relatif +3,5 % à la mine Musselwhite" },
         { "value": "416", "label": "Anchored facilities reporting 2024 totals to both programs; near-zero deltas across all 416 pairs independently validate the anchors", "valueFr": "416", "labelFr": "Installations appariées déclarant des totaux 2024 aux deux programmes; des écarts proches de zéro sur les 416 paires valident indépendamment les appariements" },
@@ -1595,16 +1696,16 @@ export const CHARTS: ChartDef[] = [
   {
     "slug": "emissions-methane",
     "kicker": "Top Ontario landfills by 2024 methane",
-    "headline": "Facility methane in Ontario is a landfill story",
+    "headline": "Ontario's facility methane comes from 89 landfills",
     "deck": "89 landfill-like facilities were identified by NAICS 56221 or name, and methane is 90 to 100 percent of their reported totals. The top three emit almost pure methane. Tonnes CO2e of methane, 2024.",
     "note": "The same methane figures appear in both programs for matched landfills, which is expected: reporters file one set of numbers twice. The provincial landfill registry join is a spec, not a computed join: no registry file was downloaded.",
     "source": "ECCC federal GHGRP Emissions by Gas 2024 (Ontario facilities), via open.canada.ca; computed by the project",
-    "shareText": "Essex-Windsor Regional Landfill emitted 332,600 t CO2e of methane in 2024, 99.2% of its total. Facility methane in Ontario is a landfill story.",
+    "shareText": "Essex-Windsor Regional Landfill emitted 332,600 t CO2e of methane in 2024, 99.2% of its total. Ontario's facility methane comes from 89 landfills.",
     "projectName": "Ontario Facility Emissions Spine",
     "projectUrl": "https://emissions.canada.nshipyard.com",
     "fr": {
       "kicker": "Principaux lieux d'enfouissement de l'Ontario par méthane 2024",
-      "headline": "Le méthane des installations en Ontario est une histoire de lieux d'enfouissement",
+      "headline": "Le méthane des installations ontariennes vient de 89 lieux d'enfouissement",
       "deck": "89 installations de type enfouissement ont été repérées par le code SCIAN 56221 ou le nom, et le méthane représente 90 à 100 % de leurs totaux déclarés. Les trois premières émettent du méthane presque pur. Tonnes éq. CO2 de méthane, 2024.",
       "note": "Les mêmes chiffres de méthane figurent dans les deux programmes pour les lieux appariés, ce qui est attendu : les déclarants déposent une seule série de chiffres deux fois. La jonction avec le registre provincial des lieux d'enfouissement est une spécification, pas une jonction calculée : aucun fichier de registre n'a été téléchargé.",
       "source": "Émissions par gaz du PDGES fédéral d'ECCC 2024 (installations ontariennes), via open.canada.ca; calculé par le projet",
@@ -1626,21 +1727,21 @@ export const CHARTS: ChartDef[] = [
   },
   {
     "slug": "drugprices-top-gaps",
-    "kicker": "Per-unit price ratios, 12 widest of 194 matched drugs · Medicare Part D vs Ontario Drug Benefit",
-    "headline": "Rivaroxaban costs 66.7x more in the US than in Canada. Four drugs exceed 40x.",
-    "deck": "The widest gaps cluster in oral generics with cheap Canadian supply (rivaroxaban 66.7x, dapagliflozin 47.8x, apixaban 32.3x) and branded eye drops (latanoprostene bunod 64.5x, bimatoprost 41.5x). Bar length is the ratio, not dollars, because per-unit prices differ by 1000x across drugs.",
+    "kicker": "Per-unit price ratios, 12 widest of 194 matched molecules · Medicare Part D vs Ontario Drug Benefit",
+    "headline": "Rivaroxaban costs 66.7x more in the US than in Canada. Four molecules exceed 40x.",
+    "deck": "The widest gaps cluster in oral generics with cheap Canadian supply (rivaroxaban 66.7x, dapagliflozin 47.8x, apixaban 32.3x) and branded eye drops (latanoprostene bunod 64.5x, bimatoprost 41.5x). Bar length is the ratio, not dollars, because per-unit prices differ by 1000x across molecules.",
     "note": "Canadian prices use the lowest Ontario Drug Benefit price per unit; the US price is spend-weighted across strengths. US prices are gross of confidential manufacturer rebates, so every ratio is an upper bound.",
     "source": "CMS Medicare Part D Spending by Drug 2024 (published June 25, 2026); Ontario Drug Benefit e-formulary (retrieved Oct 10, 2026); RxNorm; Bank of Canada 2024 daily average, 1 USD = 1.3698 CAD.",
-    "shareText": "Rivaroxaban costs $17.30 per tablet in the US vs $0.26 in Canada: a 66.7x gap. The median of 194 matched drugs is 4.4x.",
+    "shareText": "Rivaroxaban costs $17.30 per tablet in the US vs $0.26 in Canada: a 66.7x gap. The median of 194 matched molecules is 4.4x.",
     "projectName": "The Drug Price Gap",
     "projectUrl": "https://drugprices.canada.nshipyard.com",
     "fr": {
-      "headline": "Le rivaroxaban coûte 66,7 fois plus cher aux États-Unis qu'au Canada. Quatre médicaments dépassent 40x.",
-      "deck": "Les écarts les plus larges se concentrent dans les génériques oraux à offre canadienne bon marché (rivaroxaban 66,7x, dapagliflozine 47,8x, apixaban 32,3x) et les collyres de marque (latanoprostène bunod 64,5x, bimatoprost 41,5x). La longueur des barres représente le ratio, pas les dollars, parce que les prix unitaires varient d'un facteur 1000 entre médicaments.",
-      "kicker": "Ratios de prix unitaires, 12 plus larges des 194 médicaments appariés · Medicare Part D contre régime public ontarien",
+      "headline": "Le rivaroxaban coûte 66,7 fois plus cher aux États-Unis qu'au Canada. Quatre molécules dépassent 40x.",
+      "deck": "Les écarts les plus larges se concentrent dans les génériques oraux à offre canadienne bon marché (rivaroxaban 66,7x, dapagliflozine 47,8x, apixaban 32,3x) et les collyres de marque (latanoprostène bunod 64,5x, bimatoprost 41,5x). La longueur des barres représente le ratio, pas les dollars, parce que les prix unitaires varient d'un facteur 1000 entre molécules.",
+      "kicker": "Ratios de prix unitaires, 12 plus larges des 194 molécules appariées · Medicare Part D contre régime public ontarien",
       "note": "Les prix canadiens utilisent le plus bas prix unitaire du régime public ontarien; le prix américain est pondéré par les dépenses entre les dosages. Les prix américains sont bruts des rabais confidentiels des fabricants, donc chaque ratio est une borne haute.",
       "source": "CMS, dépenses de Medicare Part D par médicament 2024 (publié le 25 juin 2026); formulaire électronique de l'Ontario Drug Benefit (consulté le 10 oct. 2026); RxNorm; moyenne quotidienne 2024 de la Banque du Canada, 1 USD = 1,3698 CAD.",
-      "shareText": "Le rivaroxaban coûte 17,30 $ par comprimé aux États-Unis contre 0,26 $ au Canada : un écart de 66,7x. La médiane des 194 médicaments appariés est de 4,4x."
+      "shareText": "Le rivaroxaban coûte 17,30 $ par comprimé aux États-Unis contre 0,26 $ au Canada : un écart de 66,7x. La médiane des 194 molécules appariées est de 4,4x."
     },
     "chart": {
       "kind": "hbars",
@@ -1664,31 +1765,31 @@ export const CHARTS: ChartDef[] = [
   },
   {
     "slug": "drugprices-median",
-    "kicker": "194 matched drugs · Medicare Part D vs Ontario Drug Benefit",
-    "headline": "The median drug costs 4.4x more in the US.",
-    "deck": "54 drugs sit under 2x while 61 sit at 8x or more: the gap is structural across the formulary, not a handful of outliers. The 194 drugs cover $125.5B of 2024 Medicare Part D spending, so the gaps describe where most of the money goes.",
+    "kicker": "194 matched molecules · Medicare Part D vs Ontario Drug Benefit",
+    "headline": "The median molecule costs 4.4x more in the US.",
+    "deck": "54 molecules sit under 2x while 61 sit at 8x or more: the gap is structural across the formulary, not a handful of outliers. The 194 molecules cover $125.5B of 2024 Medicare Part D spending, so the gaps describe where most of the money goes.",
     "note": "Canadian prices use the lowest Ontario Drug Benefit price per unit; the US price is spend-weighted across strengths. US prices are gross of confidential manufacturer rebates, so every ratio is an upper bound.",
     "source": "CMS Medicare Part D Spending by Drug 2024 (published June 25, 2026); Ontario Drug Benefit e-formulary (retrieved Oct 10, 2026); RxNorm; Bank of Canada 2024 daily average, 1 USD = 1.3698 CAD.",
-    "shareText": "The median of 194 matched drugs costs 4.4x more in the US than in Canada; 61 drugs sit at 8x or more.",
+    "shareText": "The median of 194 matched molecules costs 4.4x more in the US than in Canada; 61 molecules sit at 8x or more.",
     "projectName": "The Drug Price Gap",
     "projectUrl": "https://drugprices.canada.nshipyard.com",
     "fr": {
-      "headline": "Le médicament médian coûte 4,4 fois plus cher aux États-Unis.",
-      "deck": "54 médicaments sont sous 2x et 61 à 8x ou plus : l'écart est structurel dans tout le formulaire, pas une poignée d'exceptions. Les 194 médicaments couvrent 125,5 G$ de dépenses Medicare Part D 2024, donc les écarts décrivent là où va l'essentiel de l'argent.",
-      "kicker": "194 médicaments appariés · Medicare Part D contre régime public ontarien",
+      "headline": "La molécule médiane coûte 4,4 fois plus cher aux États-Unis.",
+      "deck": "54 molécules sont sous 2x et 61 à 8x ou plus : l'écart est structurel dans tout le formulaire, pas une poignée d'exceptions. Les 194 molécules couvrent 125,5 G$ de dépenses Medicare Part D 2024, donc les écarts décrivent là où va l'essentiel de l'argent.",
+      "kicker": "194 molécules appariées · Medicare Part D contre régime public ontarien",
       "note": "Les prix canadiens utilisent le plus bas prix unitaire du régime public ontarien; le prix américain est pondéré par les dépenses entre les dosages. Les prix américains sont bruts des rabais confidentiels des fabricants, donc chaque ratio est une borne haute.",
       "source": "CMS, dépenses de Medicare Part D par médicament 2024 (publié le 25 juin 2026); formulaire électronique de l'Ontario Drug Benefit (consulté le 10 oct. 2026); RxNorm; moyenne quotidienne 2024 de la Banque du Canada, 1 USD = 1,3698 CAD.",
-      "shareText": "La médiane des 194 médicaments appariés coûte 4,4 fois plus cher aux États-Unis qu'au Canada; 61 médicaments sont à 8x ou plus."
+      "shareText": "La médiane des 194 molécules appariées coûte 4,4 fois plus cher aux États-Unis qu'au Canada; 61 molécules sont à 8x ou plus."
     },
     "chart": {
       "kind": "stat",
       "bigValue": "4.4x",
       "bigValueFr": "4,4x",
-      "bigLabel": "Median US-to-Canada price ratio, 194 matched drugs",
-      "bigLabelFr": "Ratio médian de prix États-Unis/Canada, 194 médicaments appariés",
+      "bigLabel": "Median US-to-Canada price ratio, 194 matched molecules",
+      "bigLabelFr": "Ratio médian de prix États-Unis/Canada, 194 molécules appariées",
       "stats": [
         { "value": "66.7x", "valueFr": "66,7x", "label": "Widest gap: rivaroxaban (Xarelto)", "labelFr": "Écart maximal : rivaroxaban (Xarelto)" },
-        { "value": "61", "valueFr": "61", "label": "Drugs at 8x or more", "labelFr": "Médicaments à 8x ou plus" },
+        { "value": "61", "valueFr": "61", "label": "Molecules at 8x or more", "labelFr": "Molécules à 8x ou plus" },
         { "value": "$125.5B", "valueFr": "125,5 G$", "label": "2024 Medicare Part D spend covered", "labelFr": "Dépenses Medicare Part D 2024 couvertes" }
       ]
     }
@@ -1696,7 +1797,7 @@ export const CHARTS: ChartDef[] = [
   {
     "slug": "vendors-concentration",
     "kicker": "Cumulative contract value, 2003-2026 · $463.2B total",
-    "headline": "BGIS, Irving Shipbuilding, Vancouver Shipyards, SkyAlyne and Lockheed Martin took $75.6B: 16.3% of all federal contract dollars.",
+    "headline": "The top 5 vendors took $75.6B, a 16.3% share of all federal contract dollars.",
     "deck": "Shipbuilding and defence dominate the big-ticket awards: BGIS ($19.2B across 22 contracts), Irving Shipbuilding ($19.2B) and Vancouver Shipyards ($16.0B) lead, followed by SkyAlyne ($11.2B) and Lockheed Martin Canada ($10.1B). Names are canonical, merged across spellings.",
     "note": "Bar length is cumulative contract value after contract-level dedup on (reporting office, procurement ID). BGIS, Irving and Vancouver Shipyards are provincially incorporated and do not match the federal registry, which is why registry coverage is 34.5% of dollars despite these giants.",
     "source": "Treasury Board Proactive Publication - Contracts (updated Oct 9, 2026); ISED Federal Corporations bulk files.",
@@ -1704,7 +1805,7 @@ export const CHARTS: ChartDef[] = [
     "projectName": "Federal Vendor Ownership",
     "projectUrl": "https://vendors.canada.nshipyard.com",
     "fr": {
-      "headline": "BGIS, Irving Shipbuilding, Vancouver Shipyards, SkyAlyne et Lockheed Martin ont pris 75,6 G$ : 16,3 % de tous les dollars de contrats fédéraux.",
+      "headline": "Les 5 premiers fournisseurs ont pris 75,6 G$, soit 16,3 % de tous les dollars de contrats fédéraux.",
       "deck": "La construction navale et la défense dominent les gros contrats : BGIS (19,2 G$ sur 22 contrats), Irving Shipbuilding (19,2 G$) et Vancouver Shipyards (16,0 G$) mènent, suivis de SkyAlyne (11,2 G$) et de Lockheed Martin Canada (10,1 G$). Les noms sont canoniques, fusionnés entre les orthographes.",
       "kicker": "Valeur cumulée des contrats, 2003-2026 · total de 463,2 G$",
       "note": "La longueur des barres est la valeur cumulée après déduplication au niveau du contrat sur (bureau déclarant, numéro d'approvisionnement). BGIS, Irving et Vancouver Shipyards sont constitués en province et ne correspondent pas au registre fédéral, d'où la couverture de 34,5 % des dollars malgré ces géants.",
@@ -1727,15 +1828,15 @@ export const CHARTS: ChartDef[] = [
   {
     "slug": "vendors-dedup",
     "kicker": "contract_value is a running cumulative total, republished quarterly",
-    "headline": "Naive summation says $1.185T. The corrected total is $463.2B.",
+    "headline": "Each federal contract is listed every quarter with a running total. Adding all rows gives $1.185T; counting each contract once gives $463.2B.",
     "deck": "The raw file repeats each contract every quarter with a running cumulative total, so summing rows overcounts by 2.56x. Contract-level dedup on (reporting office, procurement ID), keeping the maximum cumulative value, fixes it across 1,099,940 distinct contracts.",
     "note": "458 rows quarantined before any aggregate: 155 negative amounts, 137 phone-number-like vendors, 89 out-of-range years, 77 blank vendors.",
     "source": "Treasury Board Proactive Publication - Contracts (updated Oct 9, 2026).",
-    "shareText": "Summing federal contract_value rows naively gives $1.185T. Dedup on (reporting office, procurement ID) gives $463.2B: a 2.56x overcount.",
+    "shareText": "Each federal contract is listed every quarter with a running total. Adding all rows gives $1.185T; counting each contract once gives $463.2B.",
     "projectName": "Federal Vendor Ownership",
     "projectUrl": "https://vendors.canada.nshipyard.com",
     "fr": {
-      "headline": "La sommation naïve donne 1 185 G$. Le total corrigé est de 463,2 G$.",
+      "headline": "Chaque contrat fédéral est listé chaque trimestre avec un total cumulatif. Additionner toutes les lignes donne 1 185 G$; compter chaque contrat une fois donne 463,2 G$.",
       "deck": "Le fichier brut répète chaque contrat chaque trimestre avec un total cumulatif courant, donc sommer les lignes surcompte de 2,56 fois. La déduplication au niveau du contrat sur (bureau déclarant, numéro d'approvisionnement), en gardant la valeur cumulée maximale, corrige cela sur 1 099 940 contrats distincts.",
       "kicker": "contract_value est un total cumulatif courant, republié chaque trimestre",
       "note": "458 lignes mises en quarantaine avant tout agrégat : 155 montants négatifs, 137 fournisseurs ressemblant à des numéros de téléphone, 89 années hors plage, 77 fournisseurs vides.",
@@ -2019,6 +2120,37 @@ export const CHARTS: ChartDef[] = [
         { label: "St Clair Ave W", labelFr: "St Clair Ave W", value: 211212, display: "$8K-$211K", displayFr: "8 k$-211 k$" },
         { label: "Roncesvalles Ave", labelFr: "Roncesvalles Ave", value: 190762, display: "$7K-$191K", displayFr: "7 k$-191 k$" },
         { label: "Ossington Ave", labelFr: "Ossington Ave", value: 180244, display: "$7K-$180K", displayFr: "7 k$-180 k$" },
+      ],
+    },
+  },
+  {
+    slug: "source-match-rates",
+    kicker: "How much of each city source lines up with the street network",
+    headline: "Toronto publishes no map of its 21,000 paid street parking spaces. What it does publish comes in 34 separate files, and some line up with the street network far worse than others.",
+    deck: "The network is 50,027 sections across 13,344 streets. Tickets and bike lanes land on it almost completely; permit areas cover only a quarter of its sections.",
+    note: "Each rate keeps its own basis, from the project's join log: tickets = share of 2023-2025 tickets on matched streets; cycling = features matched within 25 m; rules = rule streets matched by name (no coordinates in the bylaw); Green P = car parks with a published occupancy record; permit areas = share of sections in a permit zone.",
+    source: "City of Toronto open data, 34 datasets inventoried; project pipeline.",
+    shareText:
+      "Toronto publishes no map of its 21,000 paid street parking spaces. Its 34 separate parking files line up with the street network unevenly: tickets 98%, permit areas 24%.",
+    projectName: "Open Street Parking",
+    projectUrl: "https://toronto-open-street-parking.vercel.app",
+    fr: {
+      headline: "Toronto ne publie aucune carte de ses 21 000 places de stationnement sur rue payantes. Ce qu'elle publie tient en 34 fichiers distincts, et certains s'alignent sur le réseau de rues bien plus mal que d'autres.",
+      deck: "Le réseau compte 50 027 sections sur 13 344 rues. Contraventions et réseau cyclable s'y rattachent presque entièrement; les zones de permis ne couvrent qu'un quart des sections.",
+      kicker: "Alignement des sources municipales sur le réseau de rues",
+      note: "Chaque taux a sa propre base (journal de jonction du projet) : contraventions = part des contraventions 2023-2025 sur des rues appariées; cyclable = éléments appariés à moins de 25 m; règles = rues appariées par nom (le règlement n'a pas de coordonnées); Green P = parcs avec un relevé d'occupation publié; permis = part des sections dans une zone de permis.",
+      source: "Données ouvertes de la Ville de Toronto, 34 jeux de données inventoriés; pipeline du projet.",
+      shareText: "Toronto ne publie aucune carte de ses 21 000 places payantes sur rue. Ses 34 fichiers de stationnement s'alignent inégalement sur le réseau : contraventions 98 %, zones de permis 24 %.",
+    },
+    chart: {
+      kind: "hbars",
+      unit: "%", unitFr: "%",
+      rows: [
+        { label: "Parking tickets 2023-2025", labelFr: "Contraventions 2023-2025", value: 98.3, display: "98.3%", displayFr: "98,3 %", highlight: true },
+        { label: "Cycling network", labelFr: "Réseau cyclable", value: 95.3, display: "95.3%", displayFr: "95,3 %" },
+        { label: "Parking rules (bylaw)", labelFr: "Règles de stationnement (règlement)", value: 86.6, display: "86.6%", displayFr: "86,6 %" },
+        { label: "Green P occupancy", labelFr: "Occupation Green P", value: 59.1, display: "59.1%", displayFr: "59,1 %" },
+        { label: "Permit parking areas", labelFr: "Zones de permis", value: 24.3, display: "24.3%", displayFr: "24,3 %" },
       ],
     },
   },

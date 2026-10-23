@@ -39,7 +39,7 @@ function wrapLabel(label: string, max = 26): string[] {
   return lines.slice(0, 2);
 }
 
-export function HBars({ rows, unit, lang }: { rows: BarDatum[]; unit: string; lang: Lang }) {
+export function HBars({ rows, unit, lang, maxChars }: { rows: BarDatum[]; unit: string; lang: Lang; maxChars?: number }) {
   const W = 1000;
   const labelW = 330;
   const gap = 24;
@@ -54,7 +54,7 @@ export function HBars({ rows, unit, lang }: { rows: BarDatum[]; unit: string; la
       {rows.map((r, i) => {
         const y = top + i * rowH;
         const bw = Math.max(6, (r.value / max) * barArea);
-        const lines = wrapLabel(lang === "fr" ? r.labelFr : r.label);
+        const lines = wrapLabel(lang === "fr" ? r.labelFr : r.label, maxChars ?? 26);
         const color = r.highlight ? RED : BAR;
         const display = (lang === "fr" && r.displayFr ? r.displayFr : r.display) ?? fmtTick(r.value, lang);
         return (
@@ -235,18 +235,23 @@ export function Scatter({
           <circle cx={X(p.x)} cy={Y(p.y)} r={13} fill={BAR_DARK} opacity={0.82}>
             <title>{titleOf(p)}</title>
           </circle>
-          {p.tag && (
-            <text
-              x={X(p.x) + 20}
-              y={Y(p.y) - 16}
-              fontSize="24"
-              fontWeight={700}
-              fill={LABEL}
-              fontFamily="Archivo, sans-serif"
-            >
-              {lang === "fr" && p.tagFr ? p.tagFr : p.tag}
-            </text>
-          )}
+          {p.tag && (() => {
+            const tx = X(p.x);
+            const flip = tx > W - m.r - 170;
+            return (
+              <text
+                x={flip ? tx - 20 : tx + 20}
+                y={Y(p.y) - 16}
+                textAnchor={flip ? "end" : "start"}
+                fontSize="24"
+                fontWeight={700}
+                fill={LABEL}
+                fontFamily="Archivo, sans-serif"
+              >
+                {lang === "fr" && p.tagFr ? p.tagFr : p.tag}
+              </text>
+            );
+          })()}
         </g>
       ))}
       <text x={m.l} y={H - 14} fontSize="26" fill={LABEL} fontFamily="Archivo, sans-serif">
@@ -441,30 +446,48 @@ export function TimeSeries({
   const y1 = hi + pad;
   const n = Math.max(...sers.map((s) => s.values.length));
   const X = (i: number) => m.l + (i / (n - 1)) * iw;
-  const Y = (v: number) => m.t + ih - ((v - y0) / (y1 - y0)) * ih;
+  // Legend wraps to extra rows only when a single row would overflow;
+  // each extra row pushes the plot down. Single-row legends are unchanged.
+  const LEG_ROW_H = 46;
+  const legRows: { s: TSeriesDatum; nm: string; x: number; si: number }[][] = [];
+  {
+    let cur: { s: TSeriesDatum; nm: string; x: number; si: number }[] = [];
+    let lx = m.l;
+    sers.forEach((s, si) => {
+      const nm = lang === "fr" ? s.nameFr : s.name;
+      const w = nm.length * 14 + 80;
+      if (lx + w > W - m.r && cur.length > 0) {
+        legRows.push(cur);
+        cur = [];
+        lx = m.l;
+      }
+      cur.push({ s, nm, x: lx, si });
+      lx += w;
+    });
+    if (cur.length > 0) legRows.push(cur);
+  }
+  const extraTop = (legRows.length - 1) * LEG_ROW_H;
+  const mt = m.t + extraTop;
+  const ih2 = ih - extraTop;
+  const Y = (v: number) => mt + ih2 - ((v - y0) / (y1 - y0)) * ih2;
   const yTicks = [0, 1, 2, 3, 4].map((k) => y0 + ((y1 - y0) * k) / 4);
   const every = Math.max(1, Math.ceil(n / 8));
   const xl = lang === "fr" && xLabelsFr ? xLabelsFr : xLabels;
   return (
     <svg viewBox={`0 0 ${W} ${H}`} width="100%" role="img" aria-label="Time series chart">
       <g>
-        {(() => {
-          let lx = m.l;
-          return sers.map((s, si) => {
-            const nm = lang === "fr" ? s.nameFr : s.name;
-            const w = nm.length * 14 + 80;
-            const el = (
+        {legRows.map((row, ri) => (
+          <g key={ri}>
+            {row.map(({ s, nm, x, si }) => (
               <g key={si}>
-                <line x1={lx} y1={30} x2={lx + 44} y2={30} stroke={s.color ?? SERIES_PALETTE[si % SERIES_PALETTE.length]} strokeWidth={6} strokeDasharray={s.dashed ? "10 7" : undefined} />
-                <text x={lx + 56} y={38} fontSize="24" fill={LABEL} fontFamily="Archivo, sans-serif">
+                <line x1={x} y1={30 + ri * LEG_ROW_H} x2={x + 44} y2={30 + ri * LEG_ROW_H} stroke={s.color ?? SERIES_PALETTE[si % SERIES_PALETTE.length]} strokeWidth={6} strokeDasharray={s.dashed ? "10 7" : undefined} />
+                <text x={x + 56} y={38 + ri * LEG_ROW_H} fontSize="24" fill={LABEL} fontFamily="Archivo, sans-serif">
                   {nm}
                 </text>
               </g>
-            );
-            lx += w;
-            return el;
-          });
-        })()}
+            ))}
+          </g>
+        ))}
       </g>
       {yTicks.map((t, i) => (
         <g key={i}>
@@ -735,6 +758,89 @@ export function StatFigure({
             >
               {s.value}
             </span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export interface MatrixColumn {
+  label: string;
+  sub: string;
+}
+
+export function Matrix({
+  columns,
+  rows,
+  pendingFrom,
+}: {
+  columns: MatrixColumn[];
+  rows: { label: string; marks: boolean[] }[];
+  pendingFrom?: number;
+}) {
+  const gridCols = `30% repeat(${columns.length}, 1fr)`;
+  const cell: React.CSSProperties = {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  };
+  return (
+    <div style={{ width: "100%", padding: "1cqw 0" }}>
+      <div style={{ display: "grid", gridTemplateColumns: gridCols }}>
+        <div />
+        {columns.map((c, i) => (
+          <div key={i} style={{ ...cell, flexDirection: "column", paddingBottom: "1.6cqw" }}>
+            <span style={{ fontFamily: "Archivo, sans-serif", fontWeight: 800, fontSize: "2.5cqw", color: INK, textAlign: "center", lineHeight: 1.15 }}>
+              {c.label}
+            </span>
+            <span style={{ fontFamily: "Archivo, sans-serif", fontWeight: 400, fontSize: "2.1cqw", color: FAINT, textAlign: "center", marginTop: "0.5cqw" }}>
+              {c.sub}
+            </span>
+          </div>
+        ))}
+      </div>
+      <div style={{ borderTop: `1px solid ${GRID}` }}>
+        {rows.map((r, ri) => (
+          <div
+            key={ri}
+            style={{
+              display: "grid",
+              gridTemplateColumns: gridCols,
+              alignItems: "center",
+              padding: "1.9cqw 0",
+              borderBottom: `1px solid ${GRID}`,
+            }}
+          >
+            <span style={{ fontFamily: "Archivo, sans-serif", fontWeight: 500, fontSize: "2.9cqw", color: INK }}>
+              {r.label}
+            </span>
+            {r.marks.map((m, ci) => {
+              const pending = pendingFrom !== undefined && ci >= pendingFrom;
+              return (
+                <div key={ci} style={cell}>
+                  <span
+                    style={{
+                      width: "4.4cqw",
+                      height: "4.4cqw",
+                      borderRadius: "50%",
+                      display: "inline-flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      background: pending ? "transparent" : RED,
+                      border: pending ? `0.35cqw solid ${FAINT}` : "none",
+                      color: pending ? FAINT : "#fff",
+                      fontFamily: "Archivo, sans-serif",
+                      fontWeight: 800,
+                      fontSize: "2.4cqw",
+                      lineHeight: 1,
+                    }}
+                  >
+                    {pending ? "?" : m ? "✓" : ""}
+                  </span>
+                </div>
+              );
+            })}
           </div>
         ))}
       </div>

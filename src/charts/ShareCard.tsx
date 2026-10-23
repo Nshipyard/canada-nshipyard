@@ -12,6 +12,7 @@ import {
   Donut,
   GroupedBars,
   StatFigure,
+  Matrix,
   fmtTick,
   type Lang,
 } from "./chart-svgs";
@@ -81,7 +82,7 @@ export function OpenNshipyardMark({
 
 export function ChartFigure({ def, lang }: { def: ChartDef; lang: Lang }) {
   const c = def.chart;
-  if (c.kind === "hbars") return <HBars rows={c.rows} unit={lang === "fr" ? c.unitFr : c.unit} lang={lang} />;
+  if (c.kind === "hbars") return <HBars rows={c.rows} unit={lang === "fr" ? c.unitFr : c.unit} lang={lang} maxChars={c.maxLabelChars} />;
   if (c.kind === "scatter")
     return (
       <Scatter
@@ -146,6 +147,17 @@ export function ChartFigure({ def, lang }: { def: ChartDef; lang: Lang }) {
         ySuffix={c.ySuffix}
         decimals={c.decimals}
         lang={lang}
+      />
+    );
+  if (c.kind === "matrix")
+    return (
+      <Matrix
+        columns={c.columns.map((col) => ({
+          label: lang === "fr" ? col.labelFr : col.label,
+          sub: lang === "fr" ? col.subFr : col.sub,
+        }))}
+        rows={c.rows.map((r) => ({ label: lang === "fr" ? r.labelFr : r.label, marks: r.marks }))}
+        pendingFrom={c.pendingFrom}
       />
     );
   if (c.kind === "stat")
