@@ -1797,7 +1797,7 @@ export const CHARTS: ChartDef[] = [
   {
     "slug": "vendors-concentration",
     "kicker": "Cumulative contract value, 2003-2026 · $463.2B total",
-    "headline": "The top 5 vendors took $75.6B, a 16.3% share of all federal contract dollars.",
+    "headline": "5 companies took $75.6B, 16.3% of all federal contract dollars.",
     "deck": "Shipbuilding and defence dominate the big-ticket awards: BGIS ($19.2B across 22 contracts), Irving Shipbuilding ($19.2B) and Vancouver Shipyards ($16.0B) lead, followed by SkyAlyne ($11.2B) and Lockheed Martin Canada ($10.1B). Names are canonical, merged across spellings.",
     "note": "Bar length is cumulative contract value after contract-level dedup on (reporting office, procurement ID). BGIS, Irving and Vancouver Shipyards are provincially incorporated and do not match the federal registry, which is why registry coverage is 34.5% of dollars despite these giants.",
     "source": "Treasury Board Proactive Publication - Contracts (updated Oct 9, 2026); ISED Federal Corporations bulk files.",
@@ -1805,7 +1805,7 @@ export const CHARTS: ChartDef[] = [
     "projectName": "Federal Vendor Ownership",
     "projectUrl": "https://vendors.canada.nshipyard.com",
     "fr": {
-      "headline": "Les 5 premiers fournisseurs ont pris 75,6 G$, soit 16,3 % de tous les dollars de contrats fédéraux.",
+      "headline": "5 entreprises ont pris 75,6 G$, soit 16,3 % de tous les dollars de contrats fédéraux.",
       "deck": "La construction navale et la défense dominent les gros contrats : BGIS (19,2 G$ sur 22 contrats), Irving Shipbuilding (19,2 G$) et Vancouver Shipyards (16,0 G$) mènent, suivis de SkyAlyne (11,2 G$) et de Lockheed Martin Canada (10,1 G$). Les noms sont canoniques, fusionnés entre les orthographes.",
       "kicker": "Valeur cumulée des contrats, 2003-2026 · total de 463,2 G$",
       "note": "La longueur des barres est la valeur cumulée après déduplication au niveau du contrat sur (bureau déclarant, numéro d'approvisionnement). BGIS, Irving et Vancouver Shipyards sont constitués en province et ne correspondent pas au registre fédéral, d'où la couverture de 34,5 % des dollars malgré ces géants.",
