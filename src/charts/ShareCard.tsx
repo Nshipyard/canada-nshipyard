@@ -275,7 +275,7 @@ export function ShareCard({ def, lang, id }: { def: ChartDef; lang: Lang; id?: s
       <div
         style={{
           borderTop: "1px solid rgba(10,15,30,0.14)",
-          paddingTop: "2.2cqw",
+          paddingTop: "1.2cqw",
           display: "flex",
           justifyContent: "space-between",
           alignItems: "flex-end",
@@ -285,10 +285,10 @@ export function ShareCard({ def, lang, id }: { def: ChartDef; lang: Lang; id?: s
         <p
           style={{
             fontFamily: "'IBM Plex Mono', monospace",
-            fontSize: "1.62cqw",
+            fontSize: "0.95cqw",
             letterSpacing: "0.06em",
             textTransform: "uppercase",
-            color: "#5b6472",
+            color: "#9aa1ad",
             lineHeight: 1.7,
             margin: 0,
             flex: 1,
@@ -301,7 +301,7 @@ export function ShareCard({ def, lang, id }: { def: ChartDef; lang: Lang; id?: s
         <span
           style={{
             fontFamily: "'IBM Plex Mono', monospace",
-            fontSize: "1.9cqw",
+            fontSize: "1.1cqw",
             letterSpacing: "0.04em",
             color: "#9aa1ad",
             whiteSpace: "nowrap",
