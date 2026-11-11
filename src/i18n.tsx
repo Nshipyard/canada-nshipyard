@@ -56,6 +56,16 @@ const en = {
     viewChart: "View full chart",
     items: [
       {
+        repo: "canada-tech-jobs",
+        name: "The State of the Canadian Tech Job Market",
+        tag: "Canada",
+        desc: "Which tech roles are hiring in Canada, which are shrinking, and where is the work moving? Total vacancies fell 46.9% from the 2022 peak. Software engineers fell 72%, graphic designers 74%, and the growth sits outside software, in engineering, trades, and manufacturing.",
+        user: "For job seekers, hiring managers, and anyone watching where Canada's tech work is going",
+        url: "https://techjobs.canada.nshipyard.com",
+        cta: "visit" as const,
+        status: "live" as const,
+      },
+      {
         repo: "canada-capital-files",
         name: "The Capital Files",
         tag: "Canada",
@@ -1732,6 +1742,25 @@ const en = {
     contactTitle: "Press contact",
     contactBody: "For interviews, data questions, or anything else:",
   },
+  techJobs: {
+    kicker: "Open Nshipyard Data Story",
+    title: "State of the Canadian tech job market, late 2026",
+    sub: "Which tech roles are hiring in Canada, which are shrinking, and where is the work moving? Answered with open Canadian data.",
+    byline: "By Richardson Dackam · November 11, 2026 · Open Nshipyard",
+    readReport: "Read the full report",
+    downloadPdf: "Download the PDF (12 pages)",
+    takeawaysTitle: "The seven takeaways",
+    takeaways: [
+      "Tech vacancies fell from the 2022 peak, but some roles rose.",
+      "Software postings stay weak, while engineering postings rise.",
+      "Graphic designers fell 74%. Product designers are not counted in Canada.",
+      "Everybody now needs AI, but Ontario's rule pushed Canada's number up.",
+      "Tech talent concentrates in Toronto and in five more cities.",
+      "Remote stays low in Q2 2026 postings, and hybrid is the realistic option.",
+      "Growth sits outside software, in engineering, trades, and manufacturing.",
+    ],
+    sources: "Built from Statistics Canada, Indeed Hiring Lab Canada, and Job Bank. Two charts use labelled private data.",
+  },
 };
 
 export type Dict = typeof en;
@@ -1786,6 +1815,16 @@ const fr: Dict = {
     source: "Code source",
     viewChart: "Voir le graphique complet",
     items: [
+      {
+        repo: "canada-tech-jobs",
+        name: "L'état du marché de l'emploi tech au Canada",
+        tag: "Canada",
+        desc: "Quels rôles tech recrutent au Canada, lesquels reculent, et où va le travail ? Les postes vacants ont chuté de 46,9 % depuis le sommet de 2022. Les ingénieurs logiciels ont chuté de 72 %, les designers graphiques de 74 %, et la croissance est ailleurs que dans le logiciel, dans l'ingénierie, les métiers et la fabrication.",
+        user: "Pour les chercheurs d'emploi, les recruteurs et tous ceux qui suivent l'évolution du travail tech au Canada",
+        url: "https://techjobs.canada.nshipyard.com",
+        cta: "visit" as const,
+        status: "live" as const,
+      },
       {
         repo: "canada-capital-files",
         name: "Les dossiers du capital",
@@ -3462,6 +3501,25 @@ const fr: Dict = {
     ],
     contactTitle: "Contact presse",
     contactBody: "Pour des entrevues, des questions sur les données ou autre :",
+  },
+  techJobs: {
+    kicker: "Récit de données Open Nshipyard",
+    title: "L'état du marché de l'emploi tech au Canada, fin 2026",
+    sub: "Quels rôles tech recrutent au Canada, lesquels reculent, et où va le travail ? Réponse avec des données canadiennes ouvertes.",
+    byline: "Par Richardson Dackam · 11 novembre 2026 · Open Nshipyard",
+    readReport: "Lire le rapport complet",
+    downloadPdf: "Télécharger le PDF (12 pages)",
+    takeawaysTitle: "Les sept constats",
+    takeaways: [
+      "Les postes vacants ont chuté depuis le sommet de 2022, mais certains rôles progressent.",
+      "Les offres logicielles restent faibles, tandis que les offres d'ingénierie progressent.",
+      "Les designers graphiques ont chuté de 74 %. Les designers produit ne sont pas comptés au Canada.",
+      "Tout le monde a besoin de l'IA, mais la règle de l'Ontario a gonflé le chiffre du Canada.",
+      "Les talents tech se concentrent à Toronto et dans cinq autres villes.",
+      "Le télétravail reste faible dans les offres du 2e trimestre 2026, et l'hybride est l'option réaliste.",
+      "La croissance est ailleurs que dans le logiciel, dans l'ingénierie, les métiers et la fabrication.",
+    ],
+    sources: "Construit à partir de Statistique Canada, d'Indeed Hiring Lab Canada et du Guichet-Emplois. Deux graphiques utilisent des données privées étiquetées.",
   },
 };
 
